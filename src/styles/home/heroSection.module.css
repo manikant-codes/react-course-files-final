@@ -1,0 +1,29 @@
+.container {
+  height: 80vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.heroImage {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.textContainer {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  color: white;
+  transform: translate(-50%, -40%);
+  text-align: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
