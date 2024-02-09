@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #673ab7;
+  padding: 8px 32px;
+  color: #ffffff;
+}
+
+.innerContainer {
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+  gap: 16px;
+  margin: 0px;
+}
