@@ -1,0 +1,22 @@
+.cardContainer {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px;
+  background-color: #d1c4e9;
+  border-radius: 32px;
+}
+
+.imgContainer {
+  width: 100%;
+  overflow: hidden;
+  height: 300px;
+  border-radius: 32px;
+}
+
+.imgContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
