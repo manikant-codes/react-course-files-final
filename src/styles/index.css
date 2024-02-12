@@ -1,3 +1,14 @@
-.container {
-  background-color: blueviolet;
+.carousel-inner {
+  height: 70vh;
+  overflow: hidden;
+}
+
+.carousel-item {
+  height: 100%;
+}
+
+img.d-block {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }

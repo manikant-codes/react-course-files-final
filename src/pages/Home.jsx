@@ -1,12 +1,14 @@
 import React from "react";
 import Navbar from "../layouts/Navbar";
-import HeroSection from "../components/home/HeroSection";
+import Footer from "../layouts/Footer";
+import Carousel from "../components/home/Carousel";
 
 function Home() {
   return (
     <>
       <Navbar />
-      <HeroSection />
+      <Carousel />
+      <Footer />
     </>
   );
 }
