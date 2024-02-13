@@ -3,13 +3,15 @@ import Navbar from "../layouts/Navbar";
 import "../styles/home/home.css";
 import Footer from "../layouts/Footer";
 import ProductsRow from "../components/home/ProductsRow";
-import InfoRow from "../components/home/InfoRow";
+import InfoRow from "../components/home/infoRow/InfoRow";
+import FiguresRow from "../components/home/figuresRow/FiguresRow";
+import Hero from "../components/home/Hero";
 
 function Home() {
   return (
     <>
       <Navbar />
-
+      <Hero />
       <InfoRow
         src="/images/04.jpg"
         title="About Us"
@@ -21,6 +23,7 @@ function Home() {
         desc="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum."
         contentFirst
       />
+      <FiguresRow />
       <ProductsRow />
       <Footer />
     </>

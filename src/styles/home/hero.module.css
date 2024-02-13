@@ -1,0 +1,51 @@
+.container {
+  height: 75vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #070010c3;
+}
+
+.container img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.contentContainer {
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  transform: translate(-15%, -50%);
+  max-width: 600px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contentContainer button {
+  width: fit-content;
+}
+
+.contentContainer p {
+  color: #bdbdbd;
+}
+
+@media screen and (max-width: 600px) {
+  .contentContainer {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    align-items: center;
+    width: 90%;
+  }
+}

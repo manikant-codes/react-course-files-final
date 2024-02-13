@@ -3,9 +3,10 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 32px;
-  background-color: #d1c4e9;
+  padding: 16px;
+  background-color: #ede7f6;
   border-radius: 32px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .imgContainer {
@@ -13,6 +14,7 @@
   overflow: hidden;
   height: 300px;
   border-radius: 32px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .imgContainer img {

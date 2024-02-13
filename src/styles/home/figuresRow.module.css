@@ -1,0 +1,23 @@
+.container {
+  padding: 32px;
+  background-color: #1f0d35;
+  color: rgb(223, 221, 221);
+}
+
+.innerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 32px;
+  padding: 32px;
+  flex-wrap: wrap;
+}
+
+.figureContainer {
+  text-align: center;
+}
+
+.figureContainer h2 {
+  color: #dc18ff;
+  font-size: 3rem;
+}
