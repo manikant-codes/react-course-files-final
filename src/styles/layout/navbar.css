@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 32px;
+  background-color: #03a9f4;
+  align-items: center;
+  max-width: none;
+}
+
+.ulStyles {
+  list-style-type: none;
+  display: flex;
+  gap: 16px;
+  margin: 0px;
+}

@@ -1,13 +1,13 @@
 import React from "react";
 import Navbar from "../layouts/Navbar";
 import Footer from "../layouts/Footer";
-import Carousel from "../components/home/Carousel";
 
 function Home() {
   return (
     <>
       <Navbar />
-      <Carousel />
+      <img src="/images/01.jpg" alt="" />
+      <img src="/images/02.jpg" alt="" />
       <Footer />
     </>
   );

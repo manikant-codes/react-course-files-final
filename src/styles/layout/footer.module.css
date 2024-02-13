@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  padding: 32px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #263238;
+  color: white;
+}
+
+.container p {
+  margin: 0px;
+}
+
+.ulStyles {
+  display: flex;
+  list-style-type: none;
+  gap: 16px;
+  margin: 0px;
+}
+
+.ulStyles li a {
+  text-decoration: none;
+  color: white;
+}
+
+.ulStyles li a:hover {
+  text-decoration: underline;
+}
