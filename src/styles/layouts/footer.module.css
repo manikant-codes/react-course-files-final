@@ -1,0 +1,37 @@
+.footerContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 32px;
+  background-color: #263238;
+  color: white;
+  flex-wrap: wrap;
+}
+
+.footerContainer div p {
+  margin: 0px;
+}
+
+.links {
+  display: flex;
+  list-style-type: none;
+  gap: 16px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.links li a {
+  text-decoration: none;
+  color: white;
+}
+
+.links li a:hover {
+  text-decoration: underline;
+  color: #1de9b6;
+}
+
+@media screen and (max-width: 600px) {
+  .footerContainer {
+    justify-content: center;
+    gap: 16px;
+  }
+}

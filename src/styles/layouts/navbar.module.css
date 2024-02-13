@@ -3,7 +3,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 8px 32px;
-  background-color: #00bfa5;
+  /* background-color: #009688; */
+  background: linear-gradient(to right, #1de9b6, #00695c);
   color: white;
   width: 100% !important;
   margin: 0px;

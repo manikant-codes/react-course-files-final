@@ -6,7 +6,7 @@ function HeroSection() {
     <div>
       <div className={styles.container}>
         <div className={styles.overlay} />
-        <img className={styles.heroImage} src="/images/05.jpg" alt="hero" />
+        <img className={styles.heroImage} src="/images/07.jpg" alt="hero" />
         <div className={styles.textContainer}>
           <h2>Welcome to our website</h2>
         </div>

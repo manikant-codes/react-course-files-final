@@ -2,6 +2,8 @@ import React from "react";
 import HeroSection from "../components/home/HeroSection";
 import InfoRow from "../components/home/InfoRow";
 import Navbar from "../layouts/Navbar";
+import ServicesRow from "../components/home/servicesRow/ServicesRow";
+import Footer from "../layouts/Footer";
 
 function Home() {
   return (
@@ -23,6 +25,8 @@ function Home() {
           cumque vel quisquam necessitatibus esse?"
         contentFirst={true}
       />
+      <ServicesRow />
+      <Footer />
     </>
   );
 }
