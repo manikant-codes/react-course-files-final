@@ -4,6 +4,8 @@ import InfoRow from "../components/home/InfoRow";
 import Navbar from "../layouts/Navbar";
 import ServicesRow from "../components/home/servicesRow/ServicesRow";
 import Footer from "../layouts/Footer";
+import CounterRow from "../components/home/counterRow/CounterRow";
+import ConditionalRenderingDemo from "../components/demos/ConditionalRenderingDemo";
 
 function Home() {
   return (
@@ -25,8 +27,10 @@ function Home() {
           cumque vel quisquam necessitatibus esse?"
         contentFirst={true}
       />
+      <CounterRow />
       <ServicesRow />
       <Footer />
+      {/* <ConditionalRenderingDemo marks={2} /> */}
     </>
   );
 }

@@ -1,0 +1,27 @@
+.container {
+  padding: 42px;
+  background-color: #003028;
+  color: white;
+}
+
+.container > div:first-child {
+  color: #e0e0e0;
+}
+
+.figureContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 64px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.figureContainer div {
+  text-align: center;
+}
+
+.figureContainer div h3 {
+  color: #1de9b6;
+  font-size: 3rem;
+}

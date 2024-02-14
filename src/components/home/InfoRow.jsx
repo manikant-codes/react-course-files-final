@@ -5,12 +5,12 @@ function InfoRow(props) {
   if (props.contentFirst) {
     return (
       <div className={styles.container}>
-        <div className={styles.descContainer}>
+        <div className={`${styles.descContainer} ${styles.descContainerCF}`}>
           <h2>{props.title}</h2>
           <p>{props.desc}</p>
           <button>Know More</button>
         </div>
-        <div className={styles.imgContainer}>
+        <div className={`${styles.imgContainer} ${styles.imgContainerCF}`}>
           <img src={props.src} alt={props.title} />
         </div>
       </div>

@@ -20,8 +20,21 @@
   padding: 32px;
 }
 
+.descContainerCF {
+  order: 1;
+}
+.imgContainerCF {
+  order: 2;
+}
+
 @media screen and (max-width: 600px) {
   .container {
     grid-template-columns: 1fr;
+  }
+  .descContainerCF {
+    order: 2;
+  }
+  .imgContainerCF {
+    order: 1;
   }
 }
