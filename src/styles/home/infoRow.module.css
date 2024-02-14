@@ -4,19 +4,22 @@
   height: 450px;
 }
 
-.imgContainer {
+.imgContainer,
+.imgContainerCF {
   width: 100%;
   height: 450px;
   overflow: hidden;
 }
 
-.imgContainer img {
+.imgContainer img,
+.imgContainerCF img {
   height: 100%;
   width: 100%;
   object-fit: cover;
 }
 
-.descContainer {
+.descContainer,
+.descContainerCF {
   flex-grow: 1;
   padding: 32px;
   background-color: #ede7f6;
@@ -24,15 +27,31 @@
   overflow: auto;
 }
 
+.descContainerCF {
+  order: 1;
+}
+.imgContainerCF {
+  order: 2;
+}
+
 @media screen and (max-width: 600px) {
   .outerContainer {
     grid-template-columns: 1fr;
     height: auto;
   }
-  .imgContainer {
+  .imgContainer,
+  .imgContainerCF {
     height: 250px;
   }
-  .descContainer {
+  .descContainer,
+  .descContainerCF {
     height: auto;
+  }
+
+  .imgContainerCF {
+    order: 1;
+  }
+  .descContainerCF {
+    order: 2;
   }
 }

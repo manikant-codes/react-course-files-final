@@ -1,11 +1,12 @@
 import React from "react";
+import Hero from "../components/home/Hero";
+import ProductsRow from "../components/home/ProductsRow";
+import FiguresRow from "../components/home/figuresRow/FiguresRow";
+import InfoRow from "../components/home/infoRow/InfoRow";
+import Footer from "../layouts/Footer";
 import Navbar from "../layouts/Navbar";
 import "../styles/home/home.css";
-import Footer from "../layouts/Footer";
-import ProductsRow from "../components/home/ProductsRow";
-import InfoRow from "../components/home/infoRow/InfoRow";
-import FiguresRow from "../components/home/figuresRow/FiguresRow";
-import Hero from "../components/home/Hero";
+import ListRenderingDemo from "../components/demo/ListRenderingDemo";
 
 function Home() {
   return (
@@ -26,6 +27,7 @@ function Home() {
       <FiguresRow />
       <ProductsRow />
       <Footer />
+      <ListRenderingDemo />
     </>
   );
 }
