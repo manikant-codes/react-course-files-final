@@ -1,20 +1,52 @@
 import React from "react";
+import Card from "../home/Card";
 
 function ListRenderingDemo() {
-  //   const arrJSX = [<p>Apple</p>, <p>Banana</p>, <p>Cherry</p>];
+  const data = [
+    {
+      title: "Product 1",
+      desc: "Lorem ipsum dolor sit amet.",
+      img: "/images/01.jpg",
+    },
+    {
+      title: "Product 2",
+      desc: "Lorem ipsum dolor sit amet.",
+      img: "/images/02.jpg",
+    },
+    {
+      title: "Product 3",
+      desc: "Lorem ipsum dolor sit amet.",
+      img: "/images/03.jpg",
+    },
+    {
+      title: "Product 4",
+      desc: "Lorem ipsum dolor sit amet.",
+      img: "/images/04.jpg",
+    },
+  ];
 
-  const arr = ["Apple", "Banana", "Cherry"];
-
-  //   const paras = arr.map((value, index) => {
-  //     return <p>{value}</p>;
-  //   });
+  // const components = data.map((value, index) => {
+  //   return <Card title={value.title} src={value.img} desc={value.desc} />;
+  // });
 
   return (
     <div style={{ textAlign: "center", padding: "48px" }}>
       <h1>List Rendering Demo</h1>
-      <div>
-        {arr.map((value, index) => {
-          return <p>{value}</p>;
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+        }}
+      >
+        {data.map((value, index) => {
+          return (
+            <Card
+              key={index}
+              title={value.title}
+              src={value.img}
+              desc={value.desc}
+            />
+          );
         })}
       </div>
     </div>

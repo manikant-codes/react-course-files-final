@@ -67,7 +67,14 @@ function ProductsRow() {
         }}
       >
         {data.map((value, index) => {
-          return <Card src={value.src} title={value.title} desc={value.desc} />;
+          return (
+            <Card
+              key={index}
+              src={value.src}
+              title={value.title}
+              desc={value.desc}
+            />
+          );
         })}
       </div>
     </div>

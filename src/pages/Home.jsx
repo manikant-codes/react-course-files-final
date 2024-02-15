@@ -7,6 +7,7 @@ import Footer from "../layouts/Footer";
 import Navbar from "../layouts/Navbar";
 import "../styles/home/home.css";
 import ListRenderingDemo from "../components/demo/ListRenderingDemo";
+import PricingRow from "../components/home/pricingRow/PricingRow";
 
 function Home() {
   return (
@@ -26,8 +27,8 @@ function Home() {
       />
       <FiguresRow />
       <ProductsRow />
+      <PricingRow />
       <Footer />
-      <ListRenderingDemo />
     </>
   );
 }

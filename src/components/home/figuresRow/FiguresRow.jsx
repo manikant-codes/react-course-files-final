@@ -28,7 +28,7 @@ function FiguresRow() {
       />
       <div className={styles.innerContainer}>
         {data.map((value, index) => {
-          return <Figure figure={value.figure} desc={value.desc} />;
+          return <Figure key={index} figure={value.figure} desc={value.desc} />;
         })}
       </div>
     </div>
