@@ -6,6 +6,7 @@ import ServicesRow from "../components/home/servicesRow/ServicesRow";
 import Footer from "../layouts/Footer";
 import CounterRow from "../components/home/counterRow/CounterRow";
 import ConditionalRenderingDemo from "../components/demos/ConditionalRenderingDemo";
+import ListRenderingDemo from "../components/demos/ListRenderingDemo";
 
 function Home() {
   return (
