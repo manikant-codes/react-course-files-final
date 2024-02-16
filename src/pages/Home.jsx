@@ -1,12 +1,11 @@
 import React from "react";
 import HeroSection from "../components/home/HeroSection";
 import InfoRow from "../components/home/InfoRow";
-import Navbar from "../layouts/Navbar";
+import CounterRow from "../components/home/counterRow/CounterRow";
+import PricingRow from "../components/home/pricingRow/PricingRow";
 import ServicesRow from "../components/home/servicesRow/ServicesRow";
 import Footer from "../layouts/Footer";
-import CounterRow from "../components/home/counterRow/CounterRow";
-import ConditionalRenderingDemo from "../components/demos/ConditionalRenderingDemo";
-import ListRenderingDemo from "../components/demos/ListRenderingDemo";
+import Navbar from "../layouts/Navbar";
 
 function Home() {
   return (
@@ -30,6 +29,7 @@ function Home() {
       />
       <CounterRow />
       <ServicesRow />
+      <PricingRow />
       <Footer />
       {/* <ConditionalRenderingDemo marks={2} /> */}
     </>
