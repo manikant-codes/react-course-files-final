@@ -3,6 +3,7 @@ import InfoRow from "../components/home/InfoRow";
 import Footer from "../layouts/Footer";
 import Navbar from "../layouts/Navbar";
 import ServicesRow from "../components/home/servicesRow/ServicesRow";
+import ListRenderingDemo from "../components/demo/ListRenderingDemo";
 
 function Home() {
   return (
@@ -21,6 +22,7 @@ function Home() {
       />
       <ServicesRow />
       <Footer />
+      <ListRenderingDemo />
     </>
   );
 }
