@@ -64,6 +64,10 @@ function ProductsRow() {
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill,minmax(300px, 1fr))",
           gap: 16,
+
+          "@media (max-width: 400px)": {
+            gridTemplateColumns: "repeat(auto-fill,minmax(100%, 1fr))",
+          },
         }}
       >
         {data.map((value, index) => {

@@ -66,3 +66,11 @@
   background-color: #ffb74d;
   color: black;
 }
+
+@media screen and (max-width: 400px) {
+  .pricingRowInnerContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)) !important;
+    gap: 16px;
+  }
+}
