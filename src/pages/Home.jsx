@@ -5,14 +5,12 @@ import FiguresRow from "../components/home/figuresRow/FiguresRow";
 import InfoRow from "../components/home/infoRow/InfoRow";
 import PricingRow from "../components/home/pricingRow/PricingRow";
 import ProgressRow from "../components/home/progressRow/ProgressRow";
-import Footer from "../layouts/Footer";
-import Navbar from "../layouts/Navbar";
+import Layout from "../layouts/Layout";
 import "../styles/home/home.css";
 
 function Home() {
   return (
     <>
-      <Navbar />
       <Hero />
       <InfoRow
         src="/images/04.jpg"
@@ -29,7 +27,6 @@ function Home() {
       <FiguresRow />
       <ProductsRow />
       <PricingRow />
-      <Footer />
     </>
   );
 }
