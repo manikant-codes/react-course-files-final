@@ -15,22 +15,22 @@ function PricingRow() {
         <PricingCard
           title="Package A"
           features={[
-            "Lorem ipsum dolor sit amet.",
-            "Lorem ipsum dolor sit amet.",
-            "Lorem, ipsum dolor sit amet consectetur adipisicing.",
-            "Lorem ipsum dolor sit.",
-            "Lorem, ipsum dolor sit amet consectetur adipisicing.",
+            { feature: "Lorem ipsum dolor sit amet.", hasFeature: true },
+            { feature: "Lorem ipsum dolor sit amet.", hasFeature: true },
+            { feature: "Lorem ipsum dolor sit amet.", hasFeature: false },
+            { feature: "Lorem ipsum dolor sit amet.", hasFeature: false },
+            { feature: "Lorem ipsum dolor sit amet.", hasFeature: false },
           ]}
           price={100}
         />
         <PricingCard
           title="Package B"
           features={[
-            "Lorem ipsum dolor sit amet.",
-            "Lorem ipsum dolor sit amet.",
-            "Lorem, ipsum dolor sit amet consectetur adipisicing.",
-            "Lorem ipsum dolor sit.",
-            "Lorem, ipsum dolor sit amet consectetur adipisicing.",
+            { feature: "Lorem ipsum dolor sit amet.", hasFeature: true },
+            { feature: "Lorem ipsum dolor sit amet.", hasFeature: true },
+            { feature: "Lorem ipsum dolor sit amet.", hasFeature: true },
+            { feature: "Lorem ipsum dolor sit amet.", hasFeature: false },
+            { feature: "Lorem ipsum dolor sit amet.", hasFeature: false },
           ]}
           price={500}
           activeCard
@@ -38,11 +38,11 @@ function PricingRow() {
         <PricingCard
           title="Package C"
           features={[
-            "Lorem ipsum dolor sit amet.",
-            "Lorem ipsum dolor sit amet.",
-            "Lorem, ipsum dolor sit amet consectetur adipisicing.",
-            "Lorem ipsum dolor sit.",
-            "Lorem, ipsum dolor sit amet consectetur adipisicing.",
+            { feature: "Lorem ipsum dolor sit amet.", hasFeature: true },
+            { feature: "Lorem ipsum dolor sit amet.", hasFeature: true },
+            { feature: "Lorem ipsum dolor sit amet.", hasFeature: true },
+            { feature: "Lorem ipsum dolor sit amet.", hasFeature: true },
+            { feature: "Lorem ipsum dolor sit amet.", hasFeature: true },
           ]}
           price={1000}
         />

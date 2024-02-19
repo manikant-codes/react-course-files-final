@@ -6,6 +6,7 @@ import PricingRow from "../components/home/pricingRow/PricingRow";
 import ServicesRow from "../components/home/servicesRow/ServicesRow";
 import Footer from "../layouts/Footer";
 import Navbar from "../layouts/Navbar";
+import ProgressRow from "../components/home/progressRow/ProgressRow";
 
 function Home() {
   return (
@@ -27,6 +28,7 @@ function Home() {
           cumque vel quisquam necessitatibus esse?"
         contentFirst={true}
       />
+      <ProgressRow />
       <CounterRow />
       <ServicesRow />
       <PricingRow />

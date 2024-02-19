@@ -1,0 +1,53 @@
+.progressRowContainer {
+  padding: 32px;
+}
+
+.progressBarContainerOuter {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.progressBarContainerOuter p {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px;
+  padding: 0px 8px;
+  font-weight: bold;
+  color: #004d40;
+}
+
+.progressBarContainerInner {
+  width: 100%;
+  height: 16px;
+  border-radius: 32px;
+  overflow: hidden;
+  background-color: #b2dfdb;
+  position: relative;
+}
+
+.progressBarContainerInner div {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #004d40;
+  transition: all 1s linear;
+  /* transition-delay: 1s; */
+  /* animation: progress 1s linear; */
+}
+
+.infoRowProgressBarContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* @keyframes progress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 40%;
+  }
+} */

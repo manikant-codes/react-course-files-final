@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../../../styles/home/pricingRow.module.css";
+import FeatureListItem from "./FeatureListItem";
 
 function PricingCard(props) {
   return (
@@ -11,16 +12,16 @@ function PricingCard(props) {
       <div className={styles.pricingCardPriceContainer}>
         <h3>{props.title}</h3>
         <p>
-          {props.price} <span>/ Month</span>
+          ₹{props.price} <span>/ Month</span>
         </p>
       </div>
       <div className={styles.pricingCardFeaturesContainer}>
         {props.features.map((value, index) => {
           return (
-            <p key={1}>
-              <i class="fa-solid fa-check"></i>
-              <span>{value}</span>
-            </p>
+            <FeatureListItem
+              feature={value.feature}
+              hasFeature={value.hasFeature}
+            />
           );
         })}
       </div>

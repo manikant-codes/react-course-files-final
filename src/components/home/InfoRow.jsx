@@ -6,11 +6,20 @@ function InfoRow(props) {
     return (
       <div className={styles.container}>
         <div className={`${styles.descContainer} ${styles.descContainerCF}`}>
-          <h2>{props.title}</h2>
-          <p>{props.desc}</p>
-          <button>Know More</button>
+          {props.customContent ? (
+            props.customContent
+          ) : (
+            <>
+              <h2>{props.title}</h2>
+              <p>{props.desc}</p>
+              <button>Know More</button>
+            </>
+          )}
         </div>
-        <div className={`${styles.imgContainer} ${styles.imgContainerCF}`}>
+        <div
+          className={`${styles.imgContainer} ${styles.imgContainerCF}`}
+          style={{ height: props.customContent ? "auto" : "400px" }}
+        >
           <img src={props.src} alt={props.title} />
         </div>
       </div>
@@ -18,13 +27,22 @@ function InfoRow(props) {
   }
   return (
     <div className={styles.container}>
-      <div className={styles.imgContainer}>
+      <div
+        className={styles.imgContainer}
+        style={{ height: props.customContent ? "auto" : "400px" }}
+      >
         <img src={props.src} alt={props.title} />
       </div>
       <div className={styles.descContainer}>
-        <h2>{props.title}</h2>
-        <p>{props.desc}</p>
-        <button>Know More</button>
+        {props.customContent ? (
+          props.customContent
+        ) : (
+          <>
+            <h2>{props.title}</h2>
+            <p>{props.desc}</p>
+            <button>Know More</button>
+          </>
+        )}
       </div>
     </div>
   );
