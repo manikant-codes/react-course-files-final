@@ -4,6 +4,7 @@ import Footer from "../layouts/Footer";
 import Navbar from "../layouts/Navbar";
 import ServicesRow from "../components/home/servicesRow/ServicesRow";
 import ListRenderingDemo from "../components/demo/ListRenderingDemo";
+import PricingRow from "../components/home/pricingRow/PricingRow";
 
 function Home() {
   return (
@@ -21,8 +22,8 @@ function Home() {
         contentFirst
       />
       <ServicesRow />
+      <PricingRow />
       <Footer />
-      <ListRenderingDemo />
     </>
   );
 }

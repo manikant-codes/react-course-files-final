@@ -1,0 +1,49 @@
+.pricingCardContainer {
+  padding: 32px;
+  background-color: #e0f7fa;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.priceContainer {
+}
+
+.priceContainer h3 {
+  font-size: 1.25rem;
+}
+
+.priceContainer p {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0px;
+}
+
+.priceContainer p span {
+  font-size: 1.25rem;
+}
+
+.featuresList {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.featuresList li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.pricingRowContainer {
+  padding: 32px;
+}
+
+.pricingCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
