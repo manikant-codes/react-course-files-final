@@ -24,9 +24,31 @@
   background-color: #4a148c;
   width: 0%;
   border-radius: 30px 0px 0px 32px;
-  animation: progress;
-  /* transition: all 1s linear; */
-  animation-duration: 1s;
+}
+
+.progressBarValue1 {
+  width: 40%;
+  animation: progress1;
+  animation-duration: 2s;
+  animation-timing-function: cubic-bezier(0.57, 0.06, 0.6, 0.9);
+}
+.progressBarValue2 {
+  width: 50%;
+  animation: progress2;
+  animation-duration: 2s;
+  animation-timing-function: cubic-bezier(0.57, 0.06, 0.6, 0.9);
+}
+.progressBarValue3 {
+  width: 60%;
+  animation: progress3;
+  animation-duration: 2s;
+  animation-timing-function: cubic-bezier(0.57, 0.06, 0.6, 0.9);
+}
+.progressBarValue4 {
+  width: 90%;
+  animation: progress4;
+  animation-duration: 2s;
+  animation-timing-function: cubic-bezier(0.57, 0.06, 0.6, 0.9);
 }
 
 .progressRowContainer {
@@ -41,11 +63,38 @@
   gap: 16px;
 }
 
-@keyframes progress {
+@keyframes progress1 {
   0% {
     width: 0%;
   }
   100% {
-    width: 100%;
+    width: 40%;
+  }
+}
+
+@keyframes progress2 {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 50%;
+  }
+}
+
+@keyframes progress3 {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 60%;
+  }
+}
+
+@keyframes progress4 {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 90%;
   }
 }

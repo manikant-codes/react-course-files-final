@@ -5,7 +5,6 @@ import FiguresRow from "../components/home/figuresRow/FiguresRow";
 import InfoRow from "../components/home/infoRow/InfoRow";
 import PricingRow from "../components/home/pricingRow/PricingRow";
 import ProgressRow from "../components/home/progressRow/ProgressRow";
-import Layout from "../layouts/Layout";
 import "../styles/home/home.css";
 
 function Home() {

@@ -13,16 +13,16 @@ function Navbar() {
         </div>
         <ul className={styles.innerContainer}>
           <li>
+            {/* <a href="/">Home</a> */}
             <Link to="/">Home</Link>
           </li>
           <li>
+            {/* <a href="/about">About</a> */}
             <Link to="/about">About</Link>
           </li>
           <li>
-            <Link to="/products">Products</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
+            {/* <a href="/contact">Contact</a> */}
+            <Link to="/contact">About</Link>
           </li>
         </ul>
       </nav>

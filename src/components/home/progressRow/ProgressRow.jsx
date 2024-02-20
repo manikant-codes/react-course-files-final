@@ -39,6 +39,7 @@ function ProgressRow() {
                   key={index}
                   title={value.title}
                   width={value.width}
+                  number={index + 1}
                 />
               );
             })}
