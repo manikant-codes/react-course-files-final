@@ -3,22 +3,42 @@ import Title from "../../common/Title";
 import PricingCard from "./PricingCard";
 import styles from "../../../styles/home/pricingRow.module.css";
 
+const arr = ["feature 1", "feature 2", "feature 3", "feature 4"];
+
 function PricingRow() {
   const components = [
     <PricingCard
       title="Plan 1"
       price="100"
-      features={["Featrue 1", "Feature 2", "Feature 3"]}
+      features={[
+        { feature: "Feature 1", isIncluded: true },
+        { feature: "Feature 2", isIncluded: true },
+        { feature: "Feature 3", isIncluded: false },
+        { feature: "Feature 4", isIncluded: false },
+        { feature: "Feature 5", isIncluded: false },
+      ]}
     />,
     <PricingCard
       title="Plan 2"
       price="200"
-      features={["Featrue 1", "Feature 2", "Feature 3"]}
+      features={[
+        { feature: "Feature 1", isIncluded: true },
+        { feature: "Feature 2", isIncluded: true },
+        { feature: "Feature 3", isIncluded: true },
+        { feature: "Feature 4", isIncluded: false },
+        { feature: "Feature 5", isIncluded: false },
+      ]}
     />,
     <PricingCard
       title="Plan 3"
       price="300"
-      features={["Featrue 1", "Feature 2", "Feature 3"]}
+      features={[
+        { feature: "Feature 1", isIncluded: true },
+        { feature: "Feature 2", isIncluded: true },
+        { feature: "Feature 3", isIncluded: true },
+        { feature: "Feature 4", isIncluded: true },
+        { feature: "Feature 5", isIncluded: true },
+      ]}
     />,
   ];
   return (

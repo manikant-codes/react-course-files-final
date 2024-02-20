@@ -1,7 +1,9 @@
 import React from "react";
 import styles from "../../../styles/home/pricingRow.module.css";
+import FeatureListItem from "./FeatureListItem";
 
 function PricingCard(props) {
+  console.log("props", props);
   return (
     <div className={styles.pricingCardContainer}>
       <div className={styles.priceContainer}>
@@ -15,9 +17,11 @@ function PricingCard(props) {
       <ul className={styles.featuresList}>
         {props.features.map(function (value, index) {
           return (
-            <li key={index}>
-              <i className="fa-solid fa-check"></i> {value}
-            </li>
+            <FeatureListItem
+              key={index}
+              feature={value.feature}
+              isIncluded={value.isIncluded}
+            />
           );
         })}
         {/* <li>
