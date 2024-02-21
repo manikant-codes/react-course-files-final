@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/layouts/navbar.module.css";
 import styles from "../styles/layouts/navbar.module.css";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   //   const container = {
@@ -28,9 +29,18 @@ function Navbar() {
         <h1>Logo</h1>
       </div>
       <ul className={styles.ulStyles}>
-        <li>Home</li>
-        <li>About</li>
-        <li>Contact</li>
+        <li>
+          {/* <a href="/">Home</a> */}
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          {/* <a href="/about">About</a> */}
+          <Link to="/about">About</Link>
+        </li>
+        <li>
+          {/* <a href="/contact">Contact</a> */}
+          <Link to="/contact">Contact</Link>
+        </li>
       </ul>
     </div>
   );

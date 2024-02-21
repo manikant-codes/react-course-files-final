@@ -33,8 +33,6 @@
   bottom: 0;
   background-color: #004d40;
   transition: all 1s linear;
-  /* transition-delay: 1s; */
-  /* animation: progress 1s linear; */
 }
 
 .infoRowProgressBarContainer {
@@ -42,12 +40,3 @@
   flex-direction: column;
   gap: 24px;
 }
-
-/* @keyframes progress {
-  0% {
-    width: 0%;
-  }
-  100% {
-    width: 40%;
-  }
-} */

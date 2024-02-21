@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../../../styles/home/progressRow.module.css";
+import { motion } from "framer-motion";
 
 function ProgressBar(props) {
   return (
@@ -9,7 +10,11 @@ function ProgressBar(props) {
         <span>{props.value}%</span>
       </p>
       <div className={styles.progressBarContainerInner}>
-        <div style={{ width: `${props.value}%` }} />
+        <motion.div
+          initial={{ width: "0%" }}
+          animate={{ width: `${props.value}%` }}
+          transition={{ duration: 0.5 }}
+        />
       </div>
     </div>
   );

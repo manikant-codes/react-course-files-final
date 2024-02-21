@@ -3,15 +3,13 @@ import HeroSection from "../components/home/HeroSection";
 import InfoRow from "../components/home/InfoRow";
 import CounterRow from "../components/home/counterRow/CounterRow";
 import PricingRow from "../components/home/pricingRow/PricingRow";
-import ServicesRow from "../components/home/servicesRow/ServicesRow";
-import Footer from "../layouts/Footer";
-import Navbar from "../layouts/Navbar";
 import ProgressRow from "../components/home/progressRow/ProgressRow";
+import ServicesRow from "../components/home/servicesRow/ServicesRow";
+import Layout from "../layouts/Layout";
 
 function Home() {
   return (
-    <>
-      <Navbar />
+    <Layout>
       <HeroSection />
       <InfoRow
         src="/images/03.jpg"
@@ -32,9 +30,9 @@ function Home() {
       <CounterRow />
       <ServicesRow />
       <PricingRow />
-      <Footer />
+
       {/* <ConditionalRenderingDemo marks={2} /> */}
-    </>
+    </Layout>
   );
 }
 
