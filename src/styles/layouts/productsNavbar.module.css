@@ -1,0 +1,11 @@
+.container {
+  background-color: #b39ddb;
+  padding: 16px 32px;
+}
+
+.links {
+  list-style-type: none;
+  display: flex;
+  gap: 16px;
+  padding: 0px;
+}
