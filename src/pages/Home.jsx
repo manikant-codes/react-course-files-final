@@ -1,15 +1,12 @@
 import React from "react";
 import InfoRow from "../components/home/InfoRow";
-import Footer from "../layouts/Footer";
-import Navbar from "../layouts/Navbar";
-import ServicesRow from "../components/home/servicesRow/ServicesRow";
-import ListRenderingDemo from "../components/demo/ListRenderingDemo";
 import PricingRow from "../components/home/pricingRow/PricingRow";
+import ServicesRow from "../components/home/servicesRow/ServicesRow";
+import Layout from "../layouts/Layout";
 
 function Home() {
   return (
     <>
-      <Navbar />
       <InfoRow
         src="/images/01.jpg"
         title="About Us"
@@ -23,7 +20,6 @@ function Home() {
       />
       <ServicesRow />
       <PricingRow />
-      <Footer />
     </>
   );
 }
