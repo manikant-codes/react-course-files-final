@@ -1,0 +1,10 @@
+.slide {
+  height: 75vh;
+  overflow: hidden;
+}
+
+.slide img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}

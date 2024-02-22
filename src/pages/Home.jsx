@@ -1,12 +1,13 @@
 import React from "react";
 import InfoRow from "../components/home/InfoRow";
+import Carousel from "../components/home/carousel/Carousel";
 import PricingRow from "../components/home/pricingRow/PricingRow";
 import ServicesRow from "../components/home/servicesRow/ServicesRow";
-import Layout from "../layouts/Layout";
 
 function Home() {
   return (
     <>
+      <Carousel />
       <InfoRow
         src="/images/01.jpg"
         title="About Us"
