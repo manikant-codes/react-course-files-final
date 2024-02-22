@@ -1,13 +1,14 @@
 import React from "react";
-import Navbar from "./Navbar";
 import Footer from "./Footer";
-import Sidebar from "./Sidebar";
+import Navbar from "./Navbar";
+import { Outlet } from "react-router";
 
 function Layout(props) {
   return (
     <>
       <Navbar />
-      {props.children}
+      {/* {props.children} */}
+      <Outlet />
       <Footer />
     </>
   );

@@ -18,3 +18,12 @@
   margin: 0px;
   padding: 0px;
 }
+
+.ulStyles li a {
+  color: white;
+  text-decoration: none;
+}
+
+.ulStyles li a:hover {
+  text-decoration: underline;
+}

@@ -2,6 +2,10 @@ import React from "react";
 import styles from "../../styles/home/infoRow.module.css";
 
 function InfoRow(props) {
+  function handleClick(msg) {
+    alert(msg);
+  }
+
   if (props.contentFirst) {
     return (
       <div className={styles.container}>
@@ -40,7 +44,13 @@ function InfoRow(props) {
           <>
             <h2>{props.title}</h2>
             <p>{props.desc}</p>
-            <button>Know More</button>
+            <button
+              onClick={function () {
+                handleClick("Hello");
+              }}
+            >
+              Know More
+            </button>
           </>
         )}
       </div>

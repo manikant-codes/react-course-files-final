@@ -21,8 +21,6 @@ function Navbar() {
   //     padding: "0px",
   //   };
 
-  console.log("styles", styles);
-
   return (
     <div className={styles.container}>
       <div>

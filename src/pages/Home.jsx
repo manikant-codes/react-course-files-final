@@ -5,11 +5,10 @@ import CounterRow from "../components/home/counterRow/CounterRow";
 import PricingRow from "../components/home/pricingRow/PricingRow";
 import ProgressRow from "../components/home/progressRow/ProgressRow";
 import ServicesRow from "../components/home/servicesRow/ServicesRow";
-import Layout from "../layouts/Layout";
 
 function Home() {
   return (
-    <Layout>
+    <>
       <HeroSection />
       <InfoRow
         src="/images/03.jpg"
@@ -32,7 +31,7 @@ function Home() {
       <PricingRow />
 
       {/* <ConditionalRenderingDemo marks={2} /> */}
-    </Layout>
+    </>
   );
 }
 

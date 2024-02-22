@@ -2,7 +2,6 @@ import CountUp from "react-countup";
 import React from "react";
 
 function Figure(props) {
-  console.log("props", props.figure);
   return (
     <div>
       <h3>
