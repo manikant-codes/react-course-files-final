@@ -3,7 +3,6 @@ import styles from "../../../styles/home/pricingRow.module.css";
 import CheckIcon from "../../common/icons/CheckIcon";
 
 function PricingCard(props) {
-  console.log(styles);
   return (
     <div className={styles.pricingCardContainer + " " + props.className}>
       <div className={styles.pricingCardDescContainer}>

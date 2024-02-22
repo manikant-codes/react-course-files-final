@@ -4,7 +4,6 @@ import styles from "../styles/layouts/navbar.module.css";
 // import "../styles/layouts/navbar.module.css";
 
 function Navbar() {
-  console.log("styles", styles);
   return (
     <>
       <nav className={styles.container}>

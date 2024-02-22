@@ -2,7 +2,6 @@ import React from "react";
 import styles from "../../../styles/home/progressRow.module.css";
 
 function ProgressBar(props) {
-  console.log(props);
   return (
     <div className={styles.progressBarContainer}>
       <p>{props.title}</p>

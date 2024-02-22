@@ -14,3 +14,12 @@
   gap: 16px;
   margin: 0px;
 }
+
+.innerContainer li a {
+  color: white;
+  text-decoration: none;
+}
+
+.innerContainer li a:hover {
+  text-decoration: underline;
+}
