@@ -19,6 +19,7 @@ function PricingCard(props) {
         {props.features.map((value, index) => {
           return (
             <FeatureListItem
+              key={index}
               feature={value.feature}
               hasFeature={value.hasFeature}
             />

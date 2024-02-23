@@ -2,29 +2,30 @@ import React from "react";
 import styles from "../../styles/home/infoRow.module.css";
 
 function InfoRow(props) {
+  const { contentFirst, customContent, title, desc, src } = props;
   function handleClick(msg) {
     alert(msg);
   }
 
-  if (props.contentFirst) {
+  if (contentFirst) {
     return (
       <div className={styles.container}>
         <div className={`${styles.descContainer} ${styles.descContainerCF}`}>
-          {props.customContent ? (
-            props.customContent
+          {customContent ? (
+            customContent
           ) : (
             <>
-              <h2>{props.title}</h2>
-              <p>{props.desc}</p>
+              <h2>{title}</h2>
+              <p>{desc}</p>
               <button>Know More</button>
             </>
           )}
         </div>
         <div
           className={`${styles.imgContainer} ${styles.imgContainerCF}`}
-          style={{ height: props.customContent ? "auto" : "400px" }}
+          style={{ height: customContent ? "auto" : "400px" }}
         >
-          <img src={props.src} alt={props.title} />
+          <img src={src} alt={title} />
         </div>
       </div>
     );
@@ -33,17 +34,17 @@ function InfoRow(props) {
     <div className={styles.container}>
       <div
         className={styles.imgContainer}
-        style={{ height: props.customContent ? "auto" : "400px" }}
+        style={{ height: customContent ? "auto" : "400px" }}
       >
-        <img src={props.src} alt={props.title} />
+        <img src={src} alt={title} />
       </div>
       <div className={styles.descContainer}>
-        {props.customContent ? (
-          props.customContent
+        {customContent ? (
+          customContent
         ) : (
           <>
-            <h2>{props.title}</h2>
-            <p>{props.desc}</p>
+            <h2>{title}</h2>
+            <p>{desc}</p>
             <button
               onClick={function () {
                 handleClick("Hello");
