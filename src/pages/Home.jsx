@@ -6,20 +6,24 @@ import InfoRow from "../components/home/infoRow/InfoRow";
 import PricingRow from "../components/home/pricingRow/PricingRow";
 import ProgressRow from "../components/home/progressRow/ProgressRow";
 import "../styles/home/home.css";
+import {
+  homeAboutUsRowData,
+  homeOurJourneyRowData,
+} from "../data/homePageData";
 
 function Home() {
   return (
     <>
       <Hero />
       <InfoRow
-        src="/images/04.jpg"
-        title="About Us"
-        desc="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum."
+        src={homeAboutUsRowData.src}
+        title={homeAboutUsRowData.title}
+        desc={homeAboutUsRowData.desc}
       />
       <InfoRow
-        src="/images/03.jpg"
-        title="Our Journey"
-        desc="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum."
+        src={homeOurJourneyRowData.src}
+        title={homeOurJourneyRowData.title}
+        desc={homeOurJourneyRowData.desc}
         contentFirst
       />
       <ProgressRow />

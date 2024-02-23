@@ -34,6 +34,7 @@ function PricingRow() {
   const components = data.map((value, index) => {
     return (
       <PricingCard
+        key={index}
         title={value.title}
         price={value.price}
         desc={value.desc}
