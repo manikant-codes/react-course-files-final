@@ -15,8 +15,6 @@ function ListRenderingDemo() {
   //     <p>{fruits[4]}</p>,
   //   ];
 
-  console.log("components", components);
-
   return (
     <div style={{ padding: "64px", textAlign: "center" }}>
       <h1>ListRenderingDemo</h1>

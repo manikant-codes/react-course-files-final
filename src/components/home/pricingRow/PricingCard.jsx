@@ -3,7 +3,6 @@ import styles from "../../../styles/home/pricingRow.module.css";
 import FeatureListItem from "./FeatureListItem";
 
 function PricingCard(props) {
-  console.log("props", props);
   return (
     <div className={styles.pricingCardContainer}>
       <div className={styles.priceContainer}>

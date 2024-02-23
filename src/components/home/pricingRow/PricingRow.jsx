@@ -8,6 +8,7 @@ const arr = ["feature 1", "feature 2", "feature 3", "feature 4"];
 function PricingRow() {
   const components = [
     <PricingCard
+      key={0}
       title="Plan 1"
       price="100"
       features={[
@@ -19,6 +20,7 @@ function PricingRow() {
       ]}
     />,
     <PricingCard
+      key={1}
       title="Plan 2"
       price="200"
       features={[
@@ -30,6 +32,7 @@ function PricingRow() {
       ]}
     />,
     <PricingCard
+      key={2}
       title="Plan 3"
       price="300"
       features={[

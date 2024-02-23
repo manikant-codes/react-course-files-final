@@ -4,7 +4,6 @@ import styles from "../styles/layout/navbar.module.css";
 import { Link } from "react-router-dom";
 
 function Navbar() {
-  console.log("styles", styles.container);
   // const navStyles = {
   //   display: "flex",
   //   justifyContent: "space-between",

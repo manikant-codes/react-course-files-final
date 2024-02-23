@@ -4,7 +4,6 @@ import Footer from "./Footer";
 import Navbar from "./Navbar";
 
 function Layout(props) {
-  console.log("props", props);
   return (
     <>
       <Navbar />

@@ -7,7 +7,6 @@ function InfoRow(props) {
   }
 
   function handleImgFirstClick(e) {
-    console.log("e", e);
     alert("Img First Button CLicked!");
   }
 
@@ -20,7 +19,6 @@ function InfoRow(props) {
             <p>{props.desc}</p>
             <button
               onClick={function (e) {
-                console.log("e", e);
                 handleClick("Hello!");
               }}
             >
