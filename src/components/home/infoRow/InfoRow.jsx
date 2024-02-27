@@ -1,35 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../../../styles/home/infoRow.module.css";
-import { animated, useSpring } from "@react-spring/web";
 
 function InfoRow(props) {
   const { src, title, desc, contentFirst, customComponent } = props;
 
-  const animationStyles = useSpring({
-    config: {
-      duration: 2000,
-    },
-    from: {
-      scale: 0,
-      opacity: 0,
-    },
-    to: {
-      scale: 1,
-      opacity: 1,
-    },
-  });
+  const [isContentFirst, setIsContentFirst] = useState(contentFirst);
 
-  function handleClick(msg) {
-    console.log(msg);
-  }
+  if (!title) return null;
 
-  function handleClickWrapper() {
-    handleClick("Hello");
+  function handleClick() {
+    setIsContentFirst(!isContentFirst);
   }
 
   return (
     <>
-      {contentFirst ? (
+      {isContentFirst ? (
         <div className={styles.outerContainer}>
           <div className={styles.descContainerCF}>
             {customComponent ? (
@@ -38,7 +23,7 @@ function InfoRow(props) {
               <>
                 <h2>{title}</h2>
                 <p>{desc}</p>
-                <button>Know More</button>
+                <button onClick={handleClick}>Know More</button>
               </>
             )}
           </div>
@@ -51,7 +36,7 @@ function InfoRow(props) {
           <div className={styles.imgContainer}>
             <img src={src} alt={title} />
           </div>
-          <animated.div style={animationStyles}>
+          <div>
             <div className={styles.descContainer}>
               {customComponent ? (
                 customComponent
@@ -59,18 +44,11 @@ function InfoRow(props) {
                 <>
                   <h2>{title}</h2>
                   <p>{desc}</p>
-                  <button
-                    onClick={function (event) {
-                      console.log(event);
-                      handleClick("Hello");
-                    }}
-                  >
-                    Know More
-                  </button>
+                  <button onClick={handleClick}>Know More</button>
                 </>
               )}
             </div>
-          </animated.div>
+          </div>
         </div>
       )}
     </>
