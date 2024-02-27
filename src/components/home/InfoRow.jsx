@@ -1,29 +1,21 @@
-import React from "react";
+import { useState } from "react";
 import styles from "../../styles/home/infoRow.module.css";
 
 function InfoRow(props) {
-  function handleClick(msg) {
-    alert(msg);
-  }
+  const [isContentFirst, setIsContentFirst] = useState(props.contentFirst);
 
-  function handleImgFirstClick(e) {
-    alert("Img First Button CLicked!");
+  function handleClick() {
+    setIsContentFirst(!isContentFirst);
   }
 
   return (
     <>
-      {props.contentFirst ? (
+      {isContentFirst ? (
         <div className={styles.container}>
           <div className={styles.descContainer}>
             <h2>{props.title}</h2>
             <p>{props.desc}</p>
-            <button
-              onClick={function (e) {
-                handleClick("Hello!");
-              }}
-            >
-              Know More
-            </button>
+            <button onClick={handleClick}>Know More</button>
           </div>
           <div className={styles.imgContainer}>
             <img src={props.src} alt={props.title} />
@@ -37,7 +29,7 @@ function InfoRow(props) {
           <div className={styles.descContainer}>
             <h2>{props.title}</h2>
             <p>{props.desc}</p>
-            <button onClick={handleImgFirstClick}>Know More</button>
+            <button onClick={handleClick}>Know More</button>
           </div>
         </div>
       )}
