@@ -5,10 +5,13 @@ import CounterRow from "../components/home/counterRow/CounterRow";
 import PricingRow from "../components/home/pricingRow/PricingRow";
 import ProgressRow from "../components/home/progressRow/ProgressRow";
 import ServicesRow from "../components/home/servicesRow/ServicesRow";
+
 import {
   homeAboutUsRowData,
   homeOurJourneyRowData,
 } from "../data/homePageData";
+
+import number from "../data/homePageData";
 
 function Home() {
   // const obj = {

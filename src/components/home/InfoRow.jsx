@@ -1,13 +1,18 @@
 import React from "react";
+import { useState } from "react";
 import styles from "../../styles/home/infoRow.module.css";
 
 function InfoRow(props) {
   const { contentFirst, customContent, title, desc, src } = props;
-  function handleClick(msg) {
-    alert(msg);
+
+  const [isContentFirst, setIsContentFirst] = useState(contentFirst);
+  // const [kuchbhi, setKuchbhi] = arr;
+
+  function handleClick() {
+    setIsContentFirst(!isContentFirst);
   }
 
-  if (contentFirst) {
+  if (isContentFirst) {
     return (
       <div className={styles.container}>
         <div className={`${styles.descContainer} ${styles.descContainerCF}`}>
@@ -17,7 +22,7 @@ function InfoRow(props) {
             <>
               <h2>{title}</h2>
               <p>{desc}</p>
-              <button>Know More</button>
+              <button onClick={handleClick}>Know More</button>
             </>
           )}
         </div>
@@ -45,13 +50,7 @@ function InfoRow(props) {
           <>
             <h2>{title}</h2>
             <p>{desc}</p>
-            <button
-              onClick={function () {
-                handleClick("Hello");
-              }}
-            >
-              Know More
-            </button>
+            <button onClick={handleClick}>Know More</button>
           </>
         )}
       </div>

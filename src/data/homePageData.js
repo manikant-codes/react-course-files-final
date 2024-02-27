@@ -11,3 +11,6 @@ export const homeOurJourneyRowData = {
 };
 
 // export { homeAboutUsRowData, homeOurJourneyRowData };
+
+const number = 10;
+export default number;
