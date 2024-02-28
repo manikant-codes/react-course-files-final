@@ -6,7 +6,6 @@ function InfoRow(props) {
   const { contentFirst, customContent, title, desc, src } = props;
 
   const [isContentFirst, setIsContentFirst] = useState(contentFirst);
-  // const [kuchbhi, setKuchbhi] = arr;
 
   function handleClick() {
     setIsContentFirst(!isContentFirst);
