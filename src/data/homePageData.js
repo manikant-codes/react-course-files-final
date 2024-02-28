@@ -10,4 +10,27 @@ export const homeOurJourneyRowData = {
   desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio aspernatur reprehenderit possimus adipisci laudantium voluptatibus cumque vel quisquam necessitatibus esse?",
 };
 
+export const faqs = [
+  {
+    question: "Lorem ipsum dolor sit amet consectetur adipisicing elit?",
+    answer:
+      "Distinctio aspernatur reprehenderit possimus adipisci laudantium voluptatibus cumque vel quisquam necessitatibus esse.",
+  },
+  {
+    question: "Lorem ipsum dolor sit amet consectetur adipisicing elit?",
+    answer:
+      "Distinctio aspernatur reprehenderit possimus adipisci laudantium voluptatibus cumque vel quisquam necessitatibus esse.",
+  },
+  {
+    question: "Lorem ipsum dolor sit amet consectetur adipisicing elit?",
+    answer:
+      "Distinctio aspernatur reprehenderit possimus adipisci laudantium voluptatibus cumque vel quisquam necessitatibus esse.",
+  },
+  {
+    question: "Lorem ipsum dolor sit amet consectetur adipisicing elit?",
+    answer:
+      "Distinctio aspernatur reprehenderit possimus adipisci laudantium voluptatibus cumque vel quisquam necessitatibus esse.",
+  },
+];
+
 // export { homeAboutUsRowData, homeOurJourneyRowData };
