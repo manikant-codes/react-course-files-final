@@ -10,6 +10,7 @@ import {
   homeAboutUsRowData,
   homeOurJourneyRowData,
 } from "../data/homePageData";
+import FaqsRow from "../components/home/faqsRow/FaqsRow";
 
 function Home() {
   return (
@@ -30,6 +31,7 @@ function Home() {
       <FiguresRow />
       <ProductsRow />
       <PricingRow />
+      <FaqsRow />
     </>
   );
 }

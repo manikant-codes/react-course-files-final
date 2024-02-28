@@ -9,3 +9,34 @@ export const homeOurJourneyRowData = {
   title: "Our Journey",
   desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum.",
 };
+
+export const faqs = [
+  {
+    number: "01",
+    question:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum?",
+    answer:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum.",
+  },
+  {
+    number: "02",
+    question:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum?",
+    answer:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum.",
+  },
+  {
+    number: "03",
+    question:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum?",
+    answer:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum.",
+  },
+  {
+    number: "04",
+    question:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum?",
+    answer:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, voluptatum.",
+  },
+];
