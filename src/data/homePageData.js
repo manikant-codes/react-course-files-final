@@ -12,21 +12,25 @@ export const homeOurJourneyRowData = {
 
 export const faqs = [
   {
+    number: "01",
     question: "Lorem ipsum dolor sit amet consectetur adipisicing elit?",
     answer:
       "Distinctio aspernatur reprehenderit possimus adipisci laudantium voluptatibus cumque vel quisquam necessitatibus esse.",
   },
   {
+    number: "02",
     question: "Lorem ipsum dolor sit amet consectetur adipisicing elit?",
     answer:
       "Distinctio aspernatur reprehenderit possimus adipisci laudantium voluptatibus cumque vel quisquam necessitatibus esse.",
   },
   {
+    number: "03",
     question: "Lorem ipsum dolor sit amet consectetur adipisicing elit?",
     answer:
       "Distinctio aspernatur reprehenderit possimus adipisci laudantium voluptatibus cumque vel quisquam necessitatibus esse.",
   },
   {
+    number: "04",
     question: "Lorem ipsum dolor sit amet consectetur adipisicing elit?",
     answer:
       "Distinctio aspernatur reprehenderit possimus adipisci laudantium voluptatibus cumque vel quisquam necessitatibus esse.",

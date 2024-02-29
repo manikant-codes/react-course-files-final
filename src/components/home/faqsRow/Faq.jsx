@@ -1,25 +1,39 @@
 import React, { useState } from "react";
+import styles from "../../../styles/home/faqsRow.module.css";
 
 function Faq(props) {
-  const { question, answer, number } = props;
-  const [isVisible, setIsVisible] = useState(false);
+  const { question, answer, number, index, selectedFaq, setSelectedFaq } =
+    props;
+  // const [isVisible, setIsVisible] = useState(false);
+
+  // function handleClick() {
+  //   setIsVisible(!isVisible);
+  // }
 
   function handleClick() {
-    setIsVisible(!isVisible);
+    setSelectedFaq(index);
   }
 
+  console.log("selectedFaq", selectedFaq);
+
   return (
-    <div>
-      <div>
-        <p>{number}</p>
-        <p>{question}</p>
-        {isVisible ? (
-          <i onClick={handleClick} className="fa-solid fa-chevron-up"></i>
+    <div className={styles.faqContainer}>
+      <div className={styles.faqQueContainer}>
+        <p>
+          <span>{number}</span>
+          {question}
+        </p>
+        {index === selectedFaq ? (
+          <div className={styles.arrowIcon} onClick={handleClick}>
+            <i className="fa-solid fa-chevron-up"></i>
+          </div>
         ) : (
-          <i onClick={handleClick} className="fa-solid fa-chevron-down"></i>
+          <div className={styles.arrowIcon} onClick={handleClick}>
+            <i className="fa-solid fa-chevron-down"></i>
+          </div>
         )}
       </div>
-      {isVisible && <p>{answer}</p>}
+      {index === selectedFaq && <p className={styles.faqAnsPara}>{answer}</p>}
     </div>
   );
 }

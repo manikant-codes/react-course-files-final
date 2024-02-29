@@ -2,7 +2,7 @@
 
 .rowContainer {
   padding: 32px;
-  background-color: #b2ebf2;
+  background-color: #e0f7fa;
 }
 
 .innerContainer {
@@ -17,7 +17,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  background-color: #e0f7fa;
+  background-color: #b2ebf2;
 }
 
 .serviceCardImgContainer {

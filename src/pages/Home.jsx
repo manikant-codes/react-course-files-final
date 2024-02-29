@@ -25,9 +25,9 @@ function Home() {
         desc={homeAboutRowData.desc}
         contentFirst
       />
-      <FaqsRow />
       <ServicesRow />
       <PricingRow />
+      <FaqsRow />
     </>
   );
 }
