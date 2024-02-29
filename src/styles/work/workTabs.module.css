@@ -1,0 +1,29 @@
+.tabsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.tabsList {
+  list-style-type: none;
+  display: flex;
+  gap: 16px;
+}
+
+.tabsList li {
+  background-color: #b2dfdb;
+  padding: 8px 16px;
+  border-radius: 32px;
+  cursor: pointer;
+  text-align: center;
+  font-weight: 600;
+}
+
+.tabsList li:hover {
+  background-color: #1de9b6;
+}
+
+.activeTab {
+  background-color: #1de9b6 !important;
+}
