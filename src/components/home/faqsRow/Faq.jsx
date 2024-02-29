@@ -11,30 +11,24 @@ function Faq(props) {
     setSelectedFaq(index);
   }
 
-  console.log("selectedFaq", selectedFaq);
-
   return (
     <div className={styles.faqContainer}>
-      <div>
+      <div className={styles.faqQueContainer}>
         <p>
           <span>{number}</span>
           {question}
         </p>
         {selectedFaq === index ? (
-          <FontAwesomeIcon
-            onClick={handleClick}
-            icon={faChevronUp}
-            style={{ cursor: "pointer" }}
-          />
+          <div onClick={handleClick} className={styles.arrowIconContainer}>
+            <FontAwesomeIcon icon={faChevronUp} />
+          </div>
         ) : (
-          <FontAwesomeIcon
-            onClick={handleClick}
-            icon={faChevronDown}
-            style={{ cursor: "pointer" }}
-          />
+          <div onClick={handleClick} className={styles.arrowIconContainer}>
+            <FontAwesomeIcon icon={faChevronDown} />
+          </div>
         )}
       </div>
-      {selectedFaq === index && <p>{answer}</p>}
+      {selectedFaq === index && <p className={styles.faqAnsPara}>{answer}</p>}
     </div>
   );
 }

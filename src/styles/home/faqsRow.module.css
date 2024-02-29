@@ -13,21 +13,41 @@
   flex-direction: column;
   gap: 8px;
   width: 100%;
+  background-color: #d1c4e9;
+  padding: 16px;
+  border-radius: 32px;
 }
 
-.faqContainer div {
+.faqQueContainer {
   display: flex;
   width: 100%;
   align-items: center;
 }
 
-.faqContainer div p {
+.faqQueContainer p {
   flex-grow: 1;
   font-size: 1.15rem;
   font-weight: 500;
   margin: 0px;
+  color: #311b92;
 }
 
-.faqContainer div p span {
+.faqQueContainer p span {
   margin-right: 12px;
+}
+
+.arrowIconContainer {
+  background-color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.arrowIconContainer:hover {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }

@@ -1,0 +1,36 @@
+.productsTabContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.productsTabList {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.productsTabList li {
+  background-color: #d1c4e9;
+  padding: 8px 16px;
+  border-radius: 32px;
+  min-width: 60px;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.productsTabList li:hover,
+.activeTab {
+  background-color: #673ab7;
+  color: white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.activeTab {
+  background-color: #673ab7 !important;
+}

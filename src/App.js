@@ -1,16 +1,12 @@
 import React from "react";
-import Home from "./pages/Home";
-import "./styles/app.css";
-import About from "./pages/About";
-import NotFound from "./pages/NotFound";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./layouts/Layout";
-import Products from "./pages/Products";
-import Foundations from "./pages/Foundations";
-import Blushers from "./pages/Blushers";
-import Compacts from "./pages/Compacts";
-import ProductsLayout from "./layouts/ProductsLayout";
+import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
+import Products from "./pages/Products";
+import "./styles/app.css";
 
 function App() {
   return (
@@ -20,13 +16,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="/products" element={<ProductsLayout />}>
-            <Route index element={<Products />} />
-            <Route path="foundations" element={<Foundations />} />
-            <Route path="blushers" element={<Blushers />} />
-            <Route path="compacts" element={<Compacts />} />
-            <Route path="*" element={<NotFound />} />
-          </Route>
+          <Route path="/products" element={<Products />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
