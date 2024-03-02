@@ -1,17 +1,6 @@
 import React, { useState } from "react";
 import styles from "../../styles/home/infoRow.module.css";
 
-// class Info extends React.Component {
-//   render() {
-//     useState();
-//     return <h1>Hello</h1>;
-//   }
-// }
-
-// function someFn() {
-//   useState();
-// }
-
 function InfoRow(props) {
   const [isContentFirst, setIsContentFirst] = useState(props.contentFirst);
 
