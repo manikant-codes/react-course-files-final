@@ -10,6 +10,7 @@ import {
   homeOurJourneyRowData,
 } from "../data/homePageData";
 import FaqsRow from "../components/home/faqsRow/FaqsRow";
+import Contact from "./Contact";
 
 function Home() {
   return (
@@ -31,7 +32,7 @@ function Home() {
       <ServicesRow />
       <PricingRow />
       <FaqsRow />
-      {/* <ConditionalRenderingDemo marks={2} /> */}
+      <Contact />
     </>
   );
 }

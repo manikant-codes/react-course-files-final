@@ -1,0 +1,21 @@
+.fromContainer {
+  padding: 32px;
+  background-color: #e0f2f1;
+  border-radius: 32px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nameEmailContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.nameEmailContainer div {
+  flex-grow: 1;
+}

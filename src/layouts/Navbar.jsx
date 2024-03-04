@@ -1,49 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/layouts/navbar.module.css";
 import styles from "../styles/layouts/navbar.module.css";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 function Navbar() {
-  //   const container = {
-  //     display: "flex",
-  //     alignItems: "center",
-  //     justifyContent: "space-between",
-  //     padding: "8px 32px",
-  //     backgroundColor: "#00695c",
-  //     color: "white",
-  //   };
+  const [isExpanded, setIsExpanded] = useState(false);
 
-  //   const ulStyles = {
-  //     display: "flex",
-  //     listStyleType: "none",
-  //     gap: "16px",
-  //     margin: "0px",
-  //     padding: "0px",
-  //   };
+  function toggleMenu() {
+    setIsExpanded(!isExpanded);
+  }
 
   return (
     <div className={styles.container}>
       <div>
         <h1>Logo</h1>
       </div>
-      <ul className={styles.ulStyles}>
-        <li>
-          {/* <a href="/">Home</a> */}
+      <ul
+        className={`${styles.links} ${
+          isExpanded ? styles.expanded : styles.collapsed
+        }`}
+      >
+        <li onClick={toggleMenu}>
           <Link to="/">Home</Link>
         </li>
-        <li>
-          {/* <a href="/about">About</a> */}
+        <li onClick={toggleMenu}>
           <Link to="/about">About</Link>
         </li>
-        <li>
-          {/* <a href="/about">About</a> */}
+        <li onClick={toggleMenu}>
           <Link to="/work">Work</Link>
         </li>
-        <li>
-          {/* <a href="/contact">Contact</a> */}
+        <li onClick={toggleMenu}>
           <Link to="/contact">Contact</Link>
         </li>
       </ul>
+      <button className={styles.menuBtn} onClick={toggleMenu}>
+        <FontAwesomeIcon icon={faBars} />
+      </button>
     </div>
   );
 }

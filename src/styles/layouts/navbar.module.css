@@ -3,15 +3,19 @@
   align-items: center;
   justify-content: space-between;
   padding: 8px 32px;
-  /* background-color: #009688; */
   background: linear-gradient(to right, #1de9b6, #00695c);
   color: white;
   width: 100% !important;
   margin: 0px;
   max-width: none;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
 }
 
-.ulStyles {
+.links {
   display: flex;
   list-style-type: none;
   gap: 16px;
@@ -19,11 +23,68 @@
   padding: 0px;
 }
 
-.ulStyles li a {
+.links li a {
   color: white;
   text-decoration: none;
 }
 
-.ulStyles li a:hover {
+.links li a:hover {
   text-decoration: underline;
+}
+
+.menuBtn {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  padding: 0;
+  flex-shrink: 0;
+  display: none;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.menuBtn:hover {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+@media screen and (max-width: 600px) {
+  .menuBtn {
+    display: block;
+  }
+  .links {
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 60px;
+    z-index: 100;
+    background-color: #e0f2f1;
+    transition: all 600ms ease;
+    gap: 0;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  .links li {
+    background-color: #b2dfdb;
+    border-bottom: solid 1px #00695c;
+    cursor: pointer;
+  }
+
+  .links li:hover {
+    background-color: #4db6ac;
+  }
+
+  .links li a {
+    color: #212121;
+    display: block;
+    padding: 16px;
+    width: 100%;
+  }
+
+  .expanded {
+    height: calc(100vh - 60px);
+  }
+
+  .collapsed {
+    height: 0px;
+  }
 }
