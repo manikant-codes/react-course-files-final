@@ -1,0 +1,15 @@
+.contactContainer {
+  padding: 32px;
+}
+
+.contactContainerInner {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 32px;
+}
+
+@media screen and (max-width: 600px) {
+  .contactContainerInner {
+    grid-template-columns: 1fr;
+  }
+}
