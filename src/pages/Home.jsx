@@ -11,6 +11,7 @@ import {
   homeOurJourneyRowData,
 } from "../data/homePageData";
 import FaqsRow from "../components/home/faqsRow/FaqsRow";
+import Contact from "./Contact";
 
 function Home() {
   return (
@@ -32,6 +33,7 @@ function Home() {
       <ProductsRow />
       <PricingRow />
       <FaqsRow />
+      <Contact />
     </>
   );
 }

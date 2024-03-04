@@ -1,26 +1,51 @@
-import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
+import React from "react";
 import styles from "../../../styles/contact/contactForm.module.css";
 
-const initialFormState = {
-  name: "",
-  email: "",
-  subject: "",
-  message: "",
-};
-
 function ContactForm() {
-  const [formState, setFormState] = useState(initialFormState);
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [subject, setSubject] = useState("");
+  // const [message, setMessage] = useState("");
 
-  function handleChange(e) {
-    console.log("e", e);
-    setFormState({ ...formState, [e.target.name]: e.target.value });
+  // function handleNameChange(e) {
+  //   setName(e.target.value);
+  // }
+
+  // function handleEmailChange(e) {
+  //   setEmail(e.target.value);
+  // }
+
+  // function handleSubjectChange(e) {
+  //   setSubject(e.target.value);
+  // }
+
+  // function handleMessageChange(e) {
+  //   setMessage(e.target.value);
+  // }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const form = e.target;
+
+    emailjs
+      .sendForm("SERVICE_ID", "TEMPLATE_ID", form, {
+        publicKey: "PUBLIC_KEY",
+      })
+      .then(() => {
+        form.reset();
+        alert("Form submitted successfully!");
+      })
+      .catch((error) => {
+        console.log("FAILED...", error.text);
+        alert("Failed to submit form!");
+      });
   }
-
-  console.log("formState", formState);
 
   return (
     <div className={styles.fromContainer}>
-      <form className={styles.form}>
+      <form id="contactForm" className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.nameEmailContainer}>
           <div>
             <label htmlFor="name">Your Name</label>
@@ -30,8 +55,8 @@ function ContactForm() {
               className="form-control"
               id="name"
               required=""
-              value={formState.name}
-              onChange={handleChange}
+              // value={name}
+              // onChange={handleNameChange}
             />
           </div>
           <div>
@@ -42,8 +67,8 @@ function ContactForm() {
               name="email"
               id="email"
               required=""
-              value={formState.email}
-              onChange={handleChange}
+              // value={email}
+              // onChange={handleEmailChange}
             />
           </div>
         </div>
@@ -55,8 +80,8 @@ function ContactForm() {
             name="subject"
             id="subject"
             required=""
-            value={formState.subject}
-            onChange={handleChange}
+            // value={subject}
+            // onChange={handleSubjectChange}
           />
         </div>
         <div>
@@ -66,8 +91,8 @@ function ContactForm() {
             name="message"
             rows="5"
             required=""
-            value={formState.message}
-            onChange={handleChange}
+            // value={message}
+            // onChange={handleMessageChange}
           ></textarea>
         </div>
         <div>
