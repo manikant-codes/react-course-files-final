@@ -1,0 +1,26 @@
+.popOverContainer {
+  position: fixed;
+  background-color: #ede7f6;
+  padding: 16px;
+  border-radius: 8px;
+  bottom: 50px;
+  right: -350px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  max-width: 300px;
+  transition: all 400ms ease;
+}
+
+.isVisible {
+  right: 50px;
+}
+
+.messageContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.messageContainer svg {
+  width: 20px;
+  height: 20px;
+}
