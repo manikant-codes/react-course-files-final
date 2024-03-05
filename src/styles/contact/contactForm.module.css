@@ -19,3 +19,24 @@
 .nameEmailContainer div {
   flex-grow: 1;
 }
+
+.submitBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.spinner {
+  animation-name: spin;
+  animation-iteration-count: infinite;
+  animation-duration: 1000ms;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

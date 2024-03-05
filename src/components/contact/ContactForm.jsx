@@ -1,44 +1,53 @@
 import emailjs from "@emailjs/browser";
-import React from "react";
+import React, { useState } from "react";
 import styles from "../../styles/contact/contactForm.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import PopOver from "../common/PopOver";
 
 function ContactForm() {
-  // const [name, setName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [subject, setSubject] = useState("");
-  // const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isError, setIsError] = useState(0);
 
-  // function handleNameChange(e) {
-  //   setName(e.target.value);
-  // }
-
-  // function handleEmailChange(e) {
-  //   setEmail(e.target.value);
-  // }
-
-  // function handleSubjectChange(e) {
-  //   setSubject(e.target.value);
-  // }
-
-  // function handleMessageChange(e) {
-  //   setMessage(e.target.value);
-  // }
+  function hidePopOver() {
+    setIsVisible(false);
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
     const form = e.target;
 
-    emailjs
-      .sendForm("service_1lj7h8a", "template_lqb9om5", form, {
-        publicKey: "cLinWhNUqZbIpCAga",
-      })
-      .then(() => {
-        form.reset();
-        alert("Form submitted successfully!");
-      })
-      .catch((error) => {
-        alert("Failed to submit form!");
-      });
+    try {
+      setLoading(true);
+
+      emailjs
+        .sendForm(
+          // process.env.REACT_APP_EJS_SERVICE_ID,
+          "",
+          process.env.REACT_APP_EJS_TEMPLATE_ID,
+          form,
+          {
+            publicKey: process.env.REACT_APP_EJS_PUBLIC_KEY,
+          }
+        )
+        .then(() => {
+          form.reset();
+          setIsError(-1);
+        })
+        .catch((error) => {
+          setIsError(1);
+        })
+        .finally(() => {
+          setLoading(false);
+          setIsVisible(true);
+        });
+    } catch (error) {
+      setIsError(1);
+    } finally {
+      setIsVisible(true);
+      setLoading(false);
+    }
   }
 
   return (
@@ -53,8 +62,6 @@ function ContactForm() {
               name="name"
               className="form-control"
               required=""
-              // value={name}
-              // onChange={handleNameChange}
             />
           </div>
           <div>
@@ -65,8 +72,6 @@ function ContactForm() {
               className="form-control"
               name="email"
               required=""
-              // value={email}
-              // onChange={handleEmailChange}
             />
           </div>
         </div>
@@ -78,8 +83,6 @@ function ContactForm() {
             className="form-control"
             name="subject"
             required=""
-            // value={subject}
-            // onChange={handleSubjectChange}
           />
         </div>
         <div>
@@ -90,14 +93,27 @@ function ContactForm() {
             name="message"
             rows="5"
             required=""
-            // value={message}
-            // onChange={handleMessageChange}
           ></textarea>
         </div>
         <div>
-          <button type="submit">Send Message</button>
+          <button type="submit" className={styles.submitBtn}>
+            {loading ? "Sending..." : "Send Message"}
+            {loading && (
+              <FontAwesomeIcon className={styles.spinner} icon={faSpinner} />
+            )}
+          </button>
         </div>
       </form>
+      <PopOver
+        message={
+          isError === 1
+            ? "Failed to submit the form."
+            : "Form submitted successfully."
+        }
+        status={isError === 1 ? "error" : "success"}
+        isVisible={isVisible}
+        hidePopOver={hidePopOver}
+      />
     </div>
   );
 }
