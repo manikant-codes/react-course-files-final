@@ -13,10 +13,16 @@ import {
 import FaqsRow from "../components/home/faqsRow/FaqsRow";
 import Contact from "./Contact";
 
-function Home() {
+function Home(props) {
   return (
     <>
-      <Hero />
+      <Hero
+        src="/images/05.jpg"
+        title="Transform Your Beauty Routine with Radiant, Confidence-Boosting
+          Cosmetics"
+        desc="Welcome to our cosmetic site! Discover high-quality, cruelty-free
+        makeup & skincare. Join our community! 💄✨"
+      />
       <InfoRow
         src={homeAboutUsRowData.src}
         title={homeAboutUsRowData.title}
@@ -33,7 +39,7 @@ function Home() {
       <ProductsRow />
       <PricingRow />
       <FaqsRow />
-      <Contact />
+      <Contact containerStyles={{ backgroundColor: "#d1c4e9" }} />
     </>
   );
 }

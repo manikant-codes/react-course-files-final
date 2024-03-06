@@ -1,20 +1,15 @@
 import React from "react";
 import styles from "../../styles/home/hero.module.css";
 
-function Hero() {
+function Hero(props) {
+  const { src, title, desc } = props;
   return (
     <div className={styles.container}>
       <div className={styles.overlay} />
-      <img src="/images/05.jpg" alt="" />
+      <img src={src} alt="" />
       <div className={styles.contentContainer}>
-        <h2>
-          Transform Your Beauty Routine with Radiant, Confidence-Boosting
-          Cosmetics
-        </h2>
-        <p>
-          Welcome to our cosmetic site! Discover high-quality, cruelty-free
-          makeup & skincare. Join our community! 💄✨
-        </p>
+        <h2>{title}</h2>
+        <p>{desc}</p>
         <button>Get In Touch</button>
       </div>
     </div>

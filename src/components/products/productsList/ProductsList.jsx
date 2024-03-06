@@ -16,7 +16,11 @@ function ProductsList(props) {
     <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
       <Masonry gutter="16px">
         {products[activeTab].map(function (src, index) {
-          return <img src={src} alt={"Image " + index} />;
+          return (
+            <div className={styles.imgContainer}>
+              <img src={src} alt={"Image " + index} />
+            </div>
+          );
         })}
       </Masonry>
     </ResponsiveMasonry>

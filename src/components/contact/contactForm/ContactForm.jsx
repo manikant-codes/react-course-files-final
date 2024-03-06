@@ -10,6 +10,7 @@ function ContactForm() {
 
   function hidePopOver() {
     setShowPopOver(false);
+    setIsError(0);
   }
 
   function handleSubmit(e) {
