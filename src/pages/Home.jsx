@@ -1,5 +1,5 @@
 import React from "react";
-import HeroSection from "../components/home/HeroSection";
+import Hero from "../components/home/Hero";
 import InfoRow from "../components/home/InfoRow";
 import CounterRow from "../components/home/counterRow/CounterRow";
 import PricingRow from "../components/home/pricingRow/PricingRow";
@@ -15,7 +15,7 @@ import Contact from "./Contact";
 function Home() {
   return (
     <>
-      <HeroSection />
+      <Hero />
       <InfoRow
         src={homeAboutUsRowData.src}
         title={homeAboutUsRowData.title}
