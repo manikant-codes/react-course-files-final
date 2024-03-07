@@ -5,6 +5,7 @@
   background-color: #263238;
   color: white;
   flex-wrap: wrap;
+  height: 80px;
 }
 
 .footerContainer div p {

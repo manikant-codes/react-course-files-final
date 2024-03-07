@@ -6,9 +6,9 @@ import { Outlet } from "react-router";
 function Layout() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Outlet />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
