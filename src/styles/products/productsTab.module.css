@@ -10,6 +10,7 @@
   margin: 0;
   display: flex;
   gap: 16px;
+  flex-wrap: wrap;
 }
 
 .tab {

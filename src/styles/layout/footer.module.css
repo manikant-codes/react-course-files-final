@@ -5,6 +5,8 @@
   align-items: center;
   background-color: #263238;
   color: white;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .container p {
@@ -16,6 +18,7 @@
   list-style-type: none;
   gap: 16px;
   margin: 0px;
+  padding: 0px;
 }
 
 .ulStyles li a {
@@ -25,4 +28,11 @@
 
 .ulStyles li a:hover {
   text-decoration: underline;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    text-align: center;
+    justify-content: center;
+  }
 }

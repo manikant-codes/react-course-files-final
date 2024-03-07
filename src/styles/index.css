@@ -1,3 +1,9 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
 button {
   background-color: #00e5ff;
   color: black;

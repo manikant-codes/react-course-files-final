@@ -1,23 +1,15 @@
-import React from "react";
-// import "../styles/home/navbar.css";
+import React, { useState } from "react";
 import styles from "../styles/layout/navbar.module.css";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faClose } from "@fortawesome/free-solid-svg-icons";
 
 function Navbar() {
-  // const navStyles = {
-  //   display: "flex",
-  //   justifyContent: "space-between",
-  //   padding: "16px 32px",
-  //   backgroundColor: "#03a9f4",
-  //   alignItems: "center",
-  // };
+  const [isVisible, setIsVisible] = useState(false);
 
-  // const ulStyles = {
-  //   listStyleType: "none",
-  //   display: "flex",
-  //   gap: "16px",
-  //   margin: "0px",
-  // };
+  function toggleMenu() {
+    setIsVisible(!isVisible);
+  }
 
   return (
     <nav className={styles.container}>
@@ -25,24 +17,27 @@ function Navbar() {
         <h1>Logo</h1>
       </div>
       <div>
-        <ul className={styles.ulStyles}>
-          <li>
-            {/* <a href="/">Home</a> */}
+        <ul className={`${styles.links} ${isVisible ? styles.visible : ""}`}>
+          <li onClick={toggleMenu}>
             <Link to="/">Home</Link>
           </li>
-          <li>
-            {/* <a href="/about">About</a> */}
+          <li onClick={toggleMenu}>
             <Link to="/about">About</Link>
           </li>
-          <li>
-            {/* <a href="/about">About</a> */}
+          <li onClick={toggleMenu}>
             <Link to="/products">Products</Link>
           </li>
-          <li>
-            {/* <a href="/contact">Contact</a> */}
+          <li onClick={toggleMenu}>
             <Link to="/contact">Contact</Link>
           </li>
         </ul>
+        <button className={styles.menuBtn} onClick={toggleMenu}>
+          {isVisible ? (
+            <FontAwesomeIcon icon={faClose} />
+          ) : (
+            <FontAwesomeIcon icon={faBars} />
+          )}
+        </button>
       </div>
     </nav>
   );

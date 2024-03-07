@@ -8,6 +8,8 @@ import {
   homeAboutUsRowData,
   homeOurJourneyRowData,
 } from "../data/homePageData";
+import CounterRow from "../components/home/counterRow/CounterRow";
+import Contact from "./Contact";
 
 function Home() {
   return (
@@ -24,9 +26,11 @@ function Home() {
         desc={homeAboutUsRowData.desc}
         contentFirst
       />
+      <CounterRow />
       <ServicesRow />
       <PricingRow />
       <FaqsRow />
+      <Contact />
     </>
   );
 }

@@ -1,0 +1,31 @@
+.rowContainer {
+  padding: 32px;
+  background-color: #003537;
+  color: #b2ebf2;
+}
+
+.counterContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+
+.counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.number {
+  font-size: 3rem;
+  font-weight: 700;
+  /* color: #ef6c00; */
+}
+
+@media screen and (max-width: 600px) {
+  .counterContainer {
+    grid-template-columns: 1fr;
+  }
+}
