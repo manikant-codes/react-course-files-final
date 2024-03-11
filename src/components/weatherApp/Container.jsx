@@ -1,20 +1,22 @@
 import React from "react";
-import styles from "../../styles/home/container.module.css";
+import styles from "../../styles/weatherApp/container.module.css";
 
 function Container() {
   return (
-    <div className={styles.containerOuter}>
-      <div className={styles.containerInner}>
-        <div className={styles.weatherInfoContainer}>
-          <div></div>
-          <div className={styles.tempInfoContainer}>
-            <img className={styles.weatherImg} src="/images/sunny.png" alt="" />
-            <h2>27°</h2>
-            <p>Thunderstorm</p>
+    <div className={styles.containerMain}>
+      <div className={styles.containerApp}>
+        <div className={styles.containerAppInnerUpper}>
+          <div className={styles.searchBar}></div>
+          <div className={styles.tempInfo}>
+            <img src="/images/sunny.png" alt="" />
+            <div>
+              <p className={styles.temperature}>23°</p>
+              <p className={styles.weather}>Thunderstorm</p>
+            </div>
           </div>
-          <div></div>
+          <div className={styles.extraInfo}></div>
         </div>
-        <div className={styles.listContainer}></div>
+        <div className={styles.containerAppInnerLower}></div>
       </div>
     </div>
   );
