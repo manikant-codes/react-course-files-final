@@ -1,10 +1,16 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
 button {
   border-radius: 32px;
   border: none;
   padding: 8px 16px;
-  background-color: #1de9b6;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 button:hover {
-  background-color: #00bfa5;
+  background-color: white;
 }
