@@ -30,36 +30,84 @@
   );
   border-radius: 40px;
   display: grid;
-  grid-template-rows: 50px 1fr 50px;
+  grid-template-rows: 75px 1fr 75px;
   gap: 8px;
 }
 
 .tempInfo {
   color: white;
   text-align: center;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 8px;
   /* max-height: 100%; */
   /* border-top: solid 1px white; */
 }
 
 .tempInfo img {
   width: 100%;
-  height: 200px;
+  height: 150px;
   object-fit: contain;
 }
 
+.tempInfo div {
+  padding: 16px;
+}
+
 .temperature {
-  font-size: 6rem;
+  font-size: 5rem;
   font-weight: bold;
   margin: 0px;
 }
 
 .weather {
-  font-size: 1.5rem;
+  font-size: 1.15rem;
   font-weight: 500;
   margin: 0px;
 }
 
 .containerAppInnerLower {
+}
+
+.searchBar {
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+}
+
+.searchBar input {
+  border-radius: 32px;
+  border: none;
+  height: 32px;
+  padding: 0px 16px;
+}
+
+.searchBar button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgb(255, 255, 255, 0.5);
+}
+
+.searchBar button:hover {
+  background-color: rgb(255, 255, 255, 1);
+}
+
+.extraInfo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 16px;
+}
+
+.extraInfo div {
+  text-align: center;
+  font-size: 0.8rem;
+  color: white;
+}
+
+.extraInfo div p {
+  margin: 0px;
 }
