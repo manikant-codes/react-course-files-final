@@ -1,0 +1,28 @@
+.navContainer {
+  display: flex;
+  background-color: #6a1b9a;
+  color: white;
+  padding: 16px 32px;
+  align-items: center;
+}
+
+.logo {
+  flex-grow: 1;
+}
+
+.links {
+  list-style-type: none;
+  display: flex;
+  gap: 16px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.links li a {
+  text-decoration: none;
+  color: white;
+}
+
+.links li a:hover {
+  text-decoration: underline;
+}
