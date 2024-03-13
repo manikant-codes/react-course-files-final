@@ -7,13 +7,12 @@ import {
   faSearch,
   faWind,
 } from "@fortawesome/free-solid-svg-icons";
+import { getWeatherData } from "../../services/apiServices";
 
 function Container() {
-  fetch(
-    "https://api.openweathermap.org/data/2.5/weather?q=surat&appid=2927389bf8b98ec157aee52c9c1f5b73"
-  ).then((res) => {
-    console.log(res);
-  });
+  const data = getWeatherData("delhi");
+
+  console.log("data", data);
 
   return (
     <div className={styles.containerMain}>
