@@ -7,8 +7,11 @@ import {
   faSearch,
   faWind,
 } from "@fortawesome/free-solid-svg-icons";
+import { getWeatherData } from "../../services/apiServices";
 
 function Container() {
+  const data = getWeatherData("mumbai");
+
   return (
     <div className={styles.containerOuter}>
       <div className={styles.containerInner}>
