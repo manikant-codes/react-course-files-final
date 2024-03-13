@@ -38,3 +38,11 @@
 // E.g. <input id="name" type="text" placeholder="Enter your name..." />
 // Controlled input:
 // E.g. <input id="name" type="text" placeholder="Enter your name..." value={name} onChnage={(e) => {setName(e.target.value)}} />
+
+// --------------------------------------------------
+// ASYNC
+// --------------------------------------------------
+
+// JS by design synchronous single-threaded language hai.
+// Async tasks aise tasks hain jo parallely hote hain.
+// Sync tasks aise tasks hain jo one-at-a-time hote hain.
