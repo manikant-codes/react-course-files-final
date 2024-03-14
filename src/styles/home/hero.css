@@ -1,0 +1,47 @@
+.heroContainer {
+  height: 75vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.heroImageContainer {
+  height: 100%;
+  width: 100%;
+}
+
+.heroImage {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.heroContentContainer {
+  position: absolute;
+  top: 50%;
+  left: 50px;
+  transform: translateY(-50%);
+  max-width: 750px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  /* font-size: 72px; */
+  /* background: -webkit-linear-gradient(#eee, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+}
+
+.heroDesc {
+}
+
+.heroBtn {
+  margin-top: 24px;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
