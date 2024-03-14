@@ -1,34 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import { getUsersData } from "../services/apiServices";
 
 function WeatherApp() {
-  // const response = fetch("https://jsonplaceholder.typicode.com/users")
-  //   .then((response) => {
-  //     return response.json();
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
+  const [users, setUsers] = useState(null);
 
-  // response
-  //   .then((data) => {
-  //     console.log(data);
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
+  if (!users) {
+    const users = getUsersData()
+      .then((data) => setUsers(data))
+      .catch((error) => console.log(error));
+  }
 
-  const response = fetch("https://jsonplaceholder.typicode.com/users")
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-
-  console.log("response");
+  console.log("users", users);
 
   return <div>WeatherApp</div>;
 }
