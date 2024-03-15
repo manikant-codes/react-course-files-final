@@ -1,0 +1,118 @@
+.containerOuter {
+  background: linear-gradient(
+    313deg,
+    rgba(2, 65, 155, 1) 0%,
+    rgba(64, 162, 208, 1) 50%,
+    rgba(78, 98, 254, 1) 100%
+  );
+  height: calc(100vh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerInner {
+  height: 80%;
+  width: 300px;
+  background-color: #000a18;
+  border-radius: 48px;
+  display: grid;
+  grid-template-rows: 1fr 80px;
+  gap: 16px;
+  padding: 12px;
+}
+
+.weatherInfoContainer {
+  background: linear-gradient(
+    0deg,
+    rgba(18, 113, 244, 1) 0%,
+    rgba(21, 192, 246, 1) 100%
+  );
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.listContainer {
+  height: 100%;
+}
+
+.searchbarContainer {
+  height: 100px;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+}
+
+.searchbarContainer input {
+  flex-grow: 1;
+  padding: 0px 16px;
+  border-radius: 32px;
+  border: none;
+  height: 36px;
+  width: 100%;
+}
+
+.searchbarContainer button {
+  height: 36px;
+  width: 36px;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: fit-content;
+  flex-shrink: 0 !important;
+}
+
+.extraInfoContainer {
+  height: 100px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  color: white;
+  gap: 8px;
+  padding: 16px;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.extraInfoContainer p {
+  margin: 0px;
+}
+
+.tempInfoContainer {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+  gap: 8px;
+}
+
+.tempInfoContainer div {
+  padding: 8px;
+}
+
+.tempInfoContainer h2 {
+  font-size: 6rem;
+  color: white;
+  margin: 0px;
+}
+
+.tempInfoContainer p {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: white;
+  margin: 0px;
+}
+
+.weatherImg {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  padding: 8px;
+}
