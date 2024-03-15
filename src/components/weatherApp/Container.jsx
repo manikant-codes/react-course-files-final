@@ -1,22 +1,26 @@
-import React, { useState } from "react";
-import styles from "../../styles/home/container.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCloudRain,
   faDroplet,
   faSearch,
   faWind,
 } from "@fortawesome/free-solid-svg-icons";
-import { getWeatherData } from "../../services/apiServices";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState } from "react";
+import {
+  getMultiDayWeatherData,
+  getWeatherData,
+} from "../../services/apiServices";
+import styles from "../../styles/weatherApp/container.module.css";
 import PopOver from "../common/PopOver";
+import WeatherCardSmall from "./WeatherCardSmall";
 
 function kelvinToCelcius(kelvin) {
   return Math.round(kelvin - 273.15);
 }
 
 function Container() {
-  // const data = getWeatherData("mumbai");
   const [weather, setWeather] = useState(null);
+  const [multiDayData, setMultiDayData] = useState(null);
   const [city, setCity] = useState("");
   const [isVisible, setIsVisible] = useState(false);
   const [error, setError] = useState();
@@ -35,6 +39,23 @@ function Container() {
         if (data.cod === "404") {
           throw new Error("City not found!");
         }
+        getMultiDayWeatherData(data.id)
+          .then((data) => {
+            let lst = data.list;
+            lst = lst.filter((value, index, array) => {
+              if (index === 0) {
+                return true;
+              }
+              if (index % 8 === 0) {
+                return true;
+              }
+              return false;
+            });
+            setMultiDayData(lst);
+          })
+          .catch((error) => {
+            console.log("Error: ", error);
+          });
         setWeather(data);
       })
       .catch((error) => {
@@ -44,6 +65,7 @@ function Container() {
   }
 
   console.log("weather", weather);
+  console.log("multiday", multiDayData);
 
   return (
     <div className={styles.containerOuter}>
@@ -95,7 +117,17 @@ function Container() {
             </>
           )}
         </div>
-        <div className={styles.listContainer}></div>
+        <div className={styles.listContainer}>
+          {multiDayData?.slice(0, 4).map((value, index) => {
+            return (
+              <WeatherCardSmall
+                icon={value.weather[0].icon}
+                temp={kelvinToCelcius(value.main.temp)}
+                dateTimeString={value.dt_txt}
+              />
+            );
+          })}
+        </div>
       </div>
       <PopOver
         message={error}
