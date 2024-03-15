@@ -1,0 +1,13 @@
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.title {
+  font-size: 2rem;
+}
+
+.desc {
+}
