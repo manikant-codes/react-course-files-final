@@ -120,3 +120,17 @@
   object-fit: contain;
   padding: 8px;
 }
+
+.btnMoreDays {
+  background-color: transparent;
+  color: white;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btnMoreDays:hover {
+  background-color: transparent;
+  text-decoration: underline;
+}
