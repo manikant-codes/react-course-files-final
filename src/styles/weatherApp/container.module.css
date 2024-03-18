@@ -19,7 +19,7 @@
   border-radius: 48px;
   padding: 8px;
   display: grid;
-  grid-template-rows: 1fr 100px;
+  grid-template-rows: 1fr 125px;
 }
 
 .containerAppInnerUpper {
@@ -69,6 +69,10 @@
 }
 
 .containerAppInnerLower {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 16px;
 }
 
 .searchBar {

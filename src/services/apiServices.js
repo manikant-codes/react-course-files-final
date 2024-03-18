@@ -15,10 +15,9 @@ function getWeatherData(city) {
   return promise;
 }
 
-function getMultiDayWeatherData(lat, lon, cnt) {
-  console.log("process.env.REACT_APP_OWA_KEY", process.env.REACT_APP_OWA_KEY);
+function getMultiDayWeatherData(id) {
   const promise = fetch(
-    `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_OWA_KEY}`
+    `http://api.openweathermap.org/data/2.5/forecast?id=${id}&appid=${process.env.REACT_APP_OWA_KEY}`
   )
     .then((response) => {
       return response.json();
