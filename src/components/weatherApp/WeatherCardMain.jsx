@@ -4,13 +4,55 @@ import {
   faWind,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState } from "react";
 import styles from "../../styles/weatherApp/container.module.css";
-import { getIcon, kelvinToCelcius } from "../../utils/weatherHelper";
+import {
+  getIcon,
+  getUniqueDays,
+  kelvinToCelcius,
+} from "../../utils/weatherHelper";
 import Searchbar from "./Searchbar";
+import {
+  getMultiDayWeatherData,
+  getWeatherData,
+} from "../../services/apiServices";
 
 function WeatherCardMain(props) {
-  const { showMoreDays, city, handleChange, handleSearch, weather } = props;
+  const {
+    showMoreDays,
+    weather,
+    setMultiDayData,
+    setWeather,
+    setIsVisible,
+    setError,
+  } = props;
+  const [city, setCity] = useState("");
+
+  function handleChange(e) {
+    setCity(e.target.value);
+  }
+
+  function handleSearch() {
+    getWeatherData(city)
+      .then((data) => {
+        if (data.cod === "404" || data.cod === "400") {
+          throw new Error(data.message);
+        }
+        getMultiDayWeatherData(data.id)
+          .then((data) => {
+            const list = getUniqueDays(data.list);
+            setMultiDayData(list);
+          })
+          .catch((error) => {
+            console.log("Error: ", error);
+          });
+        setWeather(data);
+      })
+      .catch((error) => {
+        setIsVisible(true);
+        setError(error.message);
+      });
+  }
 
   return (
     <div className={styles.weatherInfoContainer}>
@@ -22,7 +64,25 @@ function WeatherCardMain(props) {
         />
       )}
       {!weather ? (
-        <p style={{ textAlign: "center" }}>Please search a city!</p>
+        <div
+          style={{
+            padding: "16px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "16px",
+          }}
+        >
+          <img
+            src="/images/illustration.svg"
+            alt=""
+            style={{ width: "100%" }}
+          />
+          <p
+            style={{ textAlign: "center", fontSize: "1.5rem", color: "white" }}
+          >
+            Please search a city!
+          </p>
+        </div>
       ) : (
         <>
           <div className={styles.tempInfoContainer}>
@@ -30,9 +90,16 @@ function WeatherCardMain(props) {
               className={styles.weatherImg}
               src={getIcon(weather.weather[0].icon)}
               alt=""
+              style={{ height: showMoreDays ? "100px" : "150px" }}
             />
             <div>
-              <h2>{kelvinToCelcius(weather.main.temp)}°</h2>
+              <h2
+                style={{
+                  fontSize: showMoreDays ? "4rem" : "5rem",
+                }}
+              >
+                {kelvinToCelcius(weather.main.temp)}°
+              </h2>
               <p>{weather.weather[0].main}</p>
             </div>
           </div>

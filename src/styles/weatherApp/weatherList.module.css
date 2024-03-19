@@ -17,6 +17,12 @@
   height: 30px;
   overflow: hidden;
   color: white;
+  cursor: pointer;
+}
+
+.listItem:hover {
+  border: solid 1px rgba(21, 192, 246, 1);
+  border-radius: 32px;
 }
 
 .listItem p {

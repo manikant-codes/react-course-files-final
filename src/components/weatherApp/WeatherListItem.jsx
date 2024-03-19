@@ -4,7 +4,7 @@ import { getDateObject, getDayOfWeek } from "../../utils/dateHelper";
 import { getIcon, kelvinToCelcius } from "../../utils/weatherHelper";
 
 function WeatherListItem(props) {
-  const { weather } = props;
+  const { weather, setWeather } = props;
 
   // If !weather show some message and return.
   if (!weather) {
@@ -15,7 +15,12 @@ function WeatherListItem(props) {
   const day = getDayOfWeek(date);
 
   return (
-    <li className={styles.listItem}>
+    <li
+      className={styles.listItem}
+      onClick={() => {
+        setWeather(weather);
+      }}
+    >
       <p>{day}</p>
       <div className={styles.iconContainer}>
         <img
