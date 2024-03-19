@@ -19,7 +19,8 @@
   border-radius: 48px;
   padding: 8px;
   display: grid;
-  grid-template-rows: 1fr 125px;
+  gap: 8px;
+  grid-template-rows: auto 30px 1fr;
 }
 
 .containerAppInnerUpper {
@@ -30,7 +31,7 @@
   );
   border-radius: 40px;
   display: grid;
-  grid-template-rows: 75px 1fr 75px;
+  grid-template-rows: auto 1fr auto;
   gap: 8px;
 }
 
@@ -115,4 +116,17 @@
 
 .extraInfo div p {
   margin: 0px;
+}
+
+.viewMoreBtnContainer {
+}
+.viewMoreBtn {
+  background-color: transparent;
+  color: white;
+  border: none;
+}
+
+.viewMoreBtn:hover {
+  background-color: transparent;
+  text-decoration: underline;
 }
