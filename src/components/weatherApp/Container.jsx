@@ -7,15 +7,19 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import styles from "../../styles/weatherApp/container.module.css";
-import { getWeatherData } from "../../services/apiServices";
-
-function kelvinToCelcius(kelvin) {
-  return Math.round(kelvin - 273.15);
-}
+import {
+  getMultiDayWeatherData,
+  getWeatherData,
+} from "../../services/apiServices";
+import ThumbnailsList from "./thumbnailsList/ThumbnailsList";
+import { getWeatherIcon, kelvinToCelcius } from "../../helpers/weatherHelper";
 
 function Container() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState(null);
+  const [multiDayData, setMultiDayData] = useState(null);
+
+  console.log("multiDayData", multiDayData);
 
   function handleChange(e) {
     setCity(e.target.value);
@@ -25,12 +29,18 @@ function Container() {
     getWeatherData(city)
       .then((data) => {
         setWeather(data);
+        getMultiDayWeatherData(data.id)
+          .then((data) => {
+            setMultiDayData(data.list);
+          })
+          .catch((error) => {
+            console.log("Error: ", error);
+          });
+
         console.log("weather inner", weather);
       })
       .catch(() => {});
   }
-
-  console.log("weather outer", weather);
 
   function render() {
     if (!weather) {
@@ -41,11 +51,11 @@ function Container() {
         <div className={styles.tempInfoContainer}>
           <img
             className={styles.weatherImg}
-            src={`/images/${weather.weather[0].icon.slice(0, 2)}d.png`}
+            src={getWeatherIcon(weather)}
             alt=""
           />
           <div>
-            <h2>{kelvinToCelcius(weather.main.temp)}°</h2>
+            <h2>{kelvinToCelcius(weather.main.temp)}</h2>
             <p>{weather.weather[0].main}</p>
           </div>
         </div>
@@ -85,7 +95,7 @@ function Container() {
           </div>
           {render()}
         </div>
-        <div className={styles.listContainer}></div>
+        <ThumbnailsList multiDayData={multiDayData} />
       </div>
     </div>
   );
