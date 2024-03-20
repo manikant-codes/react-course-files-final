@@ -31,3 +31,9 @@
 .serviceCardTitle {
   font-size: 1.5rem;
 }
+
+@media screen and (max-width: 600px) {
+  .servicesRowContainerInner {
+    grid-template-columns: 1fr;
+  }
+}
