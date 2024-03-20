@@ -4,8 +4,9 @@ export function kelvinToCelcius(temperature) {
 }
 
 export function getFourDaysData(list) {
+  if (!list) return null;
   return list.filter((value, index) => {
-    if (index === 0 || index % 8 === 0) {
+    if (index % 8 === 0) {
       return true;
     }
     return false;

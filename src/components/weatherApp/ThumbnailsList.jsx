@@ -3,7 +3,7 @@ import Thumbnail from "./Thumbnail";
 import styles from "../../styles/weatherApp/container.module.css";
 
 function ThumbnailsList(props) {
-  const { multiDayData } = props;
+  const { multiDayData, setWeather } = props;
 
   return (
     <div className={styles.containerAppInnerLower}>
@@ -12,9 +12,10 @@ function ThumbnailsList(props) {
           return (
             <Thumbnail
               key={index}
-              icon={value}
-              temp={value.main.temp}
-              weather={value.weather[0].main}
+              // icon={value}
+              // temp={value.main.temp}
+              weather={value}
+              setWeather={setWeather}
             />
           );
         })}

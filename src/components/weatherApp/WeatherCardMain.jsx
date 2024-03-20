@@ -18,10 +18,15 @@ import {
 import styles from "../../styles/weatherApp/container.module.css";
 
 function WeatherCardMain(props) {
-  const { setIsVisible, setMultiDayData, setError, viewMore } = props;
+  const {
+    weather,
+    setIsVisible,
+    setError,
+    setMultiDayData,
+    viewMore,
+    setWeather,
+  } = props;
   const [city, setCity] = useState("");
-  const [weather, setWeather] = useState(null);
-  const [loading, setLoading] = useState(false);
 
   function handleChange(e) {
     setCity(e.target.value);
@@ -54,7 +59,16 @@ function WeatherCardMain(props) {
 
   function render() {
     if (!weather) {
-      return <h2>Please search a city!</h2>;
+      return (
+        <div style={{ padding: "16px" }}>
+          <img src="/images/main.webp" alt="" style={{ width: "100%" }} />
+          <h2
+            style={{ textAlign: "center", fontSize: "1.5rem", color: "white" }}
+          >
+            Please search a city!
+          </h2>
+        </div>
+      );
     }
     return (
       <>

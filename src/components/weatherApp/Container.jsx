@@ -7,8 +7,10 @@ import WeatherList from "./weatherList/WeatherList";
 
 function Container() {
   const [error, setError] = useState("");
+  // For PopOver
   const [isVisible, setIsVisible] = useState("");
   const [multiDayData, setMultiDayData] = useState(null);
+  const [weather, setWeather] = useState(null);
   const [viewMore, setViewMore] = useState(false);
 
   function toggleViewMore() {
@@ -28,16 +30,20 @@ function Container() {
           setMultiDayData={setMultiDayData}
           setError={setError}
           viewMore={viewMore}
+          weather={weather}
+          setWeather={setWeather}
         />
-        <div className={styles.viewMoreBtnContainer}>
-          <button className={styles.viewMoreBtn} onClick={toggleViewMore}>
-            {viewMore ? "View Less" : "View More"}
-          </button>
-        </div>
+        {weather && (
+          <div className={styles.viewMoreBtnContainer}>
+            <button className={styles.viewMoreBtn} onClick={toggleViewMore}>
+              {viewMore ? "View Less" : "View More"}
+            </button>
+          </div>
+        )}
         {viewMore ? (
-          <WeatherList multiDayData={multiDayData} />
+          <WeatherList multiDayData={multiDayData} setWeather={setWeather} />
         ) : (
-          <ThumbnailsList multiDayData={multiDayData} />
+          <ThumbnailsList multiDayData={multiDayData} setWeather={setWeather} />
         )}
       </div>
       <PopOver

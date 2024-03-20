@@ -3,12 +3,17 @@ import styles from "../../styles/weatherApp/thumbnail.module.css";
 import { getWeatherIcon, kelvinToCelcius } from "../../helpers/weatherHelpers";
 
 function Thumbnail(props) {
-  const { temp, icon, weather } = props;
+  const { weather, setWeather } = props;
   return (
-    <div className={styles.cardContainer}>
-      <p className={styles.temp}>{kelvinToCelcius(temp)}</p>
-      <img src={getWeatherIcon(icon)} alt="" className={styles.icon} />
-      <p className={styles.weather}>{weather}</p>
+    <div
+      className={styles.cardContainer}
+      onClick={() => {
+        setWeather(weather);
+      }}
+    >
+      <p className={styles.temp}>{kelvinToCelcius(weather.main.temp)}</p>
+      <img src={getWeatherIcon(weather)} alt="" className={styles.icon} />
+      <p className={styles.weather}>{weather.weather[0].main}</p>
     </div>
   );
 }

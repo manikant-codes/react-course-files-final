@@ -9,6 +9,11 @@
   padding: 4px;
   color: white;
   gap: 4px;
+  cursor: pointer;
+}
+
+.cardContainer:hover {
+  background-color: #13a3fb;
 }
 
 .temp {
