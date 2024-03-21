@@ -6,10 +6,12 @@ import PopOver from "../common/PopOver";
 import WeatherCardMain from "./WeatherCardMain";
 import WeatherList from "./WeatherList";
 import WeatherThumbnailsList from "./WeatherThumbnailsList";
+import Loader from "../common/Loader";
 
 function Container() {
   const [weather, setWeather] = useState(null);
   const [multiDayData, setMultiDayData] = useState(null);
+  const [multiDayLoading, setMultiDayLoading] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [error, setError] = useState();
   const [showMoreDays, setShowMoreDays] = useState(false);
@@ -22,6 +24,31 @@ function Container() {
     setIsVisible(false);
   }
 
+  function render() {
+    if (multiDayLoading) {
+      return (
+        <Loader
+          containerWidth="100%"
+          containerHeight="100%"
+          iconSize="2rem"
+          color="white"
+          containerStyles={{ padding: "16px" }}
+        />
+      );
+    }
+    if (!multiDayLoading) {
+      if (showMoreDays) {
+        return <WeatherList list={multiDayData} setWeather={setWeather} />;
+      }
+      return (
+        <WeatherThumbnailsList
+          multiDayData={multiDayData}
+          setWeather={setWeather}
+        />
+      );
+    }
+  }
+
   return (
     <div className={styles.containerOuter}>
       <div className={styles.containerInner}>
@@ -32,8 +59,9 @@ function Container() {
           setWeather={setWeather}
           setIsVisible={setIsVisible}
           setError={setError}
+          setMultiDayLoading={setMultiDayLoading}
         />
-        {weather && (
+        {weather && !multiDayLoading && (
           <div>
             <button className={styles.btnMoreDays} onClick={toggleShowMoreDays}>
               {!showMoreDays ? "Show More" : "Show Less"}
@@ -47,14 +75,7 @@ function Container() {
             </button>
           </div>
         )}
-        {showMoreDays ? (
-          <WeatherList list={multiDayData} setWeather={setWeather} />
-        ) : (
-          <WeatherThumbnailsList
-            multiDayData={multiDayData}
-            setWeather={setWeather}
-          />
-        )}
+        {render()}
       </div>
       <PopOver
         message={error}

@@ -16,6 +16,7 @@ import {
   getMultiDayWeatherData,
   getWeatherData,
 } from "../../services/apiServices";
+import Loader from "../common/Loader";
 
 function WeatherCardMain(props) {
   const {
@@ -25,19 +26,24 @@ function WeatherCardMain(props) {
     setWeather,
     setIsVisible,
     setError,
+    setMultiDayLoading,
   } = props;
   const [city, setCity] = useState("");
+  const [loading, setLoading] = useState(false);
 
   function handleChange(e) {
     setCity(e.target.value);
   }
 
   function handleSearch() {
+    setLoading(true);
+    setMultiDayLoading(true);
     getWeatherData(city)
       .then((data) => {
         if (data.cod === "404" || data.cod === "400") {
           throw new Error(data.message);
         }
+
         getMultiDayWeatherData(data.id)
           .then((data) => {
             const list = getUniqueDays(data.list);
@@ -51,19 +57,27 @@ function WeatherCardMain(props) {
       .catch((error) => {
         setIsVisible(true);
         setError(error.message);
+      })
+      .finally(() => {
+        setLoading(false);
+        setMultiDayLoading(false);
       });
   }
 
-  return (
-    <div className={styles.weatherInfoContainer}>
-      {!showMoreDays && (
-        <Searchbar
-          city={city}
-          handleChange={handleChange}
-          handleSearch={handleSearch}
+  function render() {
+    if (loading) {
+      return (
+        <Loader
+          iconSize="4rem"
+          containerHeight="100%"
+          containerWidth="100%"
+          iconStyles={{ marginBottom: "80px" }}
         />
-      )}
-      {!weather ? (
+      );
+    }
+
+    if (!weather && !loading) {
+      return (
         <div
           style={{
             padding: "16px",
@@ -83,42 +97,57 @@ function WeatherCardMain(props) {
             Please search a city!
           </p>
         </div>
-      ) : (
-        <>
-          <div className={styles.tempInfoContainer}>
-            <img
-              className={styles.weatherImg}
-              src={getIcon(weather.weather[0].icon)}
-              alt=""
-              style={{ height: showMoreDays ? "100px" : "150px" }}
-            />
-            <div>
-              <h2
-                style={{
-                  fontSize: showMoreDays ? "4rem" : "5rem",
-                }}
-              >
-                {kelvinToCelcius(weather.main.temp)}°
-              </h2>
-              <p>{weather.weather[0].main}</p>
-            </div>
+      );
+    }
+
+    return (
+      <>
+        <div className={styles.tempInfoContainer}>
+          <img
+            className={styles.weatherImg}
+            src={getIcon(weather.weather[0].icon)}
+            alt=""
+            style={{ height: showMoreDays ? "100px" : "150px" }}
+          />
+          <div>
+            <h2
+              style={{
+                fontSize: showMoreDays ? "4rem" : "5rem",
+              }}
+            >
+              {kelvinToCelcius(weather.main.temp)}°
+            </h2>
+            <p>{weather.weather[0].main}</p>
           </div>
-          <div className={styles.extraInfoContainer}>
-            <div>
-              <FontAwesomeIcon icon={faWind} />
-              <p>{weather.wind.speed} km/h</p>
-            </div>
-            <div>
-              <FontAwesomeIcon icon={faDroplet} />
-              <p>{weather.main.humidity}</p>
-            </div>
-            <div>
-              <FontAwesomeIcon icon={faCloudRain} />
-              <p>15 km/h</p>
-            </div>
+        </div>
+        <div className={styles.extraInfoContainer}>
+          <div>
+            <FontAwesomeIcon icon={faWind} />
+            <p>{weather.wind.speed} km/h</p>
           </div>
-        </>
+          <div>
+            <FontAwesomeIcon icon={faDroplet} />
+            <p>{weather.main.humidity}</p>
+          </div>
+          <div>
+            <FontAwesomeIcon icon={faCloudRain} />
+            <p>15 km/h</p>
+          </div>
+        </div>
+      </>
+    );
+  }
+
+  return (
+    <div className={styles.weatherInfoContainer}>
+      {!showMoreDays && (
+        <Searchbar
+          city={city}
+          handleChange={handleChange}
+          handleSearch={handleSearch}
+        />
       )}
+      {render()}
     </div>
   );
 }
