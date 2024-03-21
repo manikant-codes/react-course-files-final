@@ -8,7 +8,7 @@ import WeatherList from "./weatherList/WeatherList";
 function Container() {
   const [error, setError] = useState("");
   // For PopOver
-  const [isVisible, setIsVisible] = useState("");
+  const [isVisible, setIsVisible] = useState(false);
   const [multiDayData, setMultiDayData] = useState(null);
   const [weather, setWeather] = useState(null);
   const [viewMore, setViewMore] = useState(false);

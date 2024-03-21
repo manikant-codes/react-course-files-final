@@ -36,9 +36,11 @@ function WeatherCardMain(props) {
     getWeatherData(city)
       .then((data) => {
         const statusCode = Number(data.cod);
-        if (statusCode >= 400 && statusCode < 600) {
+        if (statusCode >= 400) {
           throw new Error(data.message);
         }
+
+        setWeather(data);
 
         getMultiDayWeatherData(data.id)
           .then((data) => {
@@ -47,8 +49,6 @@ function WeatherCardMain(props) {
           .catch((error) => {
             console.log("Error: ", error);
           });
-
-        setWeather(data);
       })
       .catch((error) => {
         console.log(error);
