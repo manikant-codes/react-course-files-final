@@ -3,6 +3,7 @@ import Navbar from "../components/home/Navbar";
 import Hero from "../components/home/Hero";
 import ServicesRow from "../components/home/servicesRow/ServicesRow";
 import InfoRow from "../components/home/infoRow/InfoRow";
+import ConditionalRendering from "../components/demo/ConditionalRendering";
 
 function Home() {
   return (
@@ -35,6 +36,7 @@ function Home() {
         contentFirst={true}
       />
       <ServicesRow />
+      <ConditionalRendering />
     </div>
   );
 }
