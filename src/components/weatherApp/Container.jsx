@@ -12,12 +12,23 @@ import {
   getWeatherData,
 } from "../../services/apiServices";
 import ThumbnailsList from "./thumbnailsList/ThumbnailsList";
-import { getWeatherIcon, kelvinToCelcius } from "../../helpers/weatherHelper";
+import {
+  getDayWiseData,
+  getWeatherCondition,
+  getWeatherIcon,
+  kelvinToCelcius,
+} from "../../helpers/weatherHelper";
+import WeatherList from "./weatherList/WeatherList";
 
 function Container() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState(null);
   const [multiDayData, setMultiDayData] = useState(null);
+  const [viewMore, setViewMore] = useState(false);
+
+  function toggleViewMore() {
+    setViewMore(!viewMore);
+  }
 
   console.log("multiDayData", multiDayData);
 
@@ -31,7 +42,8 @@ function Container() {
         setWeather(data);
         getMultiDayWeatherData(data.id)
           .then((data) => {
-            setMultiDayData(data.list);
+            const fiveDaysData = getDayWiseData(data.list);
+            setMultiDayData(fiveDaysData);
           })
           .catch((error) => {
             console.log("Error: ", error);
@@ -41,6 +53,8 @@ function Container() {
       })
       .catch(() => {});
   }
+
+  console.log("View More", viewMore);
 
   function render() {
     if (!weather) {
@@ -53,13 +67,19 @@ function Container() {
             className={styles.weatherImg}
             src={getWeatherIcon(weather)}
             alt=""
+            style={{ height: viewMore ? "100px" : "150px" }}
           />
           <div>
-            <h2>{kelvinToCelcius(weather.main.temp)}</h2>
-            <p>{weather.weather[0].main}</p>
+            <h2 style={{ fontSize: viewMore ? "4rem" : "6rem" }}>
+              {kelvinToCelcius(weather.main.temp)}
+            </h2>
+            <p>{getWeatherCondition(weather)}</p>
           </div>
         </div>
-        <div className={styles.extraInfoContainer}>
+        <div
+          className={styles.extraInfoContainer}
+          style={{ padding: viewMore ? "4px" : "8px" }}
+        >
           <div>
             <FontAwesomeIcon icon={faWind} />
             <p>{weather.wind.speed} km/h</p>
@@ -81,21 +101,35 @@ function Container() {
     <div className={styles.containerOuter}>
       <div className={styles.containerInner}>
         <div className={styles.weatherInfoContainer}>
-          <div className={styles.searchbarContainer}>
-            <input
-              type="text"
-              placeholder="Enter city..."
-              required={true}
-              value={city}
-              onChange={handleChange}
-            />
-            <button onClick={handleSearch}>
-              <FontAwesomeIcon icon={faSearch} />
-            </button>
-          </div>
+          {viewMore === false && (
+            <div className={styles.searchbarContainer}>
+              <input
+                type="text"
+                placeholder="Enter city..."
+                required={true}
+                value={city}
+                onChange={handleChange}
+              />
+              <button onClick={handleSearch}>
+                <FontAwesomeIcon icon={faSearch} />
+              </button>
+            </div>
+          )}
           {render()}
         </div>
-        <ThumbnailsList multiDayData={multiDayData} />
+        {weather && (
+          <div className={styles.viewMoreBtnContainer}>
+            <button className={styles.viewMoreBtn} onClick={toggleViewMore}>
+              View More
+            </button>
+          </div>
+        )}
+
+        {viewMore ? (
+          <WeatherList multiDayData={multiDayData} setWeather={setWeather} />
+        ) : (
+          <ThumbnailsList multiDayData={multiDayData} setWeather={setWeather} />
+        )}
       </div>
     </div>
   );

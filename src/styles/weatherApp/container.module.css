@@ -112,3 +112,20 @@
   object-fit: contain;
   padding: 8px;
 }
+
+.viewMoreBtnContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.viewMoreBtn {
+  background-color: transparent;
+  color: white;
+  padding: 0px;
+}
+
+.viewMoreBtn:hover {
+  background-color: transparent;
+  text-decoration: underline;
+}
