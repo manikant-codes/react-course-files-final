@@ -10,6 +10,7 @@ function Container() {
   // For PopOver
   const [isVisible, setIsVisible] = useState(false);
   const [multiDayData, setMultiDayData] = useState(null);
+  const [multiDayLoading, setMultiDayLoading] = useState(false);
   const [weather, setWeather] = useState(null);
   const [viewMore, setViewMore] = useState(false);
 
@@ -32,6 +33,7 @@ function Container() {
           viewMore={viewMore}
           weather={weather}
           setWeather={setWeather}
+          setMultiDayLoading={setMultiDayLoading}
         />
         {weather && (
           <div className={styles.viewMoreBtnContainer}>
@@ -43,7 +45,11 @@ function Container() {
         {viewMore ? (
           <WeatherList multiDayData={multiDayData} setWeather={setWeather} />
         ) : (
-          <ThumbnailsList multiDayData={multiDayData} setWeather={setWeather} />
+          <ThumbnailsList
+            multiDayData={multiDayData}
+            setWeather={setWeather}
+            multiDayLoading={multiDayLoading}
+          />
         )}
       </div>
       <PopOver

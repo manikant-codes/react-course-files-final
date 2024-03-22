@@ -1,0 +1,19 @@
+.container {
+
+}
+
+.icon {
+  animation-name: spin;
+  animation-timing-function: cubic-bezier(0.05, 0.7, 1, 0.38);
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

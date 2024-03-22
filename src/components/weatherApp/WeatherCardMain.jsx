@@ -16,6 +16,7 @@ import {
   getWeatherData,
 } from "../../services/apiServices";
 import styles from "../../styles/weatherApp/container.module.css";
+import Loader from "../common/Loader";
 
 function WeatherCardMain(props) {
   const {
@@ -25,14 +26,17 @@ function WeatherCardMain(props) {
     setMultiDayData,
     viewMore,
     setWeather,
+    setMultiDayLoading,
   } = props;
   const [city, setCity] = useState("");
+  const [loading, setLoading] = useState(false);
 
   function handleChange(e) {
     setCity(e.target.value);
   }
 
   function handleSearch() {
+    setLoading(true);
     getWeatherData(city)
       .then((data) => {
         const statusCode = Number(data.cod);
@@ -42,22 +46,41 @@ function WeatherCardMain(props) {
 
         setWeather(data);
 
+        setMultiDayLoading(true);
         getMultiDayWeatherData(data.id)
           .then((data) => {
             setMultiDayData(getFourDaysData(data.list));
           })
           .catch((error) => {
             console.log("Error: ", error);
+          })
+          .finally(() => {
+            setMultiDayLoading(false);
           });
       })
       .catch((error) => {
         console.log(error);
         setError(error.message);
         setIsVisible(true);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   }
 
   function render() {
+    if (loading) {
+      return (
+        <Loader
+          iconSize="3rem"
+          containerHeight="100%"
+          containerWidth="100%"
+          iconStyles={{
+            marginBottom: "60px",
+          }}
+        />
+      );
+    }
     if (!weather) {
       return (
         <div style={{ padding: "16px" }}>
@@ -103,17 +126,19 @@ function WeatherCardMain(props) {
   }
 
   return (
-    <div className={styles.containerAppInnerUpper}>
-      {!viewMore && (
-        <div className={styles.searchBar}>
-          <input type="text" value={city} onChange={handleChange} />
-          <button onClick={handleSearch}>
-            <FontAwesomeIcon icon={faSearch} />
-          </button>
-        </div>
-      )}
-      {render()}
-    </div>
+    <>
+      <div className={styles.containerAppInnerUpper}>
+        {!viewMore && (
+          <div className={styles.searchBar}>
+            <input type="text" value={city} onChange={handleChange} />
+            <button onClick={handleSearch}>
+              <FontAwesomeIcon icon={faSearch} />
+            </button>
+          </div>
+        )}
+        {render()}
+      </div>
+    </>
   );
 }
 
