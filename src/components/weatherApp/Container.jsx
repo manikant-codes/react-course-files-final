@@ -6,59 +6,99 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
-import styles from "../../styles/weatherApp/container.module.css";
-import {
-  getMultiDayWeatherData,
-  getWeatherData,
-} from "../../services/apiServices";
-import ThumbnailsList from "./thumbnailsList/ThumbnailsList";
 import {
   getDayWiseData,
   getWeatherCondition,
   getWeatherIcon,
   kelvinToCelcius,
 } from "../../helpers/weatherHelper";
+import {
+  getMultiDayWeatherData,
+  getWeatherData,
+} from "../../services/apiServices";
+import styles from "../../styles/weatherApp/container.module.css";
+import ThumbnailsList from "./thumbnailsList/ThumbnailsList";
 import WeatherList from "./weatherList/WeatherList";
+import Loader from "../common/Loader";
+import PopOver from "../common/PopOver";
 
 function Container() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [loadingMultiDay, setLoadingMultiDay] = useState(false);
   const [multiDayData, setMultiDayData] = useState(null);
   const [viewMore, setViewMore] = useState(false);
+  const [error, setError] = useState("");
+  const [isVisible, setIsVisible] = useState(false);
+
+  function hidePopOver() {
+    setIsVisible(false);
+    setError("");
+    setWeather(null);
+    setMultiDayData(null);
+  }
 
   function toggleViewMore() {
     setViewMore(!viewMore);
   }
-
-  console.log("multiDayData", multiDayData);
 
   function handleChange(e) {
     setCity(e.target.value);
   }
 
   function handleSearch() {
+    setLoading(true);
     getWeatherData(city)
       .then((data) => {
+        if (Number(data.cod) >= 400) {
+          setError(data.message);
+          setIsVisible(true);
+        }
         setWeather(data);
+        setLoadingMultiDay(true);
         getMultiDayWeatherData(data.id)
           .then((data) => {
             const fiveDaysData = getDayWiseData(data.list);
             setMultiDayData(fiveDaysData);
           })
           .catch((error) => {
-            console.log("Error: ", error);
+            setError(error.message);
+            setIsVisible(true);
+          })
+          .finally(() => {
+            setLoadingMultiDay(false);
           });
 
         console.log("weather inner", weather);
       })
-      .catch(() => {});
+      .catch((error) => {
+        setError(error.message);
+        setIsVisible(true);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }
 
-  console.log("View More", viewMore);
-
   function render() {
-    if (!weather) {
+    if (loading) {
+      return (
+        <Loader
+          containerWidth="100%"
+          containerHeight="100%"
+          loaderSize="3rem"
+          loaderStyles={{
+            marginBottom: "60px",
+          }}
+        />
+      );
+    }
+    if (!loading && !weather) {
       return <h1>Please select a city!</h1>;
+    }
+    if (error) {
+      return <h1>Something went wrong!</h1>;
     }
     return (
       <>
@@ -97,6 +137,32 @@ function Container() {
     );
   }
 
+  function renderList() {
+    if (loadingMultiDay) {
+      return (
+        <Loader
+          loaderStyles={{ padding: "2rem" }}
+          containerWidth="100%"
+          containerHeight="100%"
+          loaderSize="2rem"
+          loaderColor="white"
+        />
+      );
+    } else {
+      if (weather) {
+        if (viewMore) {
+          return (
+            <WeatherList multiDayData={multiDayData} setWeather={setWeather} />
+          );
+        }
+        return (
+          <ThumbnailsList multiDayData={multiDayData} setWeather={setWeather} />
+        );
+      }
+      return null;
+    }
+  }
+
   return (
     <div className={styles.containerOuter}>
       <div className={styles.containerInner}>
@@ -124,13 +190,14 @@ function Container() {
             </button>
           </div>
         )}
-
-        {viewMore ? (
-          <WeatherList multiDayData={multiDayData} setWeather={setWeather} />
-        ) : (
-          <ThumbnailsList multiDayData={multiDayData} setWeather={setWeather} />
-        )}
+        {renderList()}
       </div>
+      <PopOver
+        message={error}
+        status="error"
+        isVisible={isVisible}
+        hidePopOver={hidePopOver}
+      />
     </div>
   );
 }
