@@ -5,12 +5,14 @@ import ServicesRow from "../components/home/servicesRow/ServicesRow";
 import InfoRow from "../components/home/infoRow/InfoRow";
 import ConditionalRendering from "../components/demo/ConditionalRendering";
 import Modules, { num, name } from "../components/demo/Modules";
+import ClientsRow from "../components/home/clientsRow/ClientsRow";
 
 function Home() {
   return (
     <div>
       <Navbar />
       <Hero />
+      <ClientsRow />
       <InfoRow
         image="/images/about-info.jpg"
         title="About Us"
