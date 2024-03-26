@@ -12,6 +12,7 @@ function Loader(props) {
     loaderStyles = {},
     loaderColor = "inherit",
   } = props;
+
   return (
     <div
       className={styles.loaderContainer}
