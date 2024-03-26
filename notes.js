@@ -46,3 +46,22 @@
 // JS by design synchronous single-threaded language hai.
 // Async tasks aise tasks hain jo parallely hote hain.
 // Sync tasks aise tasks hain jo one-at-a-time hote hain.
+
+// --------------------------------------------------
+// useEffect Hook
+// --------------------------------------------------
+
+// Ye hook aap ko side-effect karne deta hai.
+// Side-effects yane aise kaam jo aap ko component render hoo uske saath karne hoo. Aur usually inhe karne ke liye aap ko react ke bahar jane ki jarurat padti hai (browser ke paas).
+// E.g. component render hone ke saath data fetch karana.
+// E.g. component render hone ke saath timer start karna.
+
+// useEffect kuch return nahi karta hai.
+// useEffect do arguments le sakta hai, pehla rgument hai ek callback function, dusra argument hota hai dependency array.
+// Dusra argument optional hota hai. Lekin likhna chahiye.
+
+// useEffect component render/re-render hone ke baad chalta hai.
+// render hona yane return statement chaljane ke baad.
+
+// Agar dependency array nahi doge to useEffect har render pe chalega.
+// Agar empty dependency array doge to useEffect sirf pehle render pe chalega.
