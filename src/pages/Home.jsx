@@ -27,15 +27,9 @@ function Home() {
 
   console.log("C");
 
-  if (loading) return <h1>Loading...</h1>;
-
-  console.log("D");
-
-  if (!loading && (error || !users)) return <h1>Something went wrong...</h1>;
-
   return (
     <div>
-      {users.map((value, index) => {
+      {users?.map((value, index) => {
         return <p key={value.id}>{value.name}</p>;
       })}
     </div>
