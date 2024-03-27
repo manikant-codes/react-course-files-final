@@ -1,10 +1,10 @@
 import React from "react";
-import UseEffectDemo from "../components/demos/UseEffectDemo";
+import UseEffectScrollDemo from "../components/demos/UseEffectScrollDemo";
 
 function Home() {
   return (
     <div>
-      <UseEffectDemo />
+      <UseEffectScrollDemo />
     </div>
   );
 }

@@ -65,3 +65,5 @@
 
 // Agar dependency array nahi doge to useEffect har render pe chalega.
 // Agar empty dependency array doge to useEffect sirf pehle render pe chalega.
+
+// return statement chaljane ke baad / Component render hone ke baad useEffect chalta hai.
