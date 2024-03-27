@@ -1,35 +1,9 @@
 import React from "react";
 import styles from "../../../styles/home/clientsRow.module.css";
 import ClientLogo from "./ClientLogo";
+import { logos } from "../../../data/home";
 
 function ClientsRow() {
-  const logos = [
-    {
-      src: "/images/company-logos/client-1.png",
-      alt: "client-1",
-    },
-    {
-      src: "/images/company-logos/client-2.png",
-      alt: "client-2",
-    },
-    {
-      src: "/images/company-logos/client-3.png",
-      alt: "client-3",
-    },
-    {
-      src: "/images/company-logos/client-4.png",
-      alt: "client-4",
-    },
-    {
-      src: "/images/company-logos/client-5.png",
-      alt: "client-5",
-    },
-    {
-      src: "/images/company-logos/client-6.png",
-      alt: "client-6",
-    },
-  ];
-  
   //   const arr = [
   //     <ClientLogo src="/images/company-logos/client-1.png" alt="client-1" />,
   //     <ClientLogo src="/images/company-logos/client-2.png" alt="client-2" />,
@@ -39,11 +13,13 @@ function ClientsRow() {
   //     <ClientLogo src="/images/company-logos/client-6.png" alt="client-6" />,
   //   ];
 
-  const arr = logos.map(function (value, index, array) {
-    return <ClientLogo src={value.src} alt={value.alt} />;
-  });
-
-  return <div className={styles.clientsRowContainer}>{arr}</div>;
+  return (
+    <div className={styles.clientsRowContainer}>
+      {logos.map(function (value, index, array) {
+        return <ClientLogo src={value.src} alt={value.alt} />;
+      })}
+    </div>
+  );
 }
 
 export default ClientsRow;

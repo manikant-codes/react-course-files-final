@@ -1,0 +1,49 @@
+.containerOuter {
+  padding: 32px;
+}
+
+.containerInner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 32px;
+  gap: 16px;
+}
+
+.cardContainer {
+  background-color: #f3e5f5;
+  padding: 32px;
+  border-radius: 16px;
+  border: solid 1px #ce93d8;
+}
+
+.priceSection {
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.price {
+  font-size: 3rem;
+  color: #9c27b0;
+  font-weight: 600;
+}
+
+.featuresList {
+  list-style-type: none;
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.featuresList li svg {
+  margin-right: 12px;
+}
+
+@media screen and (max-width: 600px) {
+  .containerInner {
+    grid-template-columns: 1fr;
+  }
+}

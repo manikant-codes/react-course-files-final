@@ -6,6 +6,7 @@ import InfoRow from "../components/home/infoRow/InfoRow";
 import ConditionalRendering from "../components/demo/ConditionalRendering";
 import Modules, { num, name } from "../components/demo/Modules";
 import ClientsRow from "../components/home/clientsRow/ClientsRow";
+import PricingRow from "../components/home/pricingRow/PricingRow";
 
 function Home() {
   return (
@@ -39,8 +40,7 @@ function Home() {
         contentFirst={true}
       />
       <ServicesRow />
-      <ConditionalRendering />
-      <Modules />
+      <PricingRow />
     </div>
   );
 }
