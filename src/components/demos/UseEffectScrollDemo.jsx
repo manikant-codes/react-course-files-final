@@ -1,18 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import useScroll from "../../customHooks/useScroll";
 
 function UseEffectScrollDemo() {
   const { scroll, scrollToTop } = useScroll();
-
-  const [width, setWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    window.addEventListener("resize", () => {
-      setWidth(window.innerWidth);
-    });
-  }, []);
-
-  console.log(width);
 
   return (
     <div>
@@ -29,7 +19,7 @@ function UseEffectScrollDemo() {
           Scroll to Top
         </button>
       )}
-      {width > 500 && <img src="/images/01d.png" />}
+
       <p>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero, modi?
         Cumque illo ducimus illum dicta. Accusantium non sunt et sint modi
