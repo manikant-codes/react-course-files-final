@@ -1,32 +1,25 @@
 import React, { useEffect, useState } from "react";
+import Loader from "../common/Loader";
+import useFetch from "../../customHooks/useFetch";
 
 function UseEffectDemo() {
-  const [users, setUsers] = useState(null);
+  const {
+    loading,
+    data: users,
+    error,
+  } = useFetch("https://jsonplaceholder.typicode.com/users");
 
-  console.log("A");
+  if (loading) return <Loader loaderSize="3rem" containerHeight="100vh" />;
 
-  useEffect(
-    () => {
-      console.log("B");
+  if ((!loading && error) || !users) return <h1>Something went wrong...</h1>;
 
-      fetch("https://jsonplaceholder.typicode.com/users")
-        .then((response) => {
-          const json = response.json();
-          return json;
-        })
-        .then((data) => {
-          console.log("data", data);
-          setUsers(data);
-        })
-        .catch((error) => {
-          console.log("Error: ", error);
-        });
-    } /*[users, count]*/
+  return (
+    <div>
+      {users?.map((value) => {
+        return <p key={value.id}>{value.name}</p>;
+      })}
+    </div>
   );
-
-  console.log("C");
-
-  return <div>{users && users[0].name}</div>;
 }
 
 export default UseEffectDemo;

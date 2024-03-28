@@ -5,8 +5,8 @@ import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 function Loader(props) {
   const {
-    containerHeight = "auto",
-    containerWidth = "auto",
+    containerHeight = "100%",
+    containerWidth = "100%",
     containerStyles = {},
     loaderSize = "1rem",
     loaderStyles = {},
