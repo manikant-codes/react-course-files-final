@@ -4,6 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 function Hero() {
+  function handleClick(msg, e) {
+    console.log(e);
+    alert(msg);
+  }
+
   return (
     <div className={styles.heroContainer}>
       <div className={styles.heroImageContainer}>
@@ -18,7 +23,12 @@ function Hero() {
           changing digital landscape 🌐. Let us unlock your business's full
           potential with customized tech solutions 💡.
         </p>
-        <button className={styles.heroBtn}>
+        <button
+          className={styles.heroBtn}
+          onClick={function (e) {
+            handleClick("Message", e);
+          }}
+        >
           Know More <FontAwesomeIcon icon={faArrowRight} />
         </button>
       </div>

@@ -16,7 +16,7 @@ function ClientsRow() {
   return (
     <div className={styles.clientsRowContainer}>
       {logos.map(function (value, index, array) {
-        return <ClientLogo src={value.src} alt={value.alt} />;
+        return <ClientLogo key={index} src={value.src} alt={value.alt} />;
       })}
     </div>
   );

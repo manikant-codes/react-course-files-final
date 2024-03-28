@@ -20,6 +20,7 @@ function PricingCard(props) {
                 textDecoration:
                   value.isIncluded === false ? "line-through" : "none",
               }}
+              key={index}
             >
               <FontAwesomeIcon
                 icon={value.isIncluded === false ? faClose : faCheck}

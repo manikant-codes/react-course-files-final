@@ -6,9 +6,9 @@ import { plans } from "../../../data/home";
 
 function PricingRow() {
   //   const arr = [
-  //     <PricingCard princing={plans[0]} />,
-  //     <PricingCard princing={plans[1]} />,
-  //     <PricingCard princing={plans[2]} />,
+  //     <PricingCard key={0} princing={plans[0]} />,
+  //     <PricingCard key={1} princing={plans[1]} />,
+  //     <PricingCard key={2} princing={plans[2]} />,
   //   ];
 
   return (
@@ -19,7 +19,7 @@ function PricingRow() {
       />
       <div className={styles.containerInner}>
         {plans.map(function (value, index, array) {
-          return <PricingCard pricing={value} />;
+          return <PricingCard key={index} pricing={value} />;
         })}
       </div>
     </div>

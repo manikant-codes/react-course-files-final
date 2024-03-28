@@ -1,12 +1,11 @@
 import React from "react";
-import Navbar from "../components/home/Navbar";
 import Hero from "../components/home/Hero";
-import ServicesRow from "../components/home/servicesRow/ServicesRow";
-import InfoRow from "../components/home/infoRow/InfoRow";
-import ConditionalRendering from "../components/demo/ConditionalRendering";
-import Modules, { num, name } from "../components/demo/Modules";
+import Navbar from "../components/home/Navbar";
 import ClientsRow from "../components/home/clientsRow/ClientsRow";
+import InfoRow from "../components/home/infoRow/InfoRow";
 import PricingRow from "../components/home/pricingRow/PricingRow";
+import ServicesRow from "../components/home/servicesRow/ServicesRow";
+import Footer from "../components/home/Footer";
 
 function Home() {
   return (
@@ -41,6 +40,7 @@ function Home() {
       />
       <ServicesRow />
       <PricingRow />
+      <Footer />
     </div>
   );
 }
