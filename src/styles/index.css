@@ -3,3 +3,20 @@
   margin: 0px;
   box-sizing: border-box;
 }
+
+button {
+  background-color: #ee6b2f;
+  border: none;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #ca5119;
+  color: white;
+}
+
+input[type="text"] {
+  border-radius: 4px;
+}

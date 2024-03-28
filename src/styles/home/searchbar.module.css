@@ -1,0 +1,31 @@
+.container {
+  background-color: #424242;
+  padding: 12px 32px;
+}
+
+.innerContainer {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.input {
+  padding: 4px;
+  height: 36px;
+  border: none;
+}
+
+.input:focus {
+  outline: solid 2px #ee6b2f;
+}
+
+.searchBtn {
+  padding: 8px;
+  border-radius: 50%;
+  width: 37px;
+  height: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
