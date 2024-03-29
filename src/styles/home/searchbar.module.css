@@ -1,6 +1,6 @@
 .container {
   background-color: #424242;
-  padding: 12px 32px;
+  padding: 16px 32px;
 }
 
 .innerContainer {
@@ -11,18 +11,20 @@
 }
 
 .input {
-  padding: 4px;
+  padding: 6px;
   height: 36px;
   border: none;
+  border-radius: 4px;
 }
 
 .input:focus {
   outline: solid 2px #ee6b2f;
+  outline-offset: -2px;
 }
 
 .searchBtn {
   padding: 8px;
-  border-radius: 50%;
+  border-radius: 4px;
   width: 37px;
   height: 37px;
   display: flex;
