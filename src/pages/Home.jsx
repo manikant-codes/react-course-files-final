@@ -6,6 +6,7 @@ import InfoRow from "../components/home/infoRow/InfoRow";
 import PricingRow from "../components/home/pricingRow/PricingRow";
 import ServicesRow from "../components/home/servicesRow/ServicesRow";
 import Footer from "../components/home/Footer";
+import Destructuring from "../components/demo/Destructuring";
 
 function Home() {
   return (
@@ -41,6 +42,7 @@ function Home() {
       <ServicesRow />
       <PricingRow />
       <Footer />
+      {/* <Destructuring /> */}
     </div>
   );
 }

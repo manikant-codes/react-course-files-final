@@ -3,19 +3,21 @@ import Image from "./Image";
 import Info from "./Info";
 import "../../../styles/home/infoRow.css";
 
-function InfoRow(props) {
-  if (props.contentFirst) {
+function InfoRow({ contentFirst, image, title, desc }) {
+  // const { contentFirst, image, title, desc } = props;
+
+  if (contentFirst) {
     return (
       <div className="infoRowContainer">
-        <Info title={props.title} desc={props.desc} />
-        <Image image={props.image} />
+        <Info title={title} desc={desc} />
+        <Image image={image} />
       </div>
     );
   }
   return (
     <div className="infoRowContainer">
-      <Image image={props.image} />
-      <Info title={props.title} desc={props.desc} />
+      <Image image={image} />
+      <Info title={title} desc={desc} />
     </div>
   );
 }
