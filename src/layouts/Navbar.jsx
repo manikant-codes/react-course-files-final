@@ -1,5 +1,6 @@
 import React from "react";
-import "../../styles/home/navbar.css";
+import "../styles/home/navbar.css";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -7,16 +8,16 @@ function Navbar() {
       <h1 className="logo">Purple Bit</h1>
       <ul className="links">
         <li>
-          <a href="">Home</a>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <a href="">About</a>
+          <Link to="/about">About</Link>
         </li>
         <li>
-          <a href="">Services</a>
+          <Link to="">Services</Link>
         </li>
         <li>
-          <a href="">Contact</a>
+          <Link to="/contact">Contact</Link>
         </li>
       </ul>
     </nav>

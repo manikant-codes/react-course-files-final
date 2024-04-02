@@ -1,17 +1,13 @@
 import React from "react";
 import Hero from "../components/home/Hero";
-import Navbar from "../components/home/Navbar";
 import ClientsRow from "../components/home/clientsRow/ClientsRow";
 import InfoRow from "../components/home/infoRow/InfoRow";
 import PricingRow from "../components/home/pricingRow/PricingRow";
 import ServicesRow from "../components/home/servicesRow/ServicesRow";
-import Footer from "../components/home/Footer";
-import Destructuring from "../components/demo/Destructuring";
 
 function Home() {
   return (
     <div>
-      <Navbar />
       <Hero />
       <ClientsRow />
       <InfoRow
@@ -41,7 +37,6 @@ function Home() {
       />
       <ServicesRow />
       <PricingRow />
-      <Footer />
       {/* <Destructuring /> */}
     </div>
   );
