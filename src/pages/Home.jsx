@@ -1,10 +1,12 @@
 import React from "react";
-import UseEffectScrollDemo from "../components/demos/UseEffectScrollDemo";
+import Searchbar from "../components/home/searchbar/Searchbar";
+import PokemonsList from "../components/home/pokemonsList/PokemonsList";
 
 function Home() {
   return (
     <div>
-      <UseEffectScrollDemo />
+      <Searchbar />
+      <PokemonsList />
     </div>
   );
 }

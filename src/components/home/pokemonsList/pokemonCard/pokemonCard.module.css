@@ -1,0 +1,24 @@
+.container {
+  border: solid 1px #bdbdbd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.imgContainer {
+  background-color: #eeeeee;
+  display: flex;
+  justify-content: center;
+}
+
+.infoContainer {
+  padding: 16px;
+}
+
+.infoContainer p {
+  margin: 0px;
+}
+
+.name {
+  font-size: 1.5rem;
+  margin-bottom: 12px !important;
+}

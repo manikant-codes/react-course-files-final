@@ -1,0 +1,23 @@
+.container {
+  background-color: #424242;
+  padding: 24px 32px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.searchInput {
+  height: 38px;
+  border: none;
+  border-radius: 4px;
+  padding: 6px;
+}
+
+.searchInput:focus {
+  outline: solid 2px #ee6b2f;
+  outline-offset: -2px;
+}
+
+.searchBtn {
+  height: 38px;
+}
