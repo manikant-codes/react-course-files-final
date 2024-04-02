@@ -8,13 +8,10 @@ function PokemonsList() {
 
   useEffect(() => {
     fetchPokemons().then((data) => {
-      Promise.all(data).then((resolved) => {
-        setPokemons(resolved);
-      });
+      console.log("data", data);
+      setPokemons(data);
     });
   }, []);
-
-  console.log("pokemons", pokemons);
 
   if (!pokemons) return null;
 
