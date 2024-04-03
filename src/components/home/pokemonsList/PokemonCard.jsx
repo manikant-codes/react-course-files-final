@@ -18,8 +18,8 @@ function PokemonCard(props) {
         <p className={styles.number}>{getPokemonNumber(pokemon.id)}</p>
         <p className={styles.name}>{capitalizeStr(pokemon.name)}</p>
         <div>
-          {pokemon.types.map((value) => {
-            return <Tag type={value.type.name} />;
+          {pokemon.types.map((value, index) => {
+            return <Tag key={index} type={value.type.name} />;
           })}
         </div>
       </div>
