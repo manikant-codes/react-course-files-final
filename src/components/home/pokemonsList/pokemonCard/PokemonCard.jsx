@@ -1,21 +1,24 @@
 import React from "react";
 import styles from "./pokemonCard.module.css";
-import { getPokemonNumber } from "./cardHelper";
+import { capitalizeStr, getPokemonImage, getPokemonNumber } from "./cardHelper";
 import Tag from "./tag/Tag";
 
-function PokemonCard() {
+function PokemonCard(props) {
+  const { pokemon } = props;
+  console.log("pokemon", pokemon);
   return (
     <div className={styles.container}>
       <div className={styles.imgContainer}>
-        <img
-          src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/156.png"
-          alt=""
-        />
+        <img src={getPokemonImage(pokemon)} alt="" />
       </div>
       <div className={styles.infoContainer}>
-        <p>{getPokemonNumber(1010)}</p>
-        <p className={styles.name}>Quilava</p>
-        <Tag type="fire" />
+        <p>{getPokemonNumber(pokemon.id)}</p>
+        <p className={styles.name}>{capitalizeStr(pokemon.name)}</p>
+        <div>
+          {pokemon.types.map((value) => {
+            return <Tag type={value.type.name} />;
+          })}
+        </div>
       </div>
     </div>
   );
