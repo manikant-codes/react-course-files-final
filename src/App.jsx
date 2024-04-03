@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Home from "./pages/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Layout from "./layouts/Layout";
+// import UseStateCounterDemo from "./components/demo/UseStateCounterDemo";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
+    // <UseStateCounterDemo />
   );
 }
 

@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "./Image";
 import Info from "./Info";
 import "../../../styles/home/infoRow.css";
 
 function InfoRow({ contentFirst, image, title, desc }) {
-  // const { contentFirst, image, title, desc } = props;
+  const [isContentFirst, setIsContentFirst] = useState(contentFirst);
 
-  if (contentFirst) {
+  if (isContentFirst) {
     return (
       <div className="infoRowContainer">
-        <Info title={title} desc={desc} />
+        <Info
+          title={title}
+          desc={desc}
+          setIsContentFirst={setIsContentFirst}
+          isContentFirst={isContentFirst}
+        />
         <Image image={image} />
       </div>
     );
@@ -17,7 +22,7 @@ function InfoRow({ contentFirst, image, title, desc }) {
   return (
     <div className="infoRowContainer">
       <Image image={image} />
-      <Info title={title} desc={desc} />
+      <Info title={title} desc={desc} setIsContentFirst={setIsContentFirst} />
     </div>
   );
 }
