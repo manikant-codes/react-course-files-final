@@ -6,11 +6,18 @@ import {
   getPokemonImage,
   getPokemonNumber,
 } from "../../../helpers/pokemonCardHelper";
+import { useNavigate } from "react-router";
 
 function PokemonCard(props) {
   const { pokemon } = props;
+  const navigate = useNavigate();
+
+  function goToDetails() {
+    navigate(`pokemonDetails/${pokemon.id}`);
+  }
+
   return (
-    <div className={styles.cardContainer}>
+    <div className={styles.cardContainer} onClick={goToDetails}>
       <div className={styles.imageContainer}>
         <img src={getPokemonImage(pokemon)} alt="" />
       </div>
