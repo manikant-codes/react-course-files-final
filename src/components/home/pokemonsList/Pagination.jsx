@@ -8,7 +8,7 @@ function Pagination(props) {
   const { setPage, page } = props;
 
   function handlePrev() {
-    if (page > 0) {
+    if (page > 1) {
       setPage(page - 1);
     } else {
       setPage(TOTAL_PAGES);
@@ -20,7 +20,7 @@ function Pagination(props) {
     if (page < TOTAL_PAGES) {
       setPage(page + 1);
     } else {
-      setPage(0);
+      setPage(1);
     }
     window.scroll(0, 0);
   }

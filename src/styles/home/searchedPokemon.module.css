@@ -1,0 +1,15 @@
+.outerContainer {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.innerContainer {
+  width: 250px;
+}
+
+.goBackBtn {
+  width: fit-content;
+  margin: auto;
+}

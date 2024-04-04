@@ -6,7 +6,7 @@ import Pagination from "./Pagination";
 
 function PokemonsList() {
   const [pokemons, setPokemons] = useState(null);
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     fetchPokemons(page).then((data) => {
