@@ -4,6 +4,7 @@ import ClientsRow from "../components/home/clientsRow/ClientsRow";
 import InfoRow from "../components/home/infoRow/InfoRow";
 import PricingRow from "../components/home/pricingRow/PricingRow";
 import ServicesRow from "../components/home/servicesRow/ServicesRow";
+import FaqsRow from "../components/home/faqsRow/FaqsRow";
 
 function Home() {
   return (
@@ -37,7 +38,7 @@ function Home() {
       />
       <ServicesRow />
       <PricingRow />
-      {/* <Destructuring /> */}
+      <FaqsRow />
     </div>
   );
 }
