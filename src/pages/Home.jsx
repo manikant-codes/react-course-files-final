@@ -4,16 +4,20 @@ import PokemonsList from "../components/home/pokemonsList/PokemonsList";
 import SearchedPokemon from "../components/home/SearchedPokemon";
 
 function Home() {
-  const [searched, setSearched] = useState(null);
   const [query, setQuery] = useState("");
+  const [searchedPokemon, setSearchedPokemon] = useState(null);
 
   return (
     <div>
-      <Searchbar query={query} setQuery={setQuery} setSearched={setSearched} />
-      {searched ? (
+      <Searchbar
+        query={query}
+        setQuery={setQuery}
+        setSearchedPokemon={setSearchedPokemon}
+      />
+      {searchedPokemon ? (
         <SearchedPokemon
-          pokemon={searched}
-          setSearched={setSearched}
+          pokemon={searchedPokemon}
+          setSearchedPokemon={setSearchedPokemon}
           setQuery={setQuery}
         />
       ) : (

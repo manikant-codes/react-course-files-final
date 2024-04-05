@@ -7,23 +7,21 @@ import { TOTAL_PAGES } from "../../../constants";
 function Pagination(props) {
   const { page, setPage } = props;
 
-  console.log("page", page);
+  // function getPages() {
+  //   const pages = [];
+  //   for (let i = page; i < page + 5; i++) {
+  //     if (i <= TOTAL_PAGES) {
+  //       pages.push(i);
+  //     } else {
+  //       pages.push(i - TOTAL_PAGES);
+  //     }
+  //   }
+  //   return pages;
+  // }
 
-  function getPages() {
-    const pages = [];
-    for (let i = page; i < page + 5; i++) {
-      if (i <= TOTAL_PAGES) {
-        pages.push(i);
-      } else {
-        pages.push(i - TOTAL_PAGES);
-      }
-    }
-    return pages;
-  }
-
-  function handlePageClick(value) {
-    setPage(value);
-  }
+  // function handlePageClick(value) {
+  //   setPage(value);
+  // }
 
   function handlePrev() {
     if (page > 1) {
@@ -45,7 +43,7 @@ function Pagination(props) {
       <button onClick={handlePrev}>
         <FontAwesomeIcon icon={faAngleLeft} /> Prev
       </button>
-      {getPages().map((value) => {
+      {/* {getPages().map((value) => {
         return (
           <button
             key={value}
@@ -56,7 +54,7 @@ function Pagination(props) {
             {value}
           </button>
         );
-      })}
+      })} */}
       <button onClick={handleNext}>
         Next <FontAwesomeIcon icon={faAngleRight} />
       </button>

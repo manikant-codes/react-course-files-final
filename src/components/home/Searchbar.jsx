@@ -5,18 +5,18 @@ import { getSinglePokemon } from "../../services/apiServices";
 import styles from "../../styles/home/searchbar.module.css";
 
 function Searchbar(props) {
-  const { query, setQuery, setSearched } = props;
+  const { query, setQuery, setSearchedPokemon } = props;
 
   function handleChange(e) {
     setQuery(e.target.value);
     if (e.target.value === "") {
-      setSearched(null);
+      setSearchedPokemon(null);
     }
   }
 
   function handleSearch() {
     getSinglePokemon(query).then((data) => {
-      setSearched(data);
+      setSearchedPokemon(data);
     });
   }
 

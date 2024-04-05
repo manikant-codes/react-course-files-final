@@ -3,10 +3,10 @@ import PokemonCard from "./pokemonsList/PokemonCard";
 import styles from "../../styles/home/searchedPokemon.module.css";
 
 function SearchedPokemon(props) {
-  const { pokemon, setQuery, setSearched } = props;
+  const { pokemon, setQuery, setSearchedPokemon } = props;
 
   function handleGoBack() {
-    setSearched(null);
+    setSearchedPokemon(null);
     setQuery("");
   }
 
