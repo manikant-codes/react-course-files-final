@@ -2,12 +2,18 @@ import React from "react";
 import styles from "./pokemonCard.module.css";
 import { capitalizeStr, getPokemonImage, getPokemonNumber } from "./cardHelper";
 import Tag from "./tag/Tag";
+import { useNavigate } from "react-router-dom";
 
 function PokemonCard(props) {
   const { pokemon } = props;
-  console.log("pokemon", pokemon);
+  const navigate = useNavigate();
+
+  function goToDetails() {
+    navigate(`pokemonDetails/${pokemon.name}`);
+  }
+
   return (
-    <div className={styles.container}>
+    <div className={styles.container} onClick={goToDetails}>
       <div className={styles.imgContainer}>
         <img src={getPokemonImage(pokemon)} alt="" />
       </div>

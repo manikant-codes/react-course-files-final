@@ -36,7 +36,7 @@ export function getPokemons(page) {
     });
 }
 
-export function getSearchedPokemon(query) {
+export function getSinglePokemon(query) {
   return fetch(`https://pokeapi.co/api/v2/pokemon/${query}`)
     .then((response) => {
       return response.json();
@@ -44,5 +44,7 @@ export function getSearchedPokemon(query) {
     .then((data) => {
       return data;
     })
-    .catch((error) => {});
+    .catch((error) => {
+      console.log("Error: ", error);
+    });
 }

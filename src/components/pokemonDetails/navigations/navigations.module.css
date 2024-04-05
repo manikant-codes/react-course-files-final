@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.container button {
+  flex-grow: 1;
+  border-radius: 0px;
+}
