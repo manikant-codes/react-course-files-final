@@ -9,6 +9,7 @@
   border: solid 1px #bdbdbd;
   border-radius: 8px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .imgContainer {

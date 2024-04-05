@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  gap: 16px;
+}
+
+.container p {
+  margin: 0px;
+  font-size: 2rem;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.number {
+  color: #616161;
+}

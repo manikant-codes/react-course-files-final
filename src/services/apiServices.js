@@ -36,8 +36,8 @@ export function fetchPokemons(page) {
   return pokemons;
 }
 
-export function fetchSearchedPokemon(query) {
-  return fetch(`https://pokeapi.co/api/v2/pokemon/${query}`)
+export function fetchSinglePokemon(query) {
+  return fetch(`https://pokeapi.co/api/v2/pokemon/${query.toLowerCase()}`)
     .then((response) => {
       return response.json();
     })

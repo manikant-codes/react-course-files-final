@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../../styles/home/searchbar.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { fetchSearchedPokemon } from "../../services/apiServices";
+import { fetchSinglePokemon } from "../../services/apiServices";
 
 function Searchbar(props) {
   const { query, setQuery, setSearchedPokemon } = props;
@@ -15,7 +15,7 @@ function Searchbar(props) {
   }
 
   function handleSearch() {
-    fetchSearchedPokemon(query).then((data) => {
+    fetchSinglePokemon(query).then((data) => {
       setSearchedPokemon(data);
     });
   }
