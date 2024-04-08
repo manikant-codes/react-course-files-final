@@ -5,6 +5,7 @@ import { param } from "jquery";
 import Title from "../components/pokemonDetails/Title";
 import Navigations from "../components/pokemonDetails/Navigations";
 import InfoRow from "../components/pokemonDetails/InfoRow";
+import StatsRow from "../components/pokemonDetails/statsRow/StatsRow";
 
 function PokemonDetails() {
   const params = useParams();
@@ -25,6 +26,7 @@ function PokemonDetails() {
       <Navigations />
       <Title name={pokemon.name} number={pokemon.id} />
       <InfoRow pokemon={pokemon} />
+      <StatsRow pokemon={pokemon} />
     </div>
   );
 }
