@@ -10,3 +10,11 @@ export function getPokemonNumber(id) {
 export function capitalizeStr(str) {
   return str[0].toUpperCase() + str.slice(1);
 }
+
+export function getPokemonAbilities(abilities) {
+  return abilities
+    .map((value) => {
+      return value.ability.name;
+    })
+    .join(", ");
+}
