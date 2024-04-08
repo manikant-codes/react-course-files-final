@@ -42,6 +42,12 @@
 }
 
 .ans {
+  /* height: 0px; */
+  /* overflow: hidden; */
+  /* transition: all 0.5s ease; */
+}
+
+.ansContainer {
   height: 0px;
   overflow: hidden;
   transition: all 0.5s ease;

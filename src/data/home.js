@@ -105,3 +105,31 @@ export const plans = [
     ],
   },
 ];
+
+export const faqs = [
+  {
+    id: 1,
+    que: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, molestias?",
+    ans: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At nisi nobis consectetur itaque ullam nihil officia eligendi rem minima blanditiis.",
+  },
+  {
+    id: 2,
+    que: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, molestias?",
+    ans: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At nisi nobis consectetur itaque ullam nihil officia eligendi rem minima blanditiis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. At nisi nobis consectetur itaque ullam nihil officia eligendi rem minima blanditiis.",
+  },
+  {
+    id: 3,
+    que: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, molestias?",
+    ans: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At nisi nobis consectetur itaque ullam nihil officia eligendi rem minima blanditiis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. At nisi nobis consectetur itaque ullam nihil officia eligendi rem minima blanditiis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. At nisi nobis consectetur itaque ullam nihil officia eligendi rem minima blanditiis.",
+  },
+  {
+    id: 4,
+    que: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, molestias?",
+    ans: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At nisi nobis consectetur itaque ullam nihil officia eligendi rem minima blanditiis.",
+  },
+  {
+    id: 5,
+    que: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, molestias?",
+    ans: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At nisi nobis consectetur itaque ullam nihil officia eligendi rem minima blanditiis.",
+  },
+];

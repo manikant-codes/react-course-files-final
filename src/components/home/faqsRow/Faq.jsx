@@ -1,21 +1,24 @@
-import React, { useEffect, useRef, useState } from "react";
-import styles from "../../../styles/home/faqsRow.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronDown,
   faCircleQuestion,
 } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
+import styles from "../../../styles/home/faqsRow.module.css";
 
-function Faq() {
-  const [isExpanded, setIsExpanded] = useState(false);
+function Faq(props) {
+  // const [isExpanded, setIsExpanded] = useState(false);
+  const { faq, activeId, setActiveId } = props;
 
-  function handleShowHide(e) {
-    setIsExpanded(!isExpanded);
+  function handleShowHide(id) {
+    setActiveId(id);
   }
 
-  function getHeight() {
-    if (isExpanded) {
-      return 50 + "px";
+  function getHeight(id) {
+    console.log("id", id, activeId);
+    if (id === activeId) {
+      const height = document.getElementById("faq_" + id)?.clientHeight + "px";
+      return height;
     } else {
       return "0px";
     }
@@ -26,20 +29,25 @@ function Faq() {
       <p className={styles.que}>
         <span className={styles.queAndIcon}>
           <FontAwesomeIcon icon={faCircleQuestion} fontSize={"1.25rem"} />
-          <span>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor,
-            molestias?
-          </span>
+          <span>{faq.que}</span>
         </span>
-        <button className={styles.moreBtn} onClick={handleShowHide}>
+        <button
+          className={styles.moreBtn}
+          onClick={function () {
+            handleShowHide(faq.id);
+          }}
+        >
           <FontAwesomeIcon icon={faChevronDown} />
         </button>
       </p>
-
-      <p className={`${styles.ans}`} style={{ height: getHeight() }}>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. At nisi nobis
-        consectetur itaque ullam nihil officia eligendi rem minima blanditiis.
-      </p>
+      <div
+        className={styles.ansContainer}
+        style={{ height: getHeight(faq.id) }}
+      >
+        <p id={"faq_" + faq.id} className={`${styles.ans}`}>
+          {faq.ans}
+        </p>
+      </div>
     </div>
   );
 }
