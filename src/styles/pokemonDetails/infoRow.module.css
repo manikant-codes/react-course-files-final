@@ -1,11 +1,12 @@
 .containerMain {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
   padding: 32px;
 }
 
 .containerImg {
-  height: 300px;
+  height: 350px;
 }
 
 .containerImg img {

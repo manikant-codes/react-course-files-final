@@ -8,7 +8,7 @@ import {
 function InfoRow(props) {
   const { pokemon } = props;
 
-  console.log("pokemon", pokemon);
+  console.log(pokemon);
 
   return (
     <div className={styles.containerMain}>

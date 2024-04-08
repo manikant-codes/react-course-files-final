@@ -1,0 +1,15 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 32px;
+  gap: 32px;
+}
+
+.chartContainer {
+}
+
+.tagsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}

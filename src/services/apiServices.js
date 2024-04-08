@@ -48,3 +48,30 @@ export function fetchSinglePokemon(query) {
       console.log("Error: ", error);
     });
 }
+
+export function fetchPokemonWeaknesses(types) {
+  const urls = types.map((value) => {
+    return value.type.url;
+  });
+
+  console.log("urls", types, urls);
+
+  const promisesArray = [];
+
+  for (const url of urls) {
+    const promise = fetch(url)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        return data;
+      })
+      .catch((error) => {
+        console.log("Error: ", error);
+      });
+
+    promisesArray.push(promise);
+  }
+
+  return Promise.all(promisesArray);
+}
