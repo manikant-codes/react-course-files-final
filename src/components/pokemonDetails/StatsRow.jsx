@@ -3,24 +3,19 @@ import Tag from "../home/pokemonsList/Tag";
 import styles from "../../styles/pokemonDetails/statsRow.module.css";
 import { useEffect, useState } from "react";
 import { fetchPokemonWeaknesses } from "../../services/apiServices";
+import { getWeaknesses } from "../../helpers/pokemonHelper";
 
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 function StatsRow(props) {
   const { pokemon } = props;
+
   const [weaknesses, setWeaknesses] = useState(null);
 
   useEffect(() => {
     fetchPokemonWeaknesses(pokemon.types).then((data) => {
-      const doubleDamageFrom = [];
-      const doubleDamageTo = [];
-      setWeaknesses(
-        data
-          .map((value) => {
-            return value.damage_relations.double_damage_from;
-          })
-          .flat()
-      );
+      const temp = getWeaknesses(data);
+      setWeaknesses(temp);
     });
   }, [pokemon.types]);
 
@@ -61,7 +56,7 @@ function StatsRow(props) {
           <h3>Weakness</h3>
           <div>
             {weaknesses?.map((value) => {
-              return <Tag type={value.name} />;
+              return <Tag type={value} />;
             })}
           </div>
         </div>

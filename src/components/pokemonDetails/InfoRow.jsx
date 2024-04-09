@@ -2,8 +2,10 @@ import React from "react";
 import styles from "../../styles/pokemonDetails/infoRow.module.css";
 import {
   getPokemonAbilities,
+  getPokemonHeight,
   getPokemonImage,
-} from "../../helpers/pokemonCardHelper";
+  getPokemonWeight,
+} from "../../helpers/pokemonHelper";
 
 function InfoRow(props) {
   const { pokemon } = props;
@@ -27,11 +29,11 @@ function InfoRow(props) {
             <tr>
               <td>
                 <p>Height</p>
-                <p>{pokemon.height}</p>
+                <p>{getPokemonHeight(pokemon.height)}cm</p>
               </td>
               <td>
                 <p>Weight</p>
-                <p>{pokemon.weight}</p>
+                <p>{getPokemonWeight(pokemon.weight)}kg</p>
               </td>
             </tr>
             <tr>
