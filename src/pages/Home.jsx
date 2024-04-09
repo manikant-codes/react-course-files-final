@@ -9,7 +9,11 @@ import FaqsRow from "../components/home/faqsRow/FaqsRow";
 function Home() {
   return (
     <div>
-      <Hero />
+      <Hero
+        image="/images/hero.jpg"
+        title="Welcome to Purple Bit"
+        desc="Purple Bit - a leading tech firm 🚀 delivering innovative solutions for businesses 💼 of all sizes! 📈 Our team of experts 🧑‍💻 provides high-quality products & services, keeping you ahead in the rapidly changing digital landscape 🌐. Let us unlock your business's full           potential with customized tech solutions 💡."
+      />
       <ClientsRow />
       <InfoRow
         image="/images/about-info.jpg"

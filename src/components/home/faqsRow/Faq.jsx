@@ -17,6 +17,9 @@ function Faq(props) {
   function getHeight(id) {
     console.log("id", id, activeId);
     if (id === activeId) {
+      if (id === 1) {
+        return "50px";
+      }
       const height = document.getElementById("faq_" + id)?.clientHeight + "px";
       return height;
     } else {

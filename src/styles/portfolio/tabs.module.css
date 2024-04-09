@@ -1,0 +1,23 @@
+.tabsList {
+  display: flex;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  margin-top: 32px;
+  gap: 16px;
+  justify-content: center;
+}
+
+.tabsList li {
+  /* flex-grow: 1; */
+  background-color: #1de9b6;
+  padding: 8px 24px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 32px;
+}
+
+.tabsList li:hover {
+  background-color: #14a37f;
+  color: white;
+}
