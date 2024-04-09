@@ -5,7 +5,7 @@ import {
   capitalizeStr,
   getPokemonImage,
   getPokemonNumber,
-} from "../../../helpers/pokemonCardHelper";
+} from "../../../helpers/pokemonHelper";
 import { useNavigate } from "react-router";
 
 function PokemonCard(props) {

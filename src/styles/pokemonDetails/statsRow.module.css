@@ -1,58 +1,11 @@
-.tableContainer {
-  background-color: #bdbdbd;
-  padding: 32px;
-  padding-bottom: 60px;
-}
-
-.list {
-  list-style-type: none;
-  display: flex;
+.containerMain {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 16px;
-  padding: 0px;
-  margin: 0px;
 }
 
-.list li {
-  height: 255px;
-  background-color: white;
-  flex-grow: 1;
-  position: relative;
-  border-radius: 4px;
-  /* overflow: hidden; */
-}
-
-.list li div {
-  background-color: #30a7d7;
-  height: 50px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  border-radius: 4px;
-}
-
-.list li p.statName {
-  position: absolute;
-  margin: 0px;
-  bottom: -28px;
-  left: 0;
-  right: 0;
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-.list li div p.statNumber {
-  position: absolute;
-  margin: 0px;
-  top: -20px;
-  left: 0;
-  right: 0;
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-.list li div p.statNumber::after {
-  content: "%";
+.containerTags {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }

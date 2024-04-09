@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  capitalizeStr,
-  getPokemonNumber,
-} from "../../helpers/pokemonCardHelper";
+import { capitalizeStr, getPokemonNumber } from "../../helpers/pokemonHelper";
 import styles from "../../styles/pokemonDetails/title.module.css";
 
 function Title(props) {

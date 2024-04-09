@@ -3,7 +3,7 @@ import styles from "../../styles/pokemonDetails/infoRow.module.css";
 import {
   getPokemonAbilities,
   getPokemonImage,
-} from "../../helpers/pokemonCardHelper";
+} from "../../helpers/pokemonHelper";
 
 function InfoRow(props) {
   const { pokemon } = props;

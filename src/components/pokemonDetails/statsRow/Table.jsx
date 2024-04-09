@@ -1,5 +1,6 @@
 import React from "react";
-import styles from "../../../styles/pokemonDetails/statsRow.module.css";
+import styles from "../../../styles/pokemonDetails/table.module.css";
+import { getStatName } from "../../../helpers/pokemonHelper";
 
 function Table(props) {
   const { stats } = props;
@@ -10,12 +11,14 @@ function Table(props) {
         {stats.map((value) => {
           return (
             <li>
-              <div style={{ height: value.base_stat }}>
-                <p className={styles.statNumber}>
-                  {Math.round((value.base_stat * 100) / 255)}
-                </p>
+              <div className={styles.barContainer}>
+                <div className={styles.bar} style={{ height: value.base_stat }}>
+                  <p className={styles.statNumber}>
+                    {Math.round((value.base_stat * 100) / 255)}
+                  </p>
+                </div>
               </div>
-              <p className={styles.statName}>{value.stat.name}</p>
+              <p className={styles.statName}>{getStatName(value.stat.name)}</p>
             </li>
           );
         })}
