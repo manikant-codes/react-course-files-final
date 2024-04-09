@@ -14,7 +14,7 @@ function InfoRow(props) {
         <img src={getPokemonImage(pokemon)} alt="" />
       </div>
       <div className={styles.containerInfo}>
-        <p>
+        <p className={styles.descPara}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
           dolorem dolor qui ratione iusto labore modi optio atque deserunt, illo
           veritatis laborum velit nisi maxime odio similique architecto

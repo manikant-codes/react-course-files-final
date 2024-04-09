@@ -1,0 +1,52 @@
+.graphContainer {
+  padding: 32px;
+  background-color: #a4a4a4;
+  padding-bottom: 56px;
+  border-radius: 8px;
+}
+
+.graphList {
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+  display: flex;
+  gap: 16px;
+}
+
+.graphList li {
+  flex-grow: 1;
+  background-color: white;
+  height: 200px;
+  position: relative;
+  border-radius: 4px;
+}
+
+.graphList li > p {
+  position: absolute;
+  bottom: -24px;
+  left: 0px;
+  right: 0px;
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0px;
+}
+
+.graphList li div {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: #30a7d7;
+  border-radius: 4px;
+}
+
+.graphList li div p {
+  margin: 0px;
+  position: absolute;
+  top: -24px;
+  left: 0px;
+  right: 0px;
+  text-align: center;
+  font-weight: 600;
+}

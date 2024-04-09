@@ -1,0 +1,17 @@
+.containerMain {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 32px;
+}
+
+.tagsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.tagsContainer div h3 {
+  margin-bottom: 16px;
+  font-size: 1.25rem;
+}
