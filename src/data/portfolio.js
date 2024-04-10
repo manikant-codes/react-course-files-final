@@ -25,9 +25,9 @@ export const webDesignDevelopment = [
 
 export const mobileAppDevelopment = [
   { id: 1, url: "./images/our-story.jpg" },
-  { id: 2, url: "./images/our-story.jpg" },
-  { id: 3, url: "./images/our-story.jpg" },
-  { id: 4, url: "./images/our-story.jpg" },
+  { id: 2, url: "./images/about-info.jpg" },
+  { id: 3, url: "./images/about-herojpg" },
+  { id: 4, url: "./images/hero.jpg" },
   { id: 5, url: "./images/our-story.jpg" },
   { id: 6, url: "./images/our-story.jpg" },
 ];
@@ -41,9 +41,9 @@ export const itConsulting = [
   { id: 6, url: "./images/about-info.jpg" },
 ];
 
-export const imagesList = [
-  softwareDevelopmentImages,
-  webDesignDevelopment,
-  mobileAppDevelopment,
-  itConsulting,
-];
+export const imagesList = {
+  1: softwareDevelopmentImages,
+  2: webDesignDevelopment,
+  3: mobileAppDevelopment,
+  4: itConsulting,
+};

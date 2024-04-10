@@ -1,0 +1,13 @@
+.containerMain {
+  padding: 32px;
+}
+
+.containerTitle {
+  margin-bottom: 32px;
+}
+
+.containerInner {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 32px;
+}
