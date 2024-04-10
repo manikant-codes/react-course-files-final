@@ -6,8 +6,6 @@ import styles from "./infoRow.module.css";
 function InfoRow(props) {
   const { pokemon } = props;
 
-  console.log(pokemon);
-
   return (
     <div className={styles.containerMain}>
       <div className={styles.containerImg}>

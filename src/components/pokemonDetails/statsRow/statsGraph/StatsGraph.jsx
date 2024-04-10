@@ -8,13 +8,18 @@ function StatsGraph(props) {
   return (
     <div className={styles.graphContainer}>
       <ul className={styles.graphList}>
-        {stats.map((value) => {
+        {stats.map((value, index) => {
           return (
-            <li>
-              <div style={{ height: getBarHeight(value.base_stat) }}>
-                <p>{getStatsPercentage(value.base_stat)}%</p>
+            <li key={index}>
+              <div className={styles.barContainer}>
+                <div
+                  className={styles.bar}
+                  style={{ height: getBarHeight(value.base_stat) }}
+                >
+                  <p>{getStatsPercentage(value.base_stat)}%</p>
+                </div>
               </div>
-              <p>{value.stat.name}</p>
+              <p className={styles.statName}>{value.stat.name}</p>
             </li>
           );
         })}

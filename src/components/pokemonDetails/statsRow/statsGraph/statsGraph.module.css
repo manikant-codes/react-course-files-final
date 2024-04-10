@@ -9,30 +9,36 @@
   padding: 0px;
   margin: 0px;
   list-style-type: none;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
   gap: 16px;
 }
 
-.graphList li {
+.barContainer {
   flex-grow: 1;
+}
+
+.barContainer {
   background-color: white;
   height: 200px;
   position: relative;
   border-radius: 4px;
 }
 
-.graphList li > p {
-  position: absolute;
-  bottom: -24px;
-  left: 0px;
-  right: 0px;
+.bar {
+  height: 0px;
+  /* transition: all 5s ease; */
+}
+
+.statName {
   text-align: center;
   font-weight: 600;
   text-transform: uppercase;
   margin: 0px;
+  font-size: 0.8rem;
 }
 
-.graphList li div {
+.barContainer div {
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -41,7 +47,7 @@
   border-radius: 4px;
 }
 
-.graphList li div p {
+.barContainer div p {
   margin: 0px;
   position: absolute;
   top: -24px;

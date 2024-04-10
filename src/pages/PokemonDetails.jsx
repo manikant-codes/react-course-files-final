@@ -10,8 +10,6 @@ function PokemonDetails() {
   const [pokemon, setPokemon] = useState(null);
   const params = useParams();
 
-  console.log("params.name", params.name);
-
   useEffect(() => {
     getSinglePokemon(params.name).then((data) => {
       setPokemon(data);
