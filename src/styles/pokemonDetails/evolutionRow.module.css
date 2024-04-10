@@ -1,0 +1,7 @@
+.containerMain {
+  padding: 32px;
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  background-color: #616161;
+}

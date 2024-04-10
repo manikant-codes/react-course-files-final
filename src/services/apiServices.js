@@ -1,4 +1,5 @@
 import { PAGE_SIZE } from "../constants";
+import { myFetch } from "../helpers/fetchHelper";
 
 export function fetchPokemons(page) {
   const limit = PAGE_SIZE;
@@ -54,8 +55,6 @@ export function fetchPokemonWeaknesses(types) {
     return value.type.url;
   });
 
-  console.log("urls", types, urls);
-
   const promisesArray = [];
 
   for (const url of urls) {
@@ -70,6 +69,43 @@ export function fetchPokemonWeaknesses(types) {
         console.log("Error: ", error);
       });
 
+    promisesArray.push(promise);
+  }
+
+  return Promise.all(promisesArray);
+}
+
+export function fetchPokemonEvolutions(url) {
+  return myFetch(url).then((data) => {
+    return myFetch(data.evolution_chain.url).then((data) => {
+      console.log("evolutions", data);
+      return fetchEvolutionChain(data.chain);
+    });
+  });
+}
+
+function fetchEvolutionChain(chain) {
+  let pokemonsArray = [];
+
+  function getData(param) {
+    if (param.evolves_to.length !== 0) {
+      getData(param.evolves_to[0]);
+    }
+    pokemonsArray.push(param.species);
+  }
+
+  getData(chain);
+
+  pokemonsArray.reverse();
+
+  pokemonsArray = pokemonsArray.map((value) => {
+    return value.name;
+  });
+
+  const promisesArray = [];
+
+  for (const name of pokemonsArray) {
+    const promise = fetchSinglePokemon(name);
     promisesArray.push(promise);
   }
 

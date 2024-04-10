@@ -1,0 +1,44 @@
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.imgContainer {
+  height: 200px;
+  width: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  border: solid 1px #bdbdbd;
+  padding: 16px;
+}
+
+.imgContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.infoContainer {
+}
+
+.nameNumber {
+  display: flex;
+  gap: 16px;
+  padding: 12px;
+}
+
+.pokemonNumber,
+.pokemonName {
+  font-size: 1.125rem;
+  color: white;
+  font-weight: 600;
+  margin: 0px;
+}
+
+.tagsContainer {
+  display: flex;
+  justify-content: center;
+}

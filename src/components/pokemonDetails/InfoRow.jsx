@@ -5,12 +5,10 @@ import {
   getPokemonHeight,
   getPokemonImage,
   getPokemonWeight,
-} from "../../helpers/pokemonHelper";
+} from "../../helpers/pokedexHelpers";
 
 function InfoRow(props) {
   const { pokemon } = props;
-
-  console.log(pokemon);
 
   return (
     <div className={styles.containerMain}>

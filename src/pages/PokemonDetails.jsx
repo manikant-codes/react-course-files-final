@@ -5,6 +5,7 @@ import Navigations from "../components/pokemonDetails/Navigations";
 import Title from "../components/pokemonDetails/Title";
 import InfoRow from "../components/pokemonDetails/InfoRow";
 import StatsRow from "../components/pokemonDetails/StatsRow";
+import EvolutionsRow from "../components/pokemonDetails/evolutionRow/EvolutionsRow";
 
 function PokemonDetails() {
   const params = useParams();
@@ -18,12 +19,15 @@ function PokemonDetails() {
 
   if (!pokemon) return null;
 
+  console.log("pokemon", pokemon);
+
   return (
     <div>
       <Navigations />
       <Title name={pokemon.name} number={pokemon.id} />
       <InfoRow pokemon={pokemon} />
       <StatsRow pokemon={pokemon} />
+      <EvolutionsRow species={pokemon.species} />
     </div>
   );
 }

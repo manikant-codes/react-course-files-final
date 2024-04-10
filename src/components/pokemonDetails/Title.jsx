@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../../styles/pokemonDetails/title.module.css";
-import { capitalizeStr, getPokemonNumber } from "../../helpers/pokemonHelper";
+import { capitalizeStr, getPokemonNumber } from "../../helpers/pokedexHelpers";
 
 function Title(props) {
   const { name, number } = props;
