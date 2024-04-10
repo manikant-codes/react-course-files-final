@@ -3,7 +3,7 @@ import styles from "../../../styles/pokemonDetails/statsRow.module.css";
 import Table from "./Table";
 import Tag from "../../home/pokemonsList/Tag";
 import { getPokemonTypesDetails } from "../../../services/apiServices";
-import { getPokemonWeaknesses } from "../../../helpers/pokemonHelper";
+import { getPokemonWeaknesses } from "../../../helpers/pokedexHelper";
 
 function StatsRow(props) {
   const { pokemon } = props;
@@ -25,16 +25,16 @@ function StatsRow(props) {
         <div>
           <h3>Type</h3>
           <div>
-            {pokemon.types.map((value) => {
-              return <Tag type={value.type.name} />;
+            {pokemon.types.map((value, index) => {
+              return <Tag key={index} type={value.type.name} />;
             })}
           </div>
         </div>
         <div>
           <h3>Weaknesses</h3>
           <div>
-            {weaknesses?.map((value) => {
-              return <Tag type={value} />;
+            {weaknesses?.map((value, index) => {
+              return <Tag key={index} type={value} />;
             })}
           </div>
         </div>

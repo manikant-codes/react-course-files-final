@@ -1,4 +1,5 @@
 import { PAGE_SIZE } from "../constants";
+import { myFetch } from "../helpers/fetchHelper";
 
 export function getPokemons(page) {
   const limit = PAGE_SIZE;
@@ -62,9 +63,46 @@ export function getPokemonTypesDetails(types) {
         return data;
       })
       .catch((error) => {
-        console.log(error);
+        console.log("Error: ", error);
       });
 
+    promisesArray.push(promise);
+  }
+
+  return Promise.all(promisesArray);
+}
+
+export function getPokemonEvolutions(url) {
+  return myFetch(url).then((data) => {
+    return myFetch(data.evolution_chain.url).then((data) => {
+      const names = getEvolutionsNames(data.chain);
+      return getEvolutionsDetails(names);
+    });
+  });
+}
+
+function getEvolutionsNames(chain) {
+  let names = [];
+
+  function getData(param) {
+    if (param.evolves_to.length !== 0) {
+      getData(param.evolves_to[0]);
+    }
+
+    names.push(param.species.name);
+  }
+
+  getData(chain);
+
+  names.reverse();
+  return names;
+}
+
+function getEvolutionsDetails(names) {
+  const promisesArray = [];
+
+  for (const value of names) {
+    const promise = getSinglePokemon(value);
     promisesArray.push(promise);
   }
 

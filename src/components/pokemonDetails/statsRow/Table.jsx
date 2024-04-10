@@ -1,16 +1,15 @@
 import React from "react";
 import styles from "../../../styles/pokemonDetails/table.module.css";
-import { getStatName } from "../../../helpers/pokemonHelper";
+import { getStatName } from "../../../helpers/pokedexHelper";
 
 function Table(props) {
   const { stats } = props;
-  console.log("stats", stats);
   return (
     <div className={styles.tableContainer}>
       <ul className={styles.list}>
-        {stats.map((value) => {
+        {stats.map((value, index) => {
           return (
-            <li>
+            <li key={index}>
               <div className={styles.barContainer}>
                 <div className={styles.bar} style={{ height: value.base_stat }}>
                   <p className={styles.statNumber}>

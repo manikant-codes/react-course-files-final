@@ -3,12 +3,10 @@ import styles from "../../styles/pokemonDetails/infoRow.module.css";
 import {
   getPokemonAbilities,
   getPokemonImage,
-} from "../../helpers/pokemonHelper";
+} from "../../helpers/pokedexHelper";
 
 function InfoRow(props) {
   const { pokemon } = props;
-
-  console.log(pokemon);
 
   return (
     <div className={styles.containerMain}>

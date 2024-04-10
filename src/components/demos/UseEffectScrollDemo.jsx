@@ -7,8 +7,6 @@ function UseEffectScrollDemo() {
     setScroll(window.scrollY);
   }
 
-  console.log("A");
-
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -19,8 +17,6 @@ function UseEffectScrollDemo() {
   function scrollToTop() {
     window.scroll(0, 0);
   }
-
-  console.log("D");
 
   return (
     <div>

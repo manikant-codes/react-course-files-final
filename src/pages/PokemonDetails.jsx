@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { getSinglePokemon } from "../services/apiServices";
-import { param } from "jquery";
-import Title from "../components/pokemonDetails/Title";
-import Navigations from "../components/pokemonDetails/Navigations";
 import InfoRow from "../components/pokemonDetails/InfoRow";
+import Navigations from "../components/pokemonDetails/Navigations";
+import Title from "../components/pokemonDetails/Title";
 import StatsRow from "../components/pokemonDetails/statsRow/StatsRow";
+import { getSinglePokemon } from "../services/apiServices";
+import EvolutionsRow from "../components/pokemonDetails/evolutionsRow/EvolutionsRow";
 
 function PokemonDetails() {
   const params = useParams();
@@ -19,7 +19,7 @@ function PokemonDetails() {
 
   if (!pokemon) return null;
 
-  console.log(pokemon);
+  console.log("pokemon", pokemon);
 
   return (
     <div>
@@ -27,6 +27,7 @@ function PokemonDetails() {
       <Title name={pokemon.name} number={pokemon.id} />
       <InfoRow pokemon={pokemon} />
       <StatsRow pokemon={pokemon} />
+      <EvolutionsRow species={pokemon.species} />
     </div>
   );
 }
