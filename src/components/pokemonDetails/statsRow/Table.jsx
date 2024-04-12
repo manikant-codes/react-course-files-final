@@ -6,6 +6,7 @@ function Table(props) {
   const { stats } = props;
   return (
     <div className={styles.tableContainer}>
+      <h2>Stats</h2>
       <ul className={styles.list}>
         {stats.map((value, index) => {
           return (

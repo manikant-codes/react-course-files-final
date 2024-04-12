@@ -1,5 +1,5 @@
 .rowContainer {
-  background-color: #616161;
+  background-color: #414141;
   padding: 32px;
 }
 
@@ -59,4 +59,19 @@
 
 .tagsContainer div {
   margin: 0px;
+}
+
+@media screen and (max-width: 600px) {
+  .rowContainerInner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .rowContainerInner svg {
+    margin: auto;
+    transform: rotate(90deg);
+  }
 }

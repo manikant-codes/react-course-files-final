@@ -4,6 +4,10 @@
   padding-bottom: 60px;
 }
 
+.tableContainer h2 {
+  margin-bottom: 16px;
+}
+
 .list {
   padding: 0px;
   margin: 0px;

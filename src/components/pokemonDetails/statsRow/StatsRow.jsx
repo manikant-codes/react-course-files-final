@@ -24,7 +24,7 @@ function StatsRow(props) {
       <div className={styles.containerTags}>
         <div>
           <h3>Type</h3>
-          <div>
+          <div className={styles.containerTagsInner}>
             {pokemon.types.map((value, index) => {
               return <Tag key={index} type={value.type.name} />;
             })}
@@ -32,7 +32,7 @@ function StatsRow(props) {
         </div>
         <div>
           <h3>Weaknesses</h3>
-          <div>
+          <div className={styles.containerTagsInner}>
             {weaknesses?.map((value, index) => {
               return <Tag key={index} type={value} />;
             })}

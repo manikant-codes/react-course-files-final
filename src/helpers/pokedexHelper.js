@@ -51,3 +51,31 @@ export function getStatName(name) {
   }
   return name;
 }
+
+export function getPokemonCategory(genera) {
+  if (!genera) return "";
+
+  let category = genera.find((value) => {
+    return value.language.name === "en";
+  });
+
+  if (category) {
+    return (category = category.genus);
+  }
+
+  return "N/A";
+}
+
+export function getPokemonDesc(flavorTextEntries) {
+  if (!flavorTextEntries) return "";
+
+  let desc = flavorTextEntries.find((value) => {
+    return value.language.name === "en";
+  });
+
+  if (desc) {
+    return (desc = desc.flavor_text.replaceAll("\f", " "));
+  }
+
+  return "Nothing to show!";
+}

@@ -108,3 +108,7 @@ function getEvolutionsDetails(names) {
 
   return Promise.all(promisesArray);
 }
+
+export function getSpeciesDetails(url) {
+  return myFetch(url);
+}

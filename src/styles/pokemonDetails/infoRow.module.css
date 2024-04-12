@@ -6,7 +6,7 @@
 }
 
 .containerImg {
-  height: 350px;
+  height: 300px;
 }
 
 .containerImg img {
@@ -45,4 +45,10 @@
 
 .table tbody tr td p:last-child {
   font-size: 1.25rem;
+}
+
+@media screen and (max-width: 600px) {
+  .containerMain {
+    grid-template-columns: 1fr;
+  }
 }

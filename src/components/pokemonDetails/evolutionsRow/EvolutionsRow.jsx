@@ -9,11 +9,22 @@ function EvolutionsRow(props) {
   const { species } = props;
   const [evolutions, setEvolutions] = useState(null);
 
+  console.log("evolutions", evolutions);
+
   useEffect(() => {
     getPokemonEvolutions(species.url).then((data) => {
-      setEvolutions(data);
+      setEvolutions(data.filter((value) => !!value));
     });
   }, [species.url]);
+
+  if (
+    !evolutions ||
+    !Array.isArray(evolutions) ||
+    !evolutions.length ||
+    !evolutions[0]
+  ) {
+    return null;
+  }
 
   return (
     <div className={styles.rowContainer}>
@@ -22,7 +33,7 @@ function EvolutionsRow(props) {
         {evolutions?.map((pokemon, index) => {
           return (
             <React.Fragment key={pokemon.id}>
-              <EvolutionCard pokemon={pokemon} />;
+              <EvolutionCard pokemon={pokemon} />
               {index !== evolutions.length - 1 && (
                 <FontAwesomeIcon
                   icon={faChevronRight}
