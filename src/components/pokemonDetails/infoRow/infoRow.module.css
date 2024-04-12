@@ -46,3 +46,9 @@
   font-size: 1.25rem;
   font-weight: 600;
 }
+
+@media screen and (max-width: 600px) {
+  .containerMain {
+    grid-template-columns: 1fr;
+  }
+}

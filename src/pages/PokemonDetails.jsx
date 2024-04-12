@@ -5,10 +5,13 @@ import Navigations from "../components/pokemonDetails/navigations/Navigations";
 import Title from "../components/pokemonDetails/title/Title";
 import InfoRow from "../components/pokemonDetails/infoRow/InfoRow";
 import StatsRow from "../components/pokemonDetails/statsRow/StatsRow";
+import EvolutionsRow from "../components/pokemonDetails/evolutionsRow/EvolutionsRow";
 
 function PokemonDetails() {
   const [pokemon, setPokemon] = useState(null);
   const params = useParams();
+
+  console.log("pokemon", pokemon);
 
   useEffect(() => {
     getSinglePokemon(params.name).then((data) => {
@@ -24,6 +27,7 @@ function PokemonDetails() {
       <Title name={pokemon.name} number={pokemon.id} />
       <InfoRow pokemon={pokemon} />
       <StatsRow pokemon={pokemon} />
+      <EvolutionsRow species={pokemon.species} />
     </div>
   );
 }

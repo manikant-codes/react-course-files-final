@@ -15,7 +15,6 @@
 }
 
 .barContainer {
-  flex-grow: 1;
 }
 
 .barContainer {
@@ -55,4 +54,13 @@
   right: 0px;
   text-align: center;
   font-weight: 600;
+}
+
+@media screen and (max-width: 600px) {
+  .graphContainer {
+    padding: 8px;
+  }
+  .graphList {
+    grid-template-columns: repeat(6, 1fr);
+  }
 }

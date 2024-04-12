@@ -1,0 +1,42 @@
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.imgContainer {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  border: solid 2px #bdbdbd;
+  overflow: hidden;
+  padding: 16px;
+}
+
+.imgContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.nameNumberContainer {
+  display: flex;
+  gap: 16px;
+}
+
+.nameNumberContainer p {
+  color: white;
+  font-size: 1.25rem;
+  margin: 0px;
+}
+
+.tagsContainer {
+  display: flex;
+  gap: 16px;
+}
+
+.tagsContainer div {
+  margin: 0px;
+}
