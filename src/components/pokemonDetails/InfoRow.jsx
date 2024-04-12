@@ -1,14 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../../styles/pokemonDetails/infoRow.module.css";
 import {
   getPokemonAbilities,
+  getPokemonCategory,
+  getPokemonDesc,
   getPokemonHeight,
   getPokemonImage,
   getPokemonWeight,
 } from "../../helpers/pokedexHelpers";
+import { fetchSpeciesDetails } from "../../services/apiServices";
 
 function InfoRow(props) {
   const { pokemon } = props;
+  const [speciesDetails, setSpeciesDetails] = useState(null);
+
+  useEffect(() => {
+    fetchSpeciesDetails(pokemon.species.url).then((data) => {
+      setSpeciesDetails(data);
+    });
+  }, [pokemon.species.url]);
+
+  console.log("Species Details", speciesDetails);
 
   return (
     <div className={styles.containerMain}>
@@ -17,10 +29,7 @@ function InfoRow(props) {
       </div>
       <div className={styles.containerInfo}>
         <p className={styles.desc}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
-          molestiae modi tenetur ab voluptatum accusantium et reprehenderit
-          amet, ad laudantium beatae incidunt. Fuga ipsa labore eius nobis
-          similique, aliquid sed.
+          {getPokemonDesc(speciesDetails?.flavor_text_entries)}
         </p>
         <table className={styles.table}>
           <tbody>
@@ -38,6 +47,10 @@ function InfoRow(props) {
               <td>
                 <p>Abilities</p>
                 <p>{getPokemonAbilities(pokemon.abilities)}</p>
+              </td>
+              <td>
+                <p>Category</p>
+                <p>{getPokemonCategory(speciesDetails?.genera)}</p>
               </td>
             </tr>
           </tbody>

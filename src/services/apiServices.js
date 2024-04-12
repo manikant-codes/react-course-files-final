@@ -38,7 +38,8 @@ export function fetchPokemons(page) {
 }
 
 export function fetchSinglePokemon(query) {
-  return fetch(`https://pokeapi.co/api/v2/pokemon/${query.toLowerCase()}`)
+  query = typeof query === "number" ? query : query.toLowerCase();
+  return fetch(`https://pokeapi.co/api/v2/pokemon/${query}`)
     .then((response) => {
       return response.json();
     })
@@ -78,36 +79,46 @@ export function fetchPokemonWeaknesses(types) {
 export function fetchPokemonEvolutions(url) {
   return myFetch(url).then((data) => {
     return myFetch(data.evolution_chain.url).then((data) => {
-      console.log("evolutions", data);
-      return fetchEvolutionChain(data.chain);
+      const names = getEvolutionsNames(data.chain);
+      const details = getEvolutionsDetails(names);
+      return details;
     });
   });
 }
 
-function fetchEvolutionChain(chain) {
-  let pokemonsArray = [];
+function getEvolutionsNames(chain) {
+  let names = [];
 
-  function getData(param) {
-    if (param.evolves_to.length !== 0) {
-      getData(param.evolves_to[0]);
-    }
-    pokemonsArray.push(param.species);
+  // function getData(param) {
+  //   if (param.evolves_to.length !== 0) {
+  //     getData(param.evolves_to[0]);
+  //   }
+  //   pokemonsArray.push(param.species.name);
+  // }
+
+  // getData(chain);
+
+  while (chain.evolves_to.length !== 0) {
+    names.push(chain.species.name);
+    chain = chain.evolves_to[0];
   }
 
-  getData(chain);
+  names.push(chain.species.name);
 
-  pokemonsArray.reverse();
+  return names;
+}
 
-  pokemonsArray = pokemonsArray.map((value) => {
-    return value.name;
-  });
-
+function getEvolutionsDetails(names) {
   const promisesArray = [];
 
-  for (const name of pokemonsArray) {
+  for (const name of names) {
     const promise = fetchSinglePokemon(name);
     promisesArray.push(promise);
   }
 
   return Promise.all(promisesArray);
+}
+
+export function fetchSpeciesDetails(url) {
+  return myFetch(url);
 }

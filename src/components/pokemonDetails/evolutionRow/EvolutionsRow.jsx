@@ -13,11 +13,16 @@ function EvolutionsRow(props) {
     });
   }, [species.url]);
 
+  if (!evolutions || !evolutions.length || !evolutions[0]) return null;
+
   return (
     <div className={styles.containerMain}>
-      {evolutions?.map((value) => {
-        return <EvolutionCard key={value.id} pokemon={value} />;
-      })}
+      <h2 className={styles.title}>Evolutions</h2>
+      <div className={styles.containerInner}>
+        {evolutions?.map((value) => {
+          return <EvolutionCard key={value.id} pokemon={value} />;
+        })}
+      </div>
     </div>
   );
 }

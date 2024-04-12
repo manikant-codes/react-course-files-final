@@ -57,6 +57,31 @@ function getWeaknesses(data) {
   return weaknesses;
 }
 
+function getPokemonCategory(genera) {
+  if (!genera) return "";
+
+  const genus = genera.find((value) => {
+    if (value.language.name === "en") {
+      return value.genus;
+    }
+    return false;
+  });
+
+  if (genus) return genus.genus;
+
+  return "N/A";
+}
+
+function getPokemonDesc(textEntries) {
+  if (!textEntries) return "";
+  let desc = textEntries.find((value) => value.language.name === "en");
+  if (desc) {
+    desc = desc.flavor_text.replaceAll("\f", " ");
+    return desc;
+  }
+  return "N/A";
+}
+
 export {
   getPokemonImage,
   getPokemonHeight,
@@ -65,4 +90,6 @@ export {
   getPokemonAbilities,
   getWeaknesses,
   getPokemonWeight,
+  getPokemonCategory,
+  getPokemonDesc,
 };

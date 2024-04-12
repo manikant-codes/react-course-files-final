@@ -19,11 +19,9 @@ function PokemonDetails() {
 
   if (!pokemon) return null;
 
-  console.log("pokemon", pokemon);
-
   return (
     <div>
-      <Navigations />
+      <Navigations pokemon={pokemon} setPokemon={setPokemon} />
       <Title name={pokemon.name} number={pokemon.id} />
       <InfoRow pokemon={pokemon} />
       <StatsRow pokemon={pokemon} />

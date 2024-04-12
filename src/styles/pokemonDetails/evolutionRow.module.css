@@ -1,7 +1,16 @@
 .containerMain {
   padding: 32px;
+  background-color: #616161;
+}
+
+.title {
+  color: white;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.containerInner {
   display: flex;
   gap: 32px;
   justify-content: center;
-  background-color: #616161;
 }
