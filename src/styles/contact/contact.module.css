@@ -11,3 +11,9 @@
   grid-template-columns: 1fr 2fr;
   gap: 32px;
 }
+
+@media screen and (max-width: 800px) {
+  .containerInner {
+    grid-template-columns: 1fr;
+  }
+}

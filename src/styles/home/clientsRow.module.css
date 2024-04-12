@@ -24,3 +24,9 @@
 img:hover {
   filter: grayscale(0);
 }
+
+@media screen and (max-width: 600px) {
+  .clientsRowContainer {
+    grid-template-columns: 1fr 1fr 1fr !important;
+  }
+}
