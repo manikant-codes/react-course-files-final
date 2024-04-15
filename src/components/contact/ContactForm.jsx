@@ -6,18 +6,20 @@ function ContactForm() {
   function sendEmail(e) {
     e.preventDefault();
 
+    const form = e.target;
+
     emailjs
       .sendForm(
         process.env.REACT_APP_SERVICE_ID,
         process.env.REACT_APP_TEMPLATE_ID,
-        e.target,
+        form,
         {
           publicKey: process.env.REACT_APP_PUBLIC_KEY,
         }
       )
       .then(() => {
         alert("SUCCESS!");
-        e.target.reset();
+        form.reset();
       })
       .catch((error) => {
         alert("FAILED...", error.text);
