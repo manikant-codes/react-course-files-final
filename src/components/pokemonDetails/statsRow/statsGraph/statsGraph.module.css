@@ -61,6 +61,7 @@
     padding: 8px;
   }
   .graphList {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(6, 45.83px);
+    gap: 15px;
   }
 }

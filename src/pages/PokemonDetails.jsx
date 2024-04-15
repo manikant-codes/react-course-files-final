@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getSinglePokemon } from "../services/apiServices";
 import Navigations from "../components/pokemonDetails/navigations/Navigations";
 import Title from "../components/pokemonDetails/title/Title";
@@ -23,7 +23,7 @@ function PokemonDetails() {
 
   return (
     <div>
-      <Navigations />
+      <Navigations pokemon={pokemon} setPokemon={setPokemon} />
       <Title name={pokemon.name} number={pokemon.id} />
       <InfoRow pokemon={pokemon} />
       <StatsRow pokemon={pokemon} />

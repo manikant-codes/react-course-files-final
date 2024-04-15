@@ -9,9 +9,14 @@ function EvolutionsRow(props) {
 
   useEffect(() => {
     getPokemonEvolutions(species.url).then((data) => {
-      setEvolutions(data);
+      const filtered = data.filter((value) => value !== undefined);
+      setEvolutions(filtered);
     });
   }, [species.url]);
+
+  if (!evolutions || !evolutions.length) {
+    return null;
+  }
 
   return (
     <div className={styles.containerMain}>

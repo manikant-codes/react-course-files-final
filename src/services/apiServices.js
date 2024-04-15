@@ -121,3 +121,7 @@ function getEvolutionsDetails(names) {
 
   return Promise.all(promisesArray);
 }
+
+export function getSpeciesDetails(speciesURL) {
+  return myFetch(speciesURL);
+}

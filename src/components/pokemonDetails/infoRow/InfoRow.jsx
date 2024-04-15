@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { getPokemonImage } from "../../home/pokemonsList/pokemonCard/cardHelper";
-import { getAbilities } from "./infoRowHelper";
+import { getAbilities, getCategory, getDesc } from "./infoRowHelper";
 import styles from "./infoRow.module.css";
+import { getSpeciesDetails } from "../../../services/apiServices";
 
 function InfoRow(props) {
   const { pokemon } = props;
+  const [speciesDetails, setSpeciesDetails] = useState(null);
+
+  useEffect(() => {
+    getSpeciesDetails(pokemon.species.url).then((data) => {
+      setSpeciesDetails(data);
+    });
+  }, [pokemon]);
+
+  console.log("speciesDetails", speciesDetails);
 
   return (
     <div className={styles.containerMain}>
@@ -13,10 +23,7 @@ function InfoRow(props) {
       </div>
       <div className={styles.containerInfo}>
         <p className={styles.descPara}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
-          dolorem dolor qui ratione iusto labore modi optio atque deserunt, illo
-          veritatis laborum velit nisi maxime odio similique architecto
-          voluptatibus rerum.
+          {getDesc(speciesDetails?.flavor_text_entries)}
         </p>
         <table className={styles.table}>
           <tbody>
@@ -35,11 +42,11 @@ function InfoRow(props) {
                 <p>Abilities</p>
                 <p>{getAbilities(pokemon.abilities)}</p>
               </td>
+              <td>
+                <p>Category</p>
+                <p>{getCategory(speciesDetails?.genera)}</p>
+              </td>
             </tr>
-            {/* <tr>
-              <td></td>
-              <td></td>
-            </tr> */}
           </tbody>
         </table>
       </div>
