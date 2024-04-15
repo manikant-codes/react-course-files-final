@@ -16,7 +16,7 @@ function Navigations(props) {
   }
 
   function handleNext() {
-    if (pokemon.id < 1024) {
+    if (pokemon.id < 1025) {
       getSinglePokemon(pokemon.id + 1).then((data) => {
         setPokemon(data);
       });
