@@ -7,6 +7,6 @@ export function myFetch(url) {
       return data;
     })
     .catch((error) => {
-      console.log("Error: ", error);
+      throw new Error(error.message);
     });
 }

@@ -31,7 +31,7 @@ export function fetchPokemons(page) {
       return Promise.all(promises);
     })
     .catch((error) => {
-      console.log("Error: ", error);
+      throw new Error(error.message);
     });
 
   return pokemons;
@@ -47,7 +47,7 @@ export function fetchSinglePokemon(query) {
       return data;
     })
     .catch((error) => {
-      console.log("Error: ", error);
+      throw new Error(error.message);
     });
 }
 
@@ -67,7 +67,7 @@ export function fetchPokemonWeaknesses(types) {
         return data;
       })
       .catch((error) => {
-        console.log("Error: ", error);
+        throw new Error(error.message);
       });
 
     promisesArray.push(promise);
@@ -77,13 +77,21 @@ export function fetchPokemonWeaknesses(types) {
 }
 
 export function fetchPokemonEvolutions(url) {
-  return myFetch(url).then((data) => {
-    return myFetch(data.evolution_chain.url).then((data) => {
-      const names = getEvolutionsNames(data.chain);
-      const details = getEvolutionsDetails(names);
-      return details;
+  return myFetch(url)
+    .then((data) => {
+      return myFetch(data.evolution_chain.url)
+        .then((data) => {
+          const names = getEvolutionsNames(data.chain);
+          const details = getEvolutionsDetails(names);
+          return details;
+        })
+        .catch((error) => {
+          throw new Error(error.message);
+        });
+    })
+    .catch((error) => {
+      throw new Error(error.message);
     });
-  });
 }
 
 function getEvolutionsNames(chain) {

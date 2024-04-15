@@ -13,4 +13,19 @@
   display: flex;
   gap: 32px;
   justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+@media screen and (max-width: 600px) {
+  .containerInner {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .containerInner svg {
+    margin: auto;
+    transform: rotate(90deg);
+  }
 }

@@ -1,0 +1,12 @@
+.container {
+  border: solid 2px #ef9a9a;
+  padding: 12px;
+  border-left: solid 8px #f44336;
+  margin: 12px;
+  border-radius: 8px;
+}
+
+.container p {
+  margin: 0px;
+  font-weight: 500;
+}
