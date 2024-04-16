@@ -1,78 +1,135 @@
 import { PAGE_SIZE } from "../constants";
 import { myFetch } from "../helpers/fetchHelper";
 
-export function getPokemons(page) {
+// export function getPokemons(page) {
+//   const limit = PAGE_SIZE;
+//   const offset = (page - 1) * limit;
+
+//   return fetch(
+//     `https://pokeapi.co/api/v2/pokemon?offset=${offset}&&limit=${limit}`
+//   )
+//     .then((response) => {
+//       return response.json();
+//     })
+//     .then((data) => {
+//       const results = data.results;
+//       const promises = [];
+//       for (const value of results) {
+//         const pokemonPromise = fetch(value.url)
+//           .then((response) => {
+//             return response.json();
+//           })
+//           .then((data) => {
+//             return data;
+//           })
+//           .catch((error) => {
+//             console.log("Error: ", error);
+//           });
+//         promises.push(pokemonPromise);
+//       }
+//       // console.log("promises", promises);
+//       const resolved = Promise.all(promises);
+//       // console.log("resolved", resolved);
+//       return resolved;
+//     })
+//     .catch((error) => {
+//       console.log("Error: ", error);
+//     });
+// }
+
+export async function getPokemons(page) {
   const limit = PAGE_SIZE;
   const offset = (page - 1) * limit;
 
-  return fetch(
-    `https://pokeapi.co/api/v2/pokemon?offset=${offset}&&limit=${limit}`
-  )
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      const results = data.results;
-      const promises = [];
-      for (const value of results) {
-        const pokemonPromise = fetch(value.url)
-          .then((response) => {
-            return response.json();
-          })
-          .then((data) => {
-            return data;
-          })
-          .catch((error) => {
-            console.log("Error: ", error);
-          });
-        promises.push(pokemonPromise);
-      }
-      // console.log("promises", promises);
-      const resolved = Promise.all(promises);
-      // console.log("resolved", resolved);
-      return resolved;
-    })
-    .catch((error) => {
-      console.log("Error: ", error);
-    });
+  try {
+    const response = await fetch(
+      `https://pokeapi.co/api/v2/pokemon?offset=${offset}&&limit=${limit}`
+    );
+
+    const data = await response.json();
+
+    const results = data.results;
+
+    const pokemons = [];
+
+    for (const value of results) {
+      const response = await fetch(value.url);
+      const data = await response.json();
+      pokemons.push(data);
+    }
+
+    return pokemons;
+  } catch (error) {
+    console.log("Error: ", error);
+  }
 }
 
-export function getSinglePokemon(query) {
-  return fetch(`https://pokeapi.co/api/v2/pokemon/${query}`)
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      return data;
-    })
-    .catch((error) => {
-      console.log("Error: ", error);
-    });
+// export function getSinglePokemon(query) {
+//   return fetch(`https://pokeapi.co/api/v2/pokemon/${query}`)
+//     .then((response) => {
+//       return response.json();
+//     })
+//     .then((data) => {
+//       return data;
+//     })
+//     .catch((error) => {
+//       console.log("Error: ", error);
+//     });
+// }
+
+export async function getSinglePokemon(query) {
+  try {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${query}`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log("Error: ", error);
+  }
 }
 
-export function getPokemonTypesDetails(types) {
+// export function getPokemonTypesDetails(types) {
+//   const urls = types.map((value) => {
+//     return value.type.url;
+//   });
+
+//   const promisesArray = [];
+
+//   for (const url of urls) {
+//     const promise = fetch(url)
+//       .then((response) => {
+//         return response.json();
+//       })
+//       .then((data) => {
+//         return data;
+//       })
+//       .catch((error) => {
+//         console.log("Error: ", error);
+//       });
+
+//     promisesArray.push(promise);
+//   }
+
+//   return Promise.all(promisesArray);
+// }
+
+export async function getPokemonTypesDetails(types) {
   const urls = types.map((value) => {
     return value.type.url;
   });
 
-  const promisesArray = [];
+  try {
+    const typesDetails = [];
+    for (const url of urls) {
+      const response = await fetch(url);
+      const data = await response.json();
 
-  for (const url of urls) {
-    const promise = fetch(url)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        return data;
-      })
-      .catch((error) => {
-        console.log("Error: ", error);
-      });
+      typesDetails.push(data);
+    }
 
-    promisesArray.push(promise);
+    return typesDetails;
+  } catch (error) {
+    console.log("Error: ", error);
   }
-
-  return Promise.all(promisesArray);
 }
 
 export function getPokemonEvolutions(url) {
