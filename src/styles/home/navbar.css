@@ -9,6 +9,7 @@
   padding: 16px 32px;
   align-items: center;
   height: 70px;
+  position: relative;
 }
 
 .logo {
@@ -34,8 +35,45 @@
   text-decoration: underline;
 }
 
+.btnMenu {
+  display: none;
+}
+
 @media screen and (max-width: 600px) {
   .links {
-    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0px;
+    right: 0px;
+    background-color: #80cbc4;
+    flex-direction: column;
+    height: 0px;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    z-index: 1000;
+  }
+
+  .open {
+    height: calc(100vh - 70px);
+  }
+
+  .links li a {
+    display: block;
+    padding: 16px;
+    width: 100%;
+    color: black;
+  }
+
+  .links li a:hover {
+    background-color: #26a69a;
+  }
+
+  .btnMenu {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
