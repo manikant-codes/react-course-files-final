@@ -14,6 +14,7 @@ function PokemonsList() {
   const [page, setPage] = useState(1);
 
   function fetchPokemonsList(setLoading, setData, setError) {
+    setLoading(true);
     fetchPokemons(page)
       .then((data) => {
         console.log("data", data);
