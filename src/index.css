@@ -16,3 +16,12 @@ button:hover {
   background-color: #da471b;
   color: white;
 }
+
+.memoDemoBtn {
+  background-color: #d63384;
+  color: white;
+}
+
+.memoDemoBtn:hover {
+  background-color: #943464 !important;
+}

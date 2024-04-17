@@ -182,3 +182,28 @@ function getEvolutionsDetails(names) {
 export function getSpeciesDetails(speciesURL) {
   return myFetch(speciesURL);
 }
+
+// function fetchURL() {
+//   console.log("1");
+//   const promise = fetch("https://pokeapi.co/api/v2/pokemon")
+//     .then((response) => {
+//       // console.log("response ASD", response);
+//       const promiseJSON = response.json();
+//       promiseJSON.then((result) => {
+//         console.log("result", result);
+//       });
+//     })
+//     .catch((error) => {});
+//   console.log("2");
+// }
+
+// async function fetchURLAsync() {
+//   console.log(1);
+//   const response = await fetch("https://pokeapi.co/api/v2/pokemon");
+//   const data = await response.json();
+//   console.log("data", data);
+//   console.log(2);
+// }
+
+// fetchURL();
+// fetchURLAsync();

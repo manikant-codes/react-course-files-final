@@ -8,8 +8,6 @@ function PokemonsList() {
   const [pokemons, setPokemons] = useState(null);
   const [page, setPage] = useState(1);
 
-  console.log("page", page);
-
   useEffect(() => {
     const promise = getPokemons(page);
     promise.then((data) => {
