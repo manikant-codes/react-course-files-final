@@ -1,18 +1,15 @@
 import React from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import { Outlet } from "react-router";
+import { Outlet } from "react-router-dom";
 
-function Layout(props) {
-  //   const { children } = props;
+function Layout() {
   return (
-    <>
+    <div>
       <Navbar />
-      {/* Page Content */}
-      {/* {children} */}
       <Outlet />
       <Footer />
-    </>
+    </div>
   );
 }
 

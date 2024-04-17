@@ -1,0 +1,16 @@
+.searchContainer {
+  display: flex;
+  gap: 8px;
+}
+
+.searchContainer input {
+  border-radius: 5px;
+  min-width: 250px;
+  padding: 0.375rem 0.75rem;
+  margin: 10px 0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 24px;
+  border: 1px solid #ccc;
+  outline: none;
+}
