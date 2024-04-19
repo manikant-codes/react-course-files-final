@@ -1,0 +1,27 @@
+.containerMain {
+  border-radius: 16px;
+  overflow: hidden;
+  border: solid 1px #bdbdbd;
+  cursor: pointer ;
+}
+
+.containerImg {
+  height: 300px;
+  overflow: hidden;
+}
+
+.containerImg:hover img {
+  scale: 1.25;
+}
+
+.containerImg img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  scale: 1;
+  transition: all 0.5s ease;
+}
+
+.containerInfo {
+  padding: 16px;
+}
