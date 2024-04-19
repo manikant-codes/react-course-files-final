@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 
 function MemoCard(props) {
-  const { src, title, desc } = props;
+  const { src, title, desc, sayHi } = props;
 
   console.log("Memo Card Rendered!");
 
@@ -25,7 +25,11 @@ function MemoCard(props) {
       <div style={{ padding: "16px" }}>
         <h3>{title}</h3>
         <p>{desc}</p>
-        <button className="memoDemoBtn" style={{ width: "100%" }}>
+        <button
+          className="memoDemoBtn"
+          style={{ width: "100%" }}
+          onClick={sayHi}
+        >
           Click Me!
         </button>
       </div>
