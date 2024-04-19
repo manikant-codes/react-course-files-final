@@ -1,50 +1,124 @@
 import React, { useMemo, useState } from "react";
 
-const expensiveCalculation = (num) => {
-  console.log("Calculating...");
-  for (let i = 0; i < 1000000000; i++) {
-    num += 1;
-  }
-  return num;
-};
+// function expensiveCalculation(num) {
+//   let temp = 0;
+
+//   for (let i = 1; i <= 1000000000; i++) {
+//     temp += 1;
+//   }
+
+//   return temp + num;
+// }
 
 function UseMemoDemo() {
+  const [list, setList] = useState(["List Item"]);
+  const [input, setInput] = useState("");
   const [count, setCount] = useState(0);
-  const [todos, setTodos] = useState([]);
-  //   const calculation = expensiveCalculation(count);
 
   const calculation = useMemo(() => {
-    // return expensiveCalculation(count);
-    let num = count;
-    for (let i = 0; i < 1000000000; i++) {
-      num += 1;
+    let temp = 0;
+
+    for (let i = 1; i <= 1000000000; i++) {
+      temp += 1;
     }
-    return num;
+
+    return temp + count;
+
+    // return expensiveCalculation(count);
   }, [count]);
 
-  const increment = () => {
-    setCount((c) => c + 1);
-  };
+  console.log("calculation", calculation);
 
-  const addTodo = () => {
-    setTodos((t) => [...t, "New Todo"]);
-  };
+  function addNew() {
+    setList([...list, input]);
+  }
+
+  function handleInput(e) {
+    setInput(e.target.value);
+  }
+
+  function handleDecrement() {
+    setCount(count - 1);
+  }
+
+  function handleIncrement() {
+    setCount(count + 1);
+  }
 
   return (
     <div>
-      <div>
-        <h2>My Todos</h2>
-        {todos.map((todo, index) => {
-          return <p key={index}>{todo}</p>;
-        })}
-        <button onClick={addTodo}>Add Todo</button>
+      {/* Title */}
+      <div style={{ padding: "16px 32px", backgroundColor: "#eeeeee" }}>
+        <h1>useMemo Hook</h1>
       </div>
-      <hr />
-      <div>
-        Count: {count}
-        <button onClick={increment}>+</button>
-        <h2>Expensive Calculation</h2>
-        {calculation}
+      {/* End Title */}
+
+      {/* Input */}
+      <div
+        style={{
+          display: "flex",
+          gap: "4px",
+          padding: "32px",
+          paddingBottom: "0px",
+        }}
+      >
+        <input
+          type="text"
+          style={{ padding: "5px 16px", flexGrow: 1 }}
+          value={input}
+          onChange={handleInput}
+        />
+        <button style={{}} onClick={addNew}>
+          Add New
+        </button>
+      </div>
+      {/* End Input */}
+
+      {/* List */}
+      <div style={{ padding: "32px" }}>
+        <ul
+          style={{
+            listStyleType: "none",
+            margin: "0px",
+            padding: "0px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "8px",
+          }}
+        >
+          {list.map((value, index) => {
+            return (
+              <li
+                style={{
+                  padding: "16px",
+                  backgroundColor: "#e0e0e0",
+                  borderRadius: "8px",
+                  fontSize: "1.25rem",
+                }}
+              >
+                {value}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+      {/* End List */}
+
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "16px",
+          padding: "32px",
+        }}
+      >
+        <button className="memoDemoBtn" onClick={handleDecrement}>
+          -
+        </button>
+        <h2>{calculation}</h2>
+        <button className="memoDemoBtn" onClick={handleIncrement}>
+          +
+        </button>
       </div>
     </div>
   );
