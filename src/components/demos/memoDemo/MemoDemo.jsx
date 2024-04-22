@@ -48,16 +48,18 @@ function MemoDemo() {
           />
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-          <button className="memoDemoBtn" onClick={handleDecrement}>
+          <button className="btnPink" onClick={handleDecrement}>
             -
           </button>
           <h2>{count}</h2>
-          <button className="memoDemoBtn" onClick={handleIncrement}>
+          <button className="btnPink" onClick={handleIncrement}>
             +
           </button>
         </div>
         <div>
-          <button onClick={toggleTrue}>Toggle True</button>
+          <button className="btnPink" onClick={toggleTrue}>
+            Toggle True
+          </button>
         </div>
       </div>
     </div>

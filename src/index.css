@@ -17,11 +17,11 @@ button:hover {
   color: white;
 }
 
-.memoDemoBtn {
+.btnPink {
   background-color: #d63384;
   color: white;
 }
 
-.memoDemoBtn:hover {
+.btnPink:hover {
   background-color: #943464 !important;
 }

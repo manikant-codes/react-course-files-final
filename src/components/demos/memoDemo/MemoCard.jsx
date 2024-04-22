@@ -26,7 +26,7 @@ function MemoCard(props) {
         <h3>{title}</h3>
         <p>{desc}</p>
         <button
-          className="memoDemoBtn"
+          className="btnPink"
           style={{ width: "100%" }}
           onClick={sayHi}
         >
