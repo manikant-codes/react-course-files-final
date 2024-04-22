@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 
-function MemoCard(props) {
-  const { src, title } = props;
+function DemoCard(props) {
+  const { src, title, handleCallMe } = props;
 
   console.log("Memo Card Rendered");
 
@@ -35,10 +35,12 @@ function MemoCard(props) {
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque,
           perspiciatis!
         </p>
-        <button style={{ padding: "8px" }}>Reset</button>
+        <button style={{ padding: "8px" }} onClick={handleCallMe}>
+          Call Me
+        </button>
       </div>
     </div>
   );
 }
 
-export default memo(MemoCard);
+export default memo(DemoCard);
