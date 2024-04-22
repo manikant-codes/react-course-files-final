@@ -1,0 +1,30 @@
+.containerMain {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.containerMain p {
+  margin: 0px;
+}
+
+.circle {
+  border-radius: 50%;
+  height: 16px;
+  width: 16px;
+  position: relative;
+}
+
+.circle p {
+  display: none;
+  position: absolute;
+  top: -34px;
+  padding: 2px 6px;
+  color: white;
+  width: max-content;
+  border-radius: 4px;
+}
+
+.circle:hover p {
+  display: block;
+}

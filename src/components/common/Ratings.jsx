@@ -4,15 +4,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 function Ratings(props) {
-  const { numberOfReviews } = props;
+  const { numberOfReviews, rating } = props;
   return (
     <div className={styles.containerMain}>
       <div className={styles.containerStars}>
-        <FontAwesomeIcon icon={faStar} color="#bdbdbd" />
-        <FontAwesomeIcon icon={faStar} color="#bdbdbd" />
-        <FontAwesomeIcon icon={faStar} color="#bdbdbd" />
-        <FontAwesomeIcon icon={faStar} color="#bdbdbd" />
-        <FontAwesomeIcon icon={faStar} color="#bdbdbd" />
+        {[...Array(5)].map((value, index) => {
+          return (
+            <FontAwesomeIcon
+              key={index}
+              icon={faStar}
+              color={index + 1 <= rating ? "#fda120" : "#bdbdbd"}
+            />
+          );
+        })}
       </div>
       <p>{numberOfReviews} reviews</p>
     </div>
