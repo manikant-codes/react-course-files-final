@@ -16,8 +16,6 @@ function PrevStateExample() {
     // countRef.current += 1;
 
     inputRef.current.focus();
-    inputRef.current.value = "Hello";
-    inputRef.current.style.borderRadius = "32px";
 
     console.log(inputRef.current);
   }, [input]);
