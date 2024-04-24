@@ -1,9 +1,31 @@
-import { computeHeadingLevel } from "@testing-library/react";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
+
+function expensiveCalculation(num) {
+  let temp = 0;
+
+  for (let i = 0; i < 1000000000; i++) {
+    temp += 1;
+  }
+
+  return temp + num;
+}
 
 export default function UseMemoDemo() {
+  const [count, setCount] = useState(0);
   const [input, setInput] = useState("");
   const [list, setList] = useState(["List Item"]);
+
+  const result = useMemo(() => {
+    return expensiveCalculation(count);
+  }, [count]);
+
+  function handleDecrement() {
+    setCount(count - 1);
+  }
+
+  function handleIncrement() {
+    setCount(count + 1);
+  }
 
   function handleChange(e) {
     setInput(e.target.value);
@@ -61,6 +83,17 @@ export default function UseMemoDemo() {
             );
           })}
         </ul>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          gap: "32px",
+          padding: "32px",
+        }}
+      >
+        <button onClick={handleDecrement}>-</button>
+        <h3>{result}</h3>
+        <button onClick={handleIncrement}>+</button>
       </div>
     </div>
   );
