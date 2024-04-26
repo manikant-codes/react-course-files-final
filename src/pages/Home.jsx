@@ -1,28 +1,12 @@
-import React, { useState } from "react";
-import Searchbar from "../components/home/searchbar/Searchbar";
-import PokemonsList from "../components/home/pokemonsList/PokemonsList";
-import SearchedPokemon from "../components/home/searchedPokemon/SearchedPokemon";
+import React from "react";
+import Tabs from "../components/home/Tabs";
+import TasksList from "../components/home/tasksList/TasksList";
 
 function Home() {
-  const [searchedPokemon, setSearchedPokemon] = useState(null);
-  const [query, setQuery] = useState("");
-
   return (
     <div>
-      <Searchbar
-        query={query}
-        setQuery={setQuery}
-        setSearchedPokemon={setSearchedPokemon}
-      />
-      {searchedPokemon ? (
-        <SearchedPokemon
-          pokemon={searchedPokemon}
-          setSearchedPokemon={setSearchedPokemon}
-          setQuery={setQuery}
-        />
-      ) : (
-        <PokemonsList />
-      )}
+      <Tabs />
+      <TasksList />
     </div>
   );
 }

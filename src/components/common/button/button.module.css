@@ -1,0 +1,25 @@
+.btn {
+  border-radius: 4px;
+  font-weight: 600;
+  padding: 8px 16px;
+}
+
+.btnSolid {
+  background-color: #ee6b2f;
+  border: none;
+}
+
+.btnSolid:hover {
+  background-color: #da471b;
+  color: white;
+}
+
+.btnOutlined {
+  background-color: white;
+  border: solid 2px #ee6b2f;
+}
+
+.btnOutlined:hover {
+  background-color: #da471b;
+  color: white;
+}

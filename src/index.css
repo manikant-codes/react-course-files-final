@@ -16,12 +16,3 @@ button:hover {
   background-color: #da471b;
   color: white;
 }
-
-.btnPink {
-  background-color: #d63384;
-  color: white;
-}
-
-.btnPink:hover {
-  background-color: #943464 !important;
-}

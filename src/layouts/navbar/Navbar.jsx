@@ -4,7 +4,7 @@ import styles from "./navbar.module.css";
 function Navbar() {
   return (
     <nav className={styles.navbar}>
-      <h1 className={styles.logo}>Pokédex</h1>
+      <h1 className={styles.logo}>ToDos</h1>
     </nav>
   );
 }
