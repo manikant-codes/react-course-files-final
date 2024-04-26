@@ -2,14 +2,16 @@ import React from "react";
 // import MemoDemo from "./components/demos/memoDemo/MemoDemo";
 // import UseMemoDemo from "./components/demos/useMemoDemo/UseMemoDemo";
 // import UseRefDemo from "./components/demos/useRefDemo/UseRefDemo";
-import UseContextDemo from "./components/demos/useContextDemo/UseContextDemo";
-import UseMemoDemo from "./components/demos/useMemoDemo/UseMemoDemo";
+// import UseContextDemo from "./components/demos/useContextDemo/UseContextDemo";
+// import UseMemoDemo from "./components/demos/useMemoDemo/UseMemoDemo";
+import UseReducerCounterDemo from "./components/demos/useReducerDemo/UseReducerCounterDemo";
 
 function Demo() {
   return (
     <div>
       {/* <UseContextDemo /> */}
-      <UseMemoDemo />
+      {/* <UseMemoDemo /> */}
+      <UseReducerCounterDemo />
     </div>
   );
 }
