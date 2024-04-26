@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { getUsersData } from "../../../services/apiServices";
 
 function FetchDemo() {
   const [users, setUsers] = useState(null);
@@ -20,26 +21,23 @@ function FetchDemo() {
   //       });
   //   }
 
-  function getUsersData() {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setUsers(data);
-      })
-      .catch((error) => {
-        console.log("error", error);
-      });
-  }
-
   return (
     <div>
       <div style={{ padding: "24px 32px", backgroundColor: "#eeeeee" }}>
         <h1>Fetch Demo</h1>
       </div>
       <div style={{ padding: "32px", paddingBottom: "0px" }}>
-        <button onClick={getUsersData}>Get Data</button>
+        <button
+          onClick={() => {
+            const placeholder = getUsersData();
+            console.log("placeholder", placeholder);
+            placeholder.then((data) => {
+              setUsers(data);
+            });
+          }}
+        >
+          Get Data
+        </button>
       </div>
 
       <div
