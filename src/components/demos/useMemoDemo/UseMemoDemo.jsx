@@ -1,4 +1,7 @@
 import React, { useMemo, useState } from "react";
+import { UserContext } from "../useContextDemo/UseContextDemo";
+import UserProvider, { useUser } from "../useContextDemo/UserProvider";
+import Title from "./Title";
 
 // function expensiveCalculation(num) {
 //   let temp = 0;
@@ -43,10 +46,11 @@ function UseMemoDemo() {
   }
 
   return (
-    <div>
+    <UserProvider>
       <div style={{ padding: "24px 32px", backgroundColor: "#eeeeee" }}>
         <h2>useMemo Example</h2>
       </div>
+      <Title />
       <div
         style={{ display: "flex", padding: "24px 32px 0px 32px", gap: "8px" }}
       >
@@ -101,7 +105,7 @@ function UseMemoDemo() {
           +
         </button>
       </div>
-    </div>
+    </UserProvider>
   );
 }
 
