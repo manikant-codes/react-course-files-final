@@ -2,14 +2,14 @@ import React from "react";
 import ListItem from "./ListItem";
 import styles from "../../../styles/home/tasksList.module.css";
 
-function List() {
+function List({ toggleModal, list }) {
   return (
     <div className={styles.containerList}>
-      <ListItem />
-      <ListItem />
-      <ListItem />
-      <ListItem />
-      <ListItem />
+      {list.map((value) => {
+        return (
+          <ListItem key={value.id} task={value} toggleModal={toggleModal} />
+        );
+      })}
     </div>
   );
 }

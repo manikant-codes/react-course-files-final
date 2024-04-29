@@ -4,22 +4,122 @@
   padding: 8px 16px;
 }
 
-.btnSolid {
+/* Primary */
+
+.btnPrimarySolid {
   background-color: #ee6b2f;
   border: none;
 }
 
-.btnSolid:hover {
+.btnPrimarySolid:hover {
   background-color: #da471b;
   color: white;
 }
 
-.btnOutlined {
+.btnPrimaryOutlined {
   background-color: white;
   border: solid 2px #ee6b2f;
 }
 
-.btnOutlined:hover {
+.btnPrimaryOutlined:hover {
   background-color: #da471b;
   color: white;
 }
+
+/* End Primary */
+
+/* Success */
+
+.btnSuccessSolid {
+  background-color: #4caf50;
+  border: none;
+}
+
+.btnSuccessSolid:hover {
+  background-color: #2e7d32;
+  color: white;
+}
+
+.btnSuccessOutlined {
+  background-color: white;
+  border: solid 2px #4caf50;
+}
+
+.btnSuccessOutlined:hover {
+  background-color: #2e7d32;
+  color: white;
+}
+
+/* End Success */
+
+/* Info */
+
+.btnInfoSolid {
+  background-color: #2196f3;
+  border: none;
+}
+
+.btnInfoSolid:hover {
+  background-color: #1565c0;
+  color: white;
+}
+
+.btnInfoOutlined {
+  background-color: white;
+  border: solid 2px #2196f3;
+}
+
+.btnInfoOutlined:hover {
+  background-color: #1565c0;
+  color: white;
+}
+
+/* End Info */
+
+/* Warning */
+
+.btnWarningSolid {
+  background-color: #ffc107;
+  border: none;
+}
+
+.btnWarningSolid:hover {
+  background-color: #ff8f00;
+  color: white;
+}
+
+.btnWarningOutlined {
+  background-color: white;
+  border: solid 2px #ffc107;
+}
+
+.btnWarningOutlined:hover {
+  background-color: #ff8f00;
+  color: white;
+}
+
+/* End Warning */
+
+/* Error */
+
+.btnErrorSolid {
+  background-color: #f44336;
+  border: none;
+}
+
+.btnErrorSolid:hover {
+  background-color: #c62828;
+  color: white;
+}
+
+.btnErrorOutlined {
+  background-color: white;
+  border: solid 2px #f44336;
+}
+
+.btnErrorOutlined:hover {
+  background-color: #c62828;
+  color: white;
+}
+
+/* End Error */

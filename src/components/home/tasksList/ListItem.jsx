@@ -4,16 +4,16 @@ import React from "react";
 import styles from "../../../styles/home/tasksList.module.css";
 import Button from "../../common/button/Button";
 
-function ListItem() {
+function ListItem({ toggleModal, task }) {
   return (
     <div className={styles.containerListItem}>
-      <p>Lorem ipsum dolor sit amet.</p>
-      <p>{new Date().toDateString()}</p>
+      <p>{task.task}</p>
+      <p>{new Date(task.due).toLocaleDateString("en-IN")}</p>
       <div>
-        <Button variant="outlined">
+        <Button variant="outlined" color="info" onClick={toggleModal}>
           <FontAwesomeIcon icon={faEdit} />
         </Button>
-        <Button variant="outlined" color="info">
+        <Button variant="outlined" color="error">
           <FontAwesomeIcon icon={faTrash} />
         </Button>
       </div>
