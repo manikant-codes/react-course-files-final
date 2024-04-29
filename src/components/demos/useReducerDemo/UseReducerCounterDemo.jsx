@@ -1,63 +1,68 @@
 import React, { useReducer, useState } from "react";
 
-const initialState = 0;
+// {
+//     type: "",
+//     payload: ""
+// }
 
-const ACTIONS = {
-  INCREMENT: "INCREMENT",
-  DECREMENT: "DECREMENT",
-};
-
-function reducer(state, action) {
+function reducer(prevState, action) {
   switch (action.type) {
-    case ACTIONS.INCREMENT:
-      return (state += 1);
-    case ACTIONS.DECREMENT:
-      return (state -= 1);
+    case "INCREMENT":
+      return prevState + 1;
+    case "DECREMENT":
+      return prevState - 1;
     default:
-      return state;
+      return prevState;
   }
 }
 
 function UseReducerCounterDemo() {
   //   const [count, setCount] = useState(0);
-
-  const [count, dispatch] = useReducer(reducer, initialState);
-
   //   let count = 0;
 
-  function handleIncrement() {
-    // With useState
-    // setCount(count + 1);
-    // Without State
-    // console.log((count += 1));
-    // document.getElementById("para").innerHTML = count;
-    // With useReducer
-    dispatch({ type: ACTIONS.INCREMENT });
-  }
+  const [count, dispatch] = useReducer(reducer, 0);
+
   function handleDecrement() {
-    // With useState
+    // count--;
+    // document.getElementById("count").innerHTML = count;
+    // console.log(count);
     // setCount(count - 1);
-    // Without State
-    // console.log((count -= 1));
-    // document.getElementById("para").innerHTML = count;
-    // With useReducer
-    dispatch({ type: ACTIONS.DECREMENT });
+    dispatch({ type: "DECREMENT" });
+  }
+
+  function handleIncrement() {
+    // count++;
+    // document.getElementById("count").innerHTML = count;
+    // console.log(count);
+    // setCount(count + 1);
+    dispatch({ type: "INCREMENT" });
   }
 
   return (
     <div
       style={{
-        height: "100vh",
         width: "100vw",
+        height: "100vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
       }}
     >
-      <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-        <button onClick={handleDecrement}>-</button>
-        <p style={{ margin: "0px", fontSize: "2rem" }}>{count}</p>
-        <button onClick={handleIncrement}>+</button>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "16px",
+          padding: "32px",
+        }}
+      >
+        <button className="btnPink" onClick={handleDecrement}>
+          -
+        </button>
+        <h2 id="count">{count}</h2>
+        <button className="btnPink" onClick={handleIncrement}>
+          +
+        </button>
       </div>
     </div>
   );

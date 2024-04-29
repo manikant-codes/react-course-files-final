@@ -50,7 +50,7 @@ function UseMemoDemo() {
       <div style={{ padding: "24px 32px", backgroundColor: "#eeeeee" }}>
         <h2>useMemo Example</h2>
       </div>
-      <Title />
+      {/* <Title /> */}
       <div
         style={{ display: "flex", padding: "24px 32px 0px 32px", gap: "8px" }}
       >
