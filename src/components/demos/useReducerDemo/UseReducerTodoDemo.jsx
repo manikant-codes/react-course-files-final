@@ -1,34 +1,54 @@
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useReducer, useState } from "react";
+import {
+  addTodo,
+  deleteTodo,
+  getTodos,
+  updateTodo,
+} from "./localStorageHelper";
 
-const initialState = [
-  {
-    id: Date.now(),
-    task: "Task 1",
-    isCompleted: false,
-  },
-];
+const initialState = getTodos();
 
 function reducer(prevState, action) {
   switch (action.type) {
     case "ADD":
-      return [
-        ...prevState,
-        {
-          id: Date.now(),
-          task: action.payload,
-          isCompleted: false,
-        },
-      ];
+      const todo = {
+        id: Date.now(),
+        task: action.payload,
+        isCompleted: false,
+      };
+      addTodo(todo, prevState);
+      return getTodos();
+    // return [
+    //   ...prevState,
+    //   {
+    //     id: Date.now(),
+    //     task: action.payload,
+    //     isCompleted: false,
+    //   },
+    // ];
     case "UPDATE": {
-      return;
+      updateTodo(action.payload, prevState);
+      return getTodos();
+      // const updatedList = prevState.map((value) => {
+      //   if (value.id === action.payload) {
+      //     return { ...value, isCompleted: !value.isCompleted };
+      //   }
+      //   return value;
+      // });
+      // return updatedList;
     }
     case "DELETE": {
-      const filteredTasks = prevState.filter((value) => {
-        return value.id !== action.payload;
-      });
-      return filteredTasks;
+      deleteTodo(action.payload, prevState);
+      return getTodos();
+      //   const filteredTasks = prevState.filter((value) => {
+      //     if (value.id === action.payload) {
+      //       return false;
+      //     }
+      //     return true;
+      //   });
+      //   return filteredTasks;
     }
     default:
       return prevState;
@@ -39,6 +59,8 @@ function UseReducerTodoDemo() {
   //   const [list, setList] = useState(["List Item"]);
   const [list, dispatch] = useReducer(reducer, initialState);
   const [input, setInput] = useState("");
+
+  console.log(list);
 
   function handleChange(e) {
     setInput(e.target.value);
@@ -53,6 +75,10 @@ function UseReducerTodoDemo() {
 
   function handleDelete(id) {
     dispatch({ type: "DELETE", payload: id });
+  }
+
+  function handleComplete(id) {
+    dispatch({ type: "UPDATE", payload: id });
   }
 
   return (
@@ -96,12 +122,19 @@ function UseReducerTodoDemo() {
                 gap: "8px",
               }}
             >
-              <input type="checkbox" />
+              <input
+                type="checkbox"
+                checked={value.isCompleted}
+                onChange={() => {
+                  handleComplete(value.id);
+                }}
+              />
               <p style={{ flexGrow: 1, margin: "0px" }}>{value.task}</p>
               <button
                 onClick={() => {
                   handleDelete(value.id);
                 }}
+                className="btnPink"
               >
                 <FontAwesomeIcon icon={faTrash} />
               </button>
