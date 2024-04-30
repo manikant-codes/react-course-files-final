@@ -1,0 +1,15 @@
+.containerNutritionName {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.circleNutritionName {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+}
+
+.textNutritionName {
+  font-weight: 600;
+}

@@ -1,0 +1,34 @@
+.containerRecipeSteps {
+  padding: 32px;
+}
+
+.containerRecipeStepsTitle {
+  font-size: 2rem;
+  margin-bottom: 48px;
+}
+
+.containerRecipeStepCard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.containerRecipeStepCardTitle {
+  font-size: 1.45rem;
+}
+
+.containerRecipeStepCardDesc {
+}
+
+.containerRecipeStepCardImg {
+  margin-top: 16px;
+  border-radius: 16px;
+  overflow: hidden;
+  height: 400px;
+}
+
+.containerRecipeStepCardImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

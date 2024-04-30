@@ -1,6 +1,7 @@
 import React from "react";
 import Ratings from "../../common/Ratings";
 import styles from "../../../styles/recipeDetails/about.module.css";
+import NutritionTable from "../nutritionTable/NutritionTable";
 
 function RecipeInfo() {
   return (
@@ -15,6 +16,7 @@ function RecipeInfo() {
         eius reprehenderit adipisci cum quidem corrupti odit doloremque iusto
         nihil sequi enim!
       </p>
+      <NutritionTable />
     </div>
   );
 }
