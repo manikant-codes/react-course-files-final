@@ -2,8 +2,15 @@ import React, { useState } from "react";
 import Button from "../common/button/Button";
 import styles from "../../styles/home/addUpdateTask.module.css";
 
-function AddUpdateTask({ toggleModal, list, setList }) {
-  const [formState, setFormState] = useState({ task: "", due: "" });
+const initialState = {
+  task: "",
+  due: "",
+  isCompleted: false,
+};
+
+function AddUpdateTask({ toggleModal, list, setList, selectedTask }) {
+  const [formState, setFormState] = useState(selectedTask || initialState);
+
   function handleAdd() {
     setList([
       ...list,
@@ -17,11 +24,31 @@ function AddUpdateTask({ toggleModal, list, setList }) {
     toggleModal();
   }
 
-  function handleChange(e) {
-    setFormState({ ...formState, [e.target.name]: e.target.value });
+  function handleUpdate() {
+    const updatedList = list.map((value) => {
+      if (value.id === selectedTask.id) {
+        return {
+          ...value,
+          task: formState.task,
+          due: formState.due,
+          isCompleted: formState.isCompleted,
+        };
+      }
+      return value;
+    });
+    setList(updatedList);
+    toggleModal();
   }
 
-  console.log(formState);
+  function handleChange(e) {
+    if (e.target.name === "isCompleted") {
+      setFormState({ ...formState, [e.target.name]: e.target.checked });
+    } else {
+      setFormState({ ...formState, [e.target.name]: e.target.value });
+    }
+  }
+
+  console.log("formState", formState);
 
   return (
     <div className={styles.containerForm}>
@@ -41,9 +68,23 @@ function AddUpdateTask({ toggleModal, list, setList }) {
         name="due"
         value={formState.due}
         onChange={handleChange}
+        min={new Date().toISOString().split("T")[0]}
       />
 
-      <Button onClick={handleAdd}>Add Task</Button>
+      <div style={{ display: "flex", gap: "8px" }}>
+        <label htmlFor="isCompleted">Is Completed</label>
+        <input
+          type="checkbox"
+          id="isCompleted"
+          name="isCompleted"
+          checked={formState.isCompleted}
+          onChange={handleChange}
+        />
+      </div>
+
+      <Button onClick={selectedTask ? handleUpdate : handleAdd}>
+        {selectedTask ? "Update Task" : "Add Task"}
+      </Button>
     </div>
   );
 }

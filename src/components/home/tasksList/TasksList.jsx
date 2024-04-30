@@ -4,34 +4,36 @@ import List from "./List";
 import Modal from "../../common/modal/Modal";
 import AddUpdateTask from "../AddUpdateTask";
 
-function TasksList() {
+function TasksList({ list, setList }) {
   const [open, setOpen] = useState(false);
-  const [list, setList] = useState([
-    {
-      id: Date.now(),
-      task: "Task 1",
-      isCompleted: false,
-      due: "2024-04-28",
-    },
-  ]);
+  const [selectedTask, setSelectedTask] = useState(null);
 
   function toggleModal() {
     setOpen(!open);
+    setSelectedTask(null);
   }
+
+  console.log(selectedTask);
 
   return (
     <div>
       <Header toggleModal={toggleModal} />
-      <List toggleModal={toggleModal} list={list} />
+      <List
+        toggleModal={toggleModal}
+        list={list}
+        setList={setList}
+        setSelectedTask={setSelectedTask}
+      />
       {open && (
         <Modal
-          title="Add/Update Task"
+          title={selectedTask ? "Update Task" : "Add Task"}
           toggleModal={toggleModal}
           body={
             <AddUpdateTask
               toggleModal={toggleModal}
               list={list}
               setList={setList}
+              selectedTask={selectedTask}
             />
           }
         />

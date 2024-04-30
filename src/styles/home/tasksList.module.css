@@ -27,6 +27,7 @@
 
 .containerListItem p {
   margin: 0px;
+  width: 100%;
 }
 
 .containerListItem div {

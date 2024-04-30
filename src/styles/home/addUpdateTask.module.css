@@ -3,3 +3,6 @@
   flex-direction: column;
   gap: 8px;
 }
+.containerForm input {
+  padding: 6px;
+}
