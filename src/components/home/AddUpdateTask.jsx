@@ -48,8 +48,6 @@ function AddUpdateTask({ toggleModal, list, setList, selectedTask }) {
     }
   }
 
-  console.log("formState", formState);
-
   return (
     <div className={styles.containerForm}>
       <label htmlFor="task"></label>
@@ -68,7 +66,7 @@ function AddUpdateTask({ toggleModal, list, setList, selectedTask }) {
         name="due"
         value={formState.due}
         onChange={handleChange}
-        min={new Date().toISOString().split("T")[0]}
+        // min={new Date().toISOString().split("T")[0]}
       />
 
       <div style={{ display: "flex", gap: "8px" }}>

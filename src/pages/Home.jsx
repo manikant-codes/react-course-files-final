@@ -11,6 +11,7 @@ function Home() {
       due: "2024-04-28",
     },
   ]);
+
   return (
     <div>
       <Tabs list={list} setList={setList} />

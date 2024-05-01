@@ -6,13 +6,13 @@ import Button from "../../common/button/Button";
 
 function ListItem({ toggleModal, task, list, setList, setSelectedTask }) {
   function handleDelete() {
-    const updatedList = list.filter((value) => {
+    const newList = list.filter((value) => {
       if (value.id === task.id) {
         return false;
       }
       return true;
     });
-    setList(updatedList);
+    setList(newList);
   }
 
   function handleEdit() {

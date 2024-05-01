@@ -13,14 +13,12 @@ function TasksList({ list, setList }) {
     setSelectedTask(null);
   }
 
-  console.log(selectedTask);
-
   return (
     <div>
       <Header toggleModal={toggleModal} />
       <List
-        toggleModal={toggleModal}
         list={list}
+        toggleModal={toggleModal}
         setList={setList}
         setSelectedTask={setSelectedTask}
       />
