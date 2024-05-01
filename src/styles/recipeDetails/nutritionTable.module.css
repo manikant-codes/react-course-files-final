@@ -13,3 +13,17 @@
 .textNutritionName {
   font-weight: 600;
 }
+
+.containerNutritionTable {
+  padding: 16px;
+  background-color: #eeeeee;
+  border: solid 1px #bdbdbd;
+  border-radius: 16px;
+  max-width: 80%;
+  margin-top: 16px;
+}
+
+.subCarbs {
+  margin-left: 18px;
+  display: block;
+}

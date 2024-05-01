@@ -19,10 +19,8 @@
 
 .logoContainer h1 {
   font-weight: 400;
-  color: #6acc00;
+  color: rgb(28, 180, 128);
 }
-
-
 
 @media screen and (max-width: 600px) {
   .navbar {

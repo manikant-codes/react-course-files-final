@@ -4,7 +4,7 @@ import NutritionName from "./NutritionName";
 
 function NutritionTable() {
   return (
-    <table>
+    <table className={styles.containerNutritionTable}>
       <tbody>
         <tr>
           <td>
@@ -13,11 +13,11 @@ function NutritionTable() {
           <td>4.2g</td>
         </tr>
         <tr>
-          <td style={{ paddingRight: "18px" }}>Fiber</td>
+          <td className={styles.subCarbs}>Fiber</td>
           <td>1.8g</td>
         </tr>
         <tr>
-          <td>Total Carbs</td>
+          <td className={styles.subCarbs}>Total Carbs</td>
           <td>6g</td>
         </tr>
         <tr>
