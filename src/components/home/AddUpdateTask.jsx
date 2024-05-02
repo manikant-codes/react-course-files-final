@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import Button from "../common/button/Button";
+import { ACTIONS } from "../../pages/Home";
 import styles from "../../styles/home/addUpdateTask.module.css";
+import Button from "../common/button/Button";
 
 const initialState = {
   task: "",
@@ -8,35 +9,16 @@ const initialState = {
   isCompleted: false,
 };
 
-function AddUpdateTask({ toggleModal, list, setList, selectedTask }) {
+function AddUpdateTask({ toggleModal, list, dispatch, selectedTask }) {
   const [formState, setFormState] = useState(selectedTask || initialState);
 
   function handleAdd() {
-    setList([
-      ...list,
-      {
-        id: Date.now(),
-        task: formState.task,
-        due: formState.due,
-        isCompleted: false,
-      },
-    ]);
+    dispatch({ type: ACTIONS.INSERT, payload: { ...formState } });
     toggleModal();
   }
 
   function handleUpdate() {
-    const updatedList = list.map((value) => {
-      if (value.id === selectedTask.id) {
-        return {
-          ...value,
-          task: formState.task,
-          due: formState.due,
-          isCompleted: formState.isCompleted,
-        };
-      }
-      return value;
-    });
-    setList(updatedList);
+    dispatch({ type: ACTIONS.UPDATE, payload: { ...formState } });
     toggleModal();
   }
 

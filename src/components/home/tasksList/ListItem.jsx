@@ -1,18 +1,13 @@
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { ACTIONS } from "../../../pages/Home";
 import styles from "../../../styles/home/tasksList.module.css";
 import Button from "../../common/button/Button";
 
-function ListItem({ toggleModal, task, list, setList, setSelectedTask }) {
+function ListItem({ toggleModal, task, dispatch, setSelectedTask }) {
   function handleDelete() {
-    const newList = list.filter((value) => {
-      if (value.id === task.id) {
-        return false;
-      }
-      return true;
-    });
-    setList(newList);
+    dispatch({ type: ACTIONS.DELETE, payload: task.id });
   }
 
   function handleEdit() {

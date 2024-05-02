@@ -1,8 +1,8 @@
 import React from "react";
-import ListItem from "./ListItem";
 import styles from "../../../styles/home/tasksList.module.css";
+import ListItem from "./ListItem";
 
-function List({ toggleModal, list, setList, setSelectedTask }) {
+function List({ toggleModal, list, dispatch, setSelectedTask }) {
   return (
     <div className={styles.containerList}>
       {list.map((value) => {
@@ -11,8 +11,7 @@ function List({ toggleModal, list, setList, setSelectedTask }) {
             key={value.id}
             task={value}
             toggleModal={toggleModal}
-            setList={setList}
-            list={list}
+            dispatch={dispatch}
             setSelectedTask={setSelectedTask}
           />
         );

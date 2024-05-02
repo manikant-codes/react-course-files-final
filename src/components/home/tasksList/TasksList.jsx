@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Header from "./Header";
-import List from "./List";
 import Modal from "../../common/modal/Modal";
 import AddUpdateTask from "../AddUpdateTask";
+import Header from "./Header";
+import List from "./List";
 
-function TasksList({ list, setList }) {
+function TasksList({ list, dispatch }) {
   const [open, setOpen] = useState(false);
   const [selectedTask, setSelectedTask] = useState(null);
 
@@ -19,7 +19,7 @@ function TasksList({ list, setList }) {
       <List
         list={list}
         toggleModal={toggleModal}
-        setList={setList}
+        dispatch={dispatch}
         setSelectedTask={setSelectedTask}
       />
       {open && (
@@ -30,7 +30,7 @@ function TasksList({ list, setList }) {
             <AddUpdateTask
               toggleModal={toggleModal}
               list={list}
-              setList={setList}
+              dispatch={dispatch}
               selectedTask={selectedTask}
             />
           }
