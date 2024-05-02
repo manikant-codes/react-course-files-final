@@ -25,3 +25,21 @@ export function getRandomRecepies() {
       console.log("error", error);
     });
 }
+
+export function getRecipeDetails() {
+  const promise = fetch(
+    `https://api.spoonacular.com/recipes/716431/information?includeNutrition=true&apiKey=${process.env.REACT_APP_API_KEY}`
+  )
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => {
+      console.log("Error: ", error);
+      // throw new Error(error.message);
+    });
+
+  return promise;
+}

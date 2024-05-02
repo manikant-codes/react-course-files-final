@@ -12,21 +12,12 @@ function Home() {
     });
   }
 
+  if (!recipes) {
+    fetchRandomRecipies();
+  }
+
   return (
     <div>
-      <div style={{ width: "100%" }}>
-        <button
-          style={{
-            margin: "auto",
-            display: "block",
-            marginBottom: "32px",
-            marginTop: "32px",
-          }}
-          onClick={fetchRandomRecipies}
-        >
-          Get Recipies
-        </button>
-      </div>
       <ReciepeList recipes={recipes} />
     </div>
   );

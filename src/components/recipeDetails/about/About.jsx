@@ -3,11 +3,12 @@ import RecipeInfo from "./RecipeInfo";
 import RecipeImg from "./RecipeImg";
 import styles from "../../../styles/recipeDetails/about.module.css";
 
-function About() {
+function About(props) {
+  const { recipeDetails } = props;
   return (
     <div className={styles.containerMain}>
-      <RecipeInfo />
-      <RecipeImg />
+      <RecipeInfo recipeDetails={recipeDetails} />
+      <RecipeImg img={recipeDetails.image} />
     </div>
   );
 }

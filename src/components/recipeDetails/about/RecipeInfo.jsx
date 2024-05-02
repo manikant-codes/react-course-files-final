@@ -3,19 +3,12 @@ import Ratings from "../../common/Ratings";
 import styles from "../../../styles/recipeDetails/about.module.css";
 import NutritionTable from "../nutritionTable/NutritionTable";
 
-function RecipeInfo() {
+function RecipeInfo({ recipeDetails }) {
   return (
     <div className={styles.containerRecipeInfo}>
-      <h2 className={styles.recipeTitle}>Recipe Title</h2>
+      <h2 className={styles.recipeTitle}>{recipeDetails.title}</h2>
       <Ratings rating={4} numberOfReviews={50} />
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero
-        praesentium obcaecati tenetur optio fugit fugiat ipsa, mollitia officia
-        ea. Recusandae harum tempore adipisci nostrum illum eveniet odit ab modi
-        deserunt. Explicabo sed dolores error autem est dignissimos, deleniti
-        eius reprehenderit adipisci cum quidem corrupti odit doloremque iusto
-        nihil sequi enim!
-      </p>
+      <p dangerouslySetInnerHTML={{ __html: recipeDetails.summary }}></p>
       <NutritionTable />
     </div>
   );

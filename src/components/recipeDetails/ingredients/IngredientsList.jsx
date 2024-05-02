@@ -2,12 +2,12 @@ import React from "react";
 import IngredientsListItem from "./IngredientsListItem";
 import styles from "../../../styles/recipeDetails/ingredients.module.css";
 
-function IngredientsList() {
+function IngredientsList({ ingredients }) {
   return (
     <div className={styles.containerIngredientsList}>
-      <IngredientsListItem />
-      <IngredientsListItem />
-      <IngredientsListItem />
+      {ingredients.map((value) => {
+        return <IngredientsListItem ingredient={value} />;
+      })}
     </div>
   );
 }
