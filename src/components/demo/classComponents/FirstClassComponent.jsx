@@ -30,12 +30,12 @@ class FirstClassComponent extends Component {
   // }
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
-    return prevState.posts;
+    // return prevState.posts;
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     console.log("componentDidUpdate");
-    if (snapshot === null) {
+    if (prevState.posts === null) {
       fetch("https://jsonplaceholder.typicode.com/posts")
         .then((res) => {
           return res.json();
@@ -44,6 +44,13 @@ class FirstClassComponent extends Component {
           this.setState({ posts: data });
         });
     }
+  }
+
+  componentWillUnmount() {
+    console.log("Component Unmounted!");
+    setTimeout(() => {
+      this.props.toggleComponent();
+    }, 3000);
   }
 
   changeName = () => {
