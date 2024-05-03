@@ -1,6 +1,6 @@
 import React from "react";
 // import UseCallbackDemo from "./components/demos/useCallbackDemo/UseCallbackDemo";
-import UseReducerDemo from "./components/demos/useReducerDemo/UseReducerDemo";
+import UseContextDemo from "./components/demos/useContextDemo/UseContextDemo";
 
 function Demo() {
   return (
@@ -8,8 +8,8 @@ function Demo() {
     // <UseCallbackDemo />
     // <UseMemoDemo />
     // <UseRefDemo />
-    // <UseContextDemo />
-    <UseReducerDemo />
+    <UseContextDemo />
+    // <UseReducerDemo />
   );
 }
 
