@@ -26,9 +26,9 @@ export function getRandomRecepies() {
     });
 }
 
-export function getRecipeDetails() {
+export function getRecipeDetails(id) {
   const promise = fetch(
-    `https://api.spoonacular.com/recipes/716431/information?includeNutrition=true&apiKey=${process.env.REACT_APP_API_KEY}`
+    `https://api.spoonacular.com/recipes/${id}/information?apiKey=${process.env.REACT_APP_API_KEY}&includeNutrition=true`
   )
     .then((response) => {
       return response.json();
@@ -41,5 +41,22 @@ export function getRecipeDetails() {
       // throw new Error(error.message);
     });
 
+  return promise;
+}
+
+export function getRecipeSteps(id) {
+  const promise = fetch(
+    `https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=${process.env.REACT_APP_API_KEY}`
+  )
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => {
+      console.log("Error: ", error);
+    });
+    
   return promise;
 }

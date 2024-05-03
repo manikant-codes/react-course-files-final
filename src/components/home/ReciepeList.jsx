@@ -9,14 +9,7 @@ function ReciepeList({ recipes }) {
     <div className={styles.containerMain}>
       <div className={styles.containerList}>
         {recipes.map((value, index) => {
-          return (
-            <RecipeCard
-              key={index}
-              img={value.image}
-              title={value.title}
-              time={value.readyInMinutes}
-            />
-          );
+          return <RecipeCard key={index} recipe={value} />;
         })}
       </div>
     </div>

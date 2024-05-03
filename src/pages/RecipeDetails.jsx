@@ -4,14 +4,21 @@ import About from "../components/recipeDetails/about/About";
 import Ingredients from "../components/recipeDetails/ingredients/Ingredients";
 import RecipeSteps from "../components/recipeDetails/recipeSteps/RecipeSteps";
 import ExploreMore from "../components/recipeDetails/exploreMore/ExploreMore";
-import { getRecipeDetails } from "../services/apiServices";
+import { getRecipeDetails, getRecipeSteps } from "../services/apiServices";
+import { useParams } from "react-router-dom";
 
 function RecipeDetails() {
   const [recipeDetails, setRecipeDetails] = useState(null);
+  const [recipeSteps, setRecipeSteps] = useState(null);
+
+  const params = useParams();
 
   function fetchRecipeDetails() {
-    getRecipeDetails().then((data) => {
+    getRecipeDetails(params.kuchbhi).then((data) => {
       setRecipeDetails(data);
+    });
+    getRecipeSteps(params.kuchbhi).then((data) => {
+      setRecipeSteps(data[0]);
     });
   }
 
@@ -21,7 +28,7 @@ function RecipeDetails() {
 
   if (!recipeDetails) return null;
 
-  console.log("recipeDetails", recipeDetails);
+  console.log("recipeSteps", recipeSteps);
 
   return (
     <div>
@@ -40,7 +47,7 @@ function RecipeDetails() {
       />
       <About recipeDetails={recipeDetails} />
       <Ingredients ingredients={recipeDetails.extendedIngredients} />
-      <RecipeSteps />
+      <RecipeSteps recipeSteps={recipeSteps} />
       <ExploreMore />
     </div>
   );
