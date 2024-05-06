@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import { Provider } from "react-redux";
-import store from "./redux/store";
+import GlobalContextProvider from "./contexts/GlobalContextProvider";
 
 function App() {
   return (
-    <Provider store={store}>
+    <GlobalContextProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/">
@@ -14,7 +13,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-    </Provider>
+    </GlobalContextProvider>
   );
 }
 
