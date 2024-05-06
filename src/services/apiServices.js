@@ -12,7 +12,7 @@ export function getUsersData() {
 }
 
 export function getRandomRecepies() {
-  return fetch(
+  const promise = fetch(
     `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=10`
   )
     .then((response) => {
@@ -22,8 +22,10 @@ export function getRandomRecepies() {
       return data;
     })
     .catch((error) => {
-      console.log("error", error);
+      console.log("Error: ", error);
     });
+
+  return promise;
 }
 
 export function getRecipeDetails(id) {
@@ -57,6 +59,6 @@ export function getRecipeSteps(id) {
     .catch((error) => {
       console.log("Error: ", error);
     });
-    
+
   return promise;
 }

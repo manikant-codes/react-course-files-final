@@ -12,12 +12,13 @@ function RecipeDetails() {
   const [recipeSteps, setRecipeSteps] = useState(null);
 
   const params = useParams();
+  const id = params.kuchbhi;
 
   function fetchRecipeDetails() {
-    getRecipeDetails(params.kuchbhi).then((data) => {
+    getRecipeDetails(id).then((data) => {
       setRecipeDetails(data);
     });
-    getRecipeSteps(params.kuchbhi).then((data) => {
+    getRecipeSteps(id).then((data) => {
       setRecipeSteps(data[0]);
     });
   }
@@ -28,16 +29,11 @@ function RecipeDetails() {
 
   if (!recipeDetails) return null;
 
+  console.log("recipeDetails", recipeDetails);
   console.log("recipeSteps", recipeSteps);
 
   return (
     <div>
-      {/* <button
-        onClick={fetchRecipeDetails}
-        style={{ margin: "32px auto", display: "block" }}
-      >
-        Fetch Recipe Details
-      </button> */}
       <InfoBar
         time={{
           prepTime: recipeDetails.preparationMinutes,

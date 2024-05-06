@@ -8,7 +8,7 @@ function RecipeInfo({ recipeDetails }) {
     <div className={styles.containerRecipeInfo}>
       <h2 className={styles.recipeTitle}>{recipeDetails.title}</h2>
       <Ratings rating={4} numberOfReviews={50} />
-      <p dangerouslySetInnerHTML={{ __html: recipeDetails.summary }}></p>
+      <p dangerouslySetInnerHTML={{ __html: recipeDetails.summary }} />
       <NutritionTable />
     </div>
   );

@@ -7,9 +7,11 @@ import Ratings from "../common/Ratings";
 import { useNavigate } from "react-router-dom";
 
 function RecipeCard({ recipe }) {
+  // const { recipe } = props;
   const { image, title, readyInMinutes, id } = recipe;
+
   const navigate = useNavigate();
-  
+
   function goToDetailsPage() {
     navigate(`details/${id}`);
   }
