@@ -12,6 +12,7 @@ function RecipeDetails() {
   const [recipeSteps, setRecipeSteps] = useState(null);
 
   const params = useParams();
+
   const id = params.kuchbhi;
 
   function fetchRecipeDetails() {

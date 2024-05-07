@@ -3,10 +3,10 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { Outlet } from "react-router-dom";
 
-function Layout() {
+function Layout({ setRecipes }) {
   return (
     <div>
-      <Navbar />
+      <Navbar setRecipes={setRecipes} />
       <Outlet />
       <Footer />
     </div>

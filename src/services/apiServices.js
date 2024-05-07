@@ -62,3 +62,20 @@ export function getRecipeSteps(id) {
 
   return promise;
 }
+
+export function getSearchedRecipies(query) {
+  const promise = fetch(
+    `https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${process.env.REACT_APP_API_KEY}`
+  )
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => {
+      console.log("Error: ", error);
+    });
+
+  return promise;
+}
