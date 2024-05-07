@@ -1,19 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
+import { Provider } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import GlobalContextProvider from "./contexts/GlobalContextProvider";
+import CakeShop from "./pages/CakeShop";
+import store from "./redux/store";
 
 function App() {
   return (
-    <GlobalContextProvider>
+    <Provider store={store}>
       <BrowserRouter>
         <Routes>
           <Route path="/">
-            <Route index element={<Home />} />
+            <Route index element={<CakeShop />} />
           </Route>
         </Routes>
       </BrowserRouter>
-    </GlobalContextProvider>
+    </Provider>
   );
 }
 
