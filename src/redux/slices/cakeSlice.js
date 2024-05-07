@@ -22,7 +22,9 @@ const cakeSlice = createSlice({
   initialState,
   reducers: {
     buy: (prevState, action) => {
-      prevState.numberOfCakes -= 1;
+      if (prevState.numberOfCakes > 0) {
+        prevState.numberOfCakes -= 1;
+      }
     },
     refill: (prevState, action) => {
       prevState.numberOfCakes += action.payload;
@@ -34,6 +36,8 @@ export const { buy, refill } = cakeSlice.actions;
 
 console.log("cakeSlice.reducer", cakeSlice.reducer);
 console.log("buy", buy());
-// { type: "cake/buy", payload: undefined }
+
+// dispatch({type: "cake/buy", payload: undefined})
+// dispatch(buy());
 
 export default cakeSlice.reducer;
