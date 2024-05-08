@@ -1,7 +1,7 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import CakeShop from "./pages/CakeShop";
+import Home from "./pages/Home";
 import store from "./redux/store";
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/">
-            <Route index element={<CakeShop />} />
+            <Route index element={<Home />} />
           </Route>
         </Routes>
       </BrowserRouter>
