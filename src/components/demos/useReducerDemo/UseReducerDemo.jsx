@@ -1,29 +1,27 @@
 import React, { useReducer } from "react";
 
-function reducer(prevState, action) {
+const initialState = 0;
+
+function reducer(prevCount, action) {
   switch (action.type) {
     case "INCREMENT":
-      return prevState + action.payload;
+      return prevCount + action.payload;
     case "DECREMENT":
-      return prevState - action.payload;
+      return prevCount - 1;
     default:
-      return prevState;
+      return prevCount;
   }
 }
 
 function UseReducerDemo() {
-  //   const [count, setCount] = useState(0);
-
-  const [count, dispatch] = useReducer(reducer, 0);
+  const [count, dispatch] = useReducer(reducer, initialState);
 
   function handleDecrement() {
-    // setCount(count - 1);
-    dispatch({ type: "DECREMENT", payload: 2 });
+    dispatch({ type: "DECREMENT" });
   }
 
   function handleIncrement() {
-    // setCount(count + 1);
-    dispatch({ type: "INCREMENT", payload: 2 });
+    dispatch({ type: "INCREMENT", payload: 10 });
   }
 
   return (
