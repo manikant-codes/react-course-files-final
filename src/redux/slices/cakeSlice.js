@@ -22,7 +22,9 @@ const cakeSlice = createSlice({
   initialState,
   reducers: {
     buyCake: (prevState, action) => {
-      prevState.numberOfCakes -= 1;
+      if (prevState.numberOfCakes > 0) {
+        prevState.numberOfCakes -= 1;
+      }
     },
     refillCake: (prevState, action) => {
       prevState.numberOfCakes += action.payload;

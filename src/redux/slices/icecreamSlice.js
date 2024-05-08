@@ -7,7 +7,9 @@ const icecreamSlice = createSlice({
   },
   reducers: {
     buyIcecream: (prevState, action) => {
-      prevState.numberOfIcecreams -= 1;
+      if (prevState.numberOfIcecreams > 0) {
+        prevState.numberOfIcecreams -= 1;
+      }
     },
     refillIcecream: (prevState, action) => {
       prevState.numberOfIcecreams += action.payload;

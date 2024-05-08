@@ -1,6 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { buyCake, refillCake } from "../redux/slices/cakeSlice";
+import { buyIcecream, refillIcecream } from "../redux/slices/icecreamSlice";
 
 function CakeShop() {
+  const [cakeInput, setCakeInput] = useState();
+  const [icecreamInput, setIcecreamInput] = useState();
+
+  const dispatch = useDispatch();
+
+  const numberOfCakes = useSelector((store) => {
+    return store.cake.numberOfCakes;
+  });
+
+  const numberOfIcecreams = useSelector((store) => {
+    return store.icecream.numberOfIcecreams;
+  });
+
+  function handleBuyCake() {
+    // console.log("buyCake", buyCake());
+    dispatch(buyCake());
+  }
+
+  function handleBuyIcecream() {
+    dispatch(buyIcecream());
+  }
+
+  function handleCakeRefill() {
+    dispatch(refillCake(cakeInput));
+  }
+
+  function handleIcecreamRefill() {
+    dispatch(refillIcecream(icecreamInput));
+  }
+
   return (
     <div>
       <div
@@ -33,16 +66,24 @@ function CakeShop() {
             width: "500px",
           }}
         >
+          <p>Number of Cakes: {numberOfCakes}</p>
           <div
             style={{
               display: "flex",
               gap: "16px",
             }}
           >
-            <input type="number" style={{ padding: "6px", flexGrow: 1 }} />
-            <button>Refill Cake</button>
+            <input
+              type="number"
+              style={{ padding: "6px", flexGrow: 1 }}
+              value={cakeInput}
+              onChange={(e) => {
+                setCakeInput(Number(e.target.value));
+              }}
+            />
+            <button onClick={handleCakeRefill}>Refill Cake</button>
           </div>
-          <button>Buy Cake</button>
+          <button onClick={handleBuyCake}>Buy Cake</button>
         </div>
         <div
           style={{
@@ -56,16 +97,24 @@ function CakeShop() {
             width: "500px",
           }}
         >
+          <p>Number of Icecreams: {numberOfIcecreams}</p>
           <div
             style={{
               display: "flex",
               gap: "16px",
             }}
           >
-            <input type="number" style={{ padding: "6px", flexGrow: 1 }} />
-            <button>Refill Icecream</button>
+            <input
+              type="number"
+              style={{ padding: "6px", flexGrow: 1 }}
+              value={icecreamInput}
+              onChange={(e) => {
+                setIcecreamInput(Number(e.target.value));
+              }}
+            />
+            <button onClick={handleIcecreamRefill}>Refill Icecream</button>
           </div>
-          <button>Buy Icecream</button>
+          <button onClick={handleBuyIcecream}>Buy Icecream</button>
         </div>
       </div>
     </div>
