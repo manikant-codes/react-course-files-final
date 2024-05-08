@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
+import React from "react";
 import { Provider } from "react-redux";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import MyShop from "./pages/MyShop";
 import store from "./redux/store";
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/">
-            <Route index element={<Home />} />
+            <Route index element={<MyShop />} />
           </Route>
         </Routes>
       </BrowserRouter>

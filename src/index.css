@@ -1,4 +1,8 @@
-* {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* * {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
@@ -15,4 +19,4 @@ button {
 button:hover {
   background-color: #da471b;
   color: white;
-}
+} */
