@@ -1,0 +1,36 @@
+.userContainer {
+  padding: 20px;
+  border-radius: 5px;
+  /* margin-bottom: 20px; */
+}
+
+.userInfo {
+  margin-bottom: 10px;
+}
+
+.userName {
+  margin: 0;
+  font-size: 24px;
+}
+
+.userEmail {
+  margin: 0;
+  font-size: 18px;
+  color: #666;
+}
+
+.userAddress {
+  font-size: 14px;
+}
+
+.addressStreet {
+  margin: 0;
+}
+
+.addressCity {
+  margin: 0;
+}
+
+.addressZipcode {
+  margin: 0;
+}
