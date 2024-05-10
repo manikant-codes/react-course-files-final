@@ -1,50 +1,78 @@
-import { Drawer } from "flowbite-react";
+import { Button, Drawer } from "flowbite-react";
+import { HiMinus, HiPlus, HiShoppingCart, HiTrash } from "react-icons/hi";
+import { useDispatch, useSelector } from "react-redux";
+import { removeFromCart } from "../redux/slices/cartSlice";
 
 export function DrawerComponent({ isOpen, toggleDrawer }) {
+  const cart = useSelector((store) => {
+    return store.cart;
+  });
+
+  const dispatch = useDispatch();
+
+  function handleDelete(item) {
+    dispatch(removeFromCart(item.id));
+  }
+
   return (
     <Drawer open={isOpen} onClose={toggleDrawer} position="right">
-      <Drawer.Header title="Drawer" />
+      <Drawer.Header
+        title="Cart"
+        titleIcon={() => {
+          return <HiShoppingCart className="mr-2 h-5 w-5" />;
+        }}
+      />
       <Drawer.Items>
-        <p className="mb-6 text-sm text-gray-500 dark:text-gray-400">
-          Supercharge your hiring by taking advantage of our&nbsp;
-          <a
-            href="#"
-            className="text-cyan-600 underline hover:no-underline dark:text-cyan-500"
-          >
-            limited-time sale
-          </a>
-          &nbsp;for Flowbite Docs + Job Board. Unlimited access to over 190K
-          top-ranked candidates and the #1 design job board.
-        </p>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <a
-            href="#"
-            className="rounded-lg border border-gray-200 bg-white px-4 py-2 text-center text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-cyan-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700"
-          >
-            Learn more
-          </a>
-          <a
-            href="#"
-            className="inline-flex items-center rounded-lg bg-cyan-700 px-4 py-2 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
-          >
-            Get access&nbsp;
-            <svg
-              className="ms-2 h-3.5 w-3.5 rtl:rotate-180"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 14 10"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M1 5h12m0 0L9 1m4 4L9 9"
-              />
-            </svg>
-          </a>
-        </div>
+        <ul className="flex flex-col gap-3 relative h-[calc(100vh_-_96px)]">
+          {cart.cartItems.map((item) => {
+            return (
+              <li key={item.id} className="flex items-center gap-2">
+                <img
+                  src={item.img}
+                  alt=""
+                  className="h-14 w-14 rounded-[50%] object-cover"
+                />
+                <div className="flex flex-col w-full">
+                  <div className="flex grow-[1] gap-2">
+                    <p className="grow-[1]">{item.title}</p>
+                    <p className="font-medium">{item.price}$</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Button pill size="xs" gradientDuoTone="greenToBlue">
+                      <HiMinus />
+                    </Button>
+                    {0}
+                    <Button pill size="xs" gradientDuoTone="greenToBlue">
+                      <HiPlus />
+                    </Button>
+                  </div>
+                </div>
+                <Button
+                  pill
+                  size="xs"
+                  gradientDuoTone="greenToBlue"
+                  onClick={() => handleDelete(item)}
+                >
+                  <HiTrash />
+                </Button>
+              </li>
+            );
+          })}
+          <li className="absolute bottom-0 left-0 right-0">
+            <div className="flex items-center">
+              <p className="grow-[1] font-medium">Subtotal</p>
+              <p>{cart.subTotal}</p>
+            </div>
+            <div className="flex items-center">
+              <p className="grow-[1] font-medium">Tax</p>
+              <p>{cart.tax}</p>
+            </div>
+            <div className="flex items-center">
+              <p className="grow-[1] font-medium">Total</p>
+              <p>{cart.total}</p>
+            </div>
+          </li>
+        </ul>
       </Drawer.Items>
     </Drawer>
   );

@@ -1,12 +1,12 @@
 import React from "react";
-import { Provider } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import store from "./redux/store";
+import { Provider } from "react-redux";
+import myStore from "./redux/store";
 
 function App() {
   return (
-    <Provider store={store}>
+    <Provider store={myStore}>
       <BrowserRouter>
         <Routes>
           <Route path="/">
