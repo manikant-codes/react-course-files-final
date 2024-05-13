@@ -1,8 +1,18 @@
 import { Button, Card } from "flowbite-react";
 import React from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/slices/cartSlice";
 import Rating from "./Rating";
 
-function ProductCard({ title, img, rating, price }) {
+function ProductCard({ product }) {
+  const { title, img, rating, price } = product;
+  const dispatch = useDispatch();
+
+  function handleAddToCart() {
+    console.log(addToCart());
+    dispatch(addToCart(product));
+  }
+
   return (
     <Card
       className="max-w-sm"
@@ -19,7 +29,7 @@ function ProductCard({ title, img, rating, price }) {
         <span className="text-3xl font-bold text-gray-900 dark:text-white">
           ${price}
         </span>
-        <Button pill gradientDuoTone="pinkToOrange">
+        <Button pill gradientDuoTone="pinkToOrange" onClick={handleAddToCart}>
           Add to cart
         </Button>
       </div>

@@ -1,11 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import cakeReducer from "./slices/cakeSlice";
-import icecreamReducer from "./slices/icecreamSlice";
+import cartReducer from "./slices/cartSlice";
 
 const store = configureStore({
   reducer: {
-    cake: cakeReducer,
-    icecream: icecreamReducer,
+    cart: cartReducer,
   },
 });
 
