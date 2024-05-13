@@ -152,3 +152,101 @@ export const products = [
     rating: Math.floor(Math.random() * 6),
   },
 ];
+
+export const cakes = [
+  {
+    id: 1,
+    title: "Cake 1",
+    img: "https://source.unsplash.com/random/500x500?cake",
+  },
+  {
+    id: 2,
+    title: "Cake 2",
+    img: "https://source.unsplash.com/random/500x501?cake",
+  },
+  {
+    id: 3,
+    title: "Cake 3",
+    img: "https://source.unsplash.com/random/500x502?cake",
+  },
+  {
+    id: 4,
+    title: "Cake 4",
+    img: "https://source.unsplash.com/random/500x503?cake",
+  },
+  {
+    id: 5,
+    title: "Cake 5",
+    img: "https://source.unsplash.com/random/500x504?cake",
+  },
+  {
+    id: 6,
+    title: "Cake 6",
+    img: "https://source.unsplash.com/random/500x505?cake",
+  },
+  {
+    id: 7,
+    title: "Cake 7",
+    img: "https://source.unsplash.com/random/500x506?cake",
+  },
+  {
+    id: 8,
+    title: "Cake 8",
+    img: "https://source.unsplash.com/random/500x507?cake",
+  },
+  {
+    id: 9,
+    title: "Cake 9",
+    img: "https://source.unsplash.com/random/500x508?cake",
+  },
+  {
+    id: 10,
+    title: "Cake 10",
+    img: "https://source.unsplash.com/random/500x509?cake",
+  },
+  {
+    id: 11,
+    title: "Cake 11",
+    img: "https://source.unsplash.com/random/200x210?cake",
+  },
+  {
+    id: 12,
+    title: "Cake 12",
+    img: "https://source.unsplash.com/random/200x211?cake",
+  },
+  {
+    id: 13,
+    title: "Cake 13",
+    img: "https://source.unsplash.com/random/200x212?cake",
+  },
+  {
+    id: 14,
+    title: "Cake 14",
+    img: "https://source.unsplash.com/random/200x213?cake",
+  },
+  {
+    id: 15,
+    title: "Cake 15",
+    img: "https://source.unsplash.com/random/200x214?cake",
+  },
+  {
+    id: 16,
+    title: "Cake 16",
+    img: "https://source.unsplash.com/random/200x215?cake",
+  },
+  {
+    id: 17,
+    title: "Cake 17",
+    img: "https://source.unsplash.com/random/200x216?cake",
+  },
+  {
+    id: 18,
+    title: "Cake 18",
+    img: "https://source.unsplash.com/random/200x217?cake",
+  },
+  {
+    id: 19,
+    title: "Cake 19",
+    img: "https://source.unsplash.com/random/200x217?cake",
+  },
+];

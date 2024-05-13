@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import { DrawerComponent } from "../components/Drawer";
 import NavComponent from "../components/NavComponent";
 import ProductsList from "../components/productsList/ProductsList";
-import { DrawerComponent } from "../components/Drawer";
 
 function Home() {
   const [isOpen, setIsOpen] = useState(false);
