@@ -1,17 +1,16 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Layout from "./layouts/Layout";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
-import PokemonDetails from "./pages/PokemonDetails";
+import { car } from "./js/classExample";
 
 function App() {
+  console.log("car", car);
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/">
           <Route index element={<Home />} />
-          <Route path="pokemonDetails/:id" element={<PokemonDetails />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
