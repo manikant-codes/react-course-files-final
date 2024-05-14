@@ -10,7 +10,7 @@ function ProductCard({ product }) {
 
   function handleAddToCart() {
     console.log(addToCart());
-    dispatch(addToCart(product));
+    dispatch(addToCart({ ...product, quantity: 1 }));
   }
 
   return (

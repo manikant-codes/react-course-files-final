@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-/* * {
+* {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
 }
-
+/* 
 button {
   background-color: #ee6b2f;
   border-radius: 4px;
