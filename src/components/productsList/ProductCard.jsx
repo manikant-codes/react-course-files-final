@@ -9,7 +9,7 @@ function ProductCard({ product }) {
   const dispatch = useDispatch();
 
   function handleAddToCart() {
-    dispatch(addToCart(product));
+    dispatch(addToCart({ ...product, qty: 1 }));
   }
 
   return (
