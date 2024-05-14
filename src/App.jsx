@@ -2,22 +2,18 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Layout from "./layouts/Layout";
 import RecipeDetails from "./pages/RecipeDetails";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getRandomRecepies } from "./services/apiServices";
 
 function App() {
   const [recipes, setRecipes] = useState(null);
 
-  function fetchRandomRecipies() {
+  useEffect(() => {
     getRandomRecepies().then((result) => {
       setRecipes(result?.recipes);
     });
-  }
+  }, []);
 
-  if (!recipes) {
-    fetchRandomRecipies();
-  }
-  
   return (
     <BrowserRouter>
       <Routes>

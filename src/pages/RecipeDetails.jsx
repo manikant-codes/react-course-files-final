@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import InfoBar from "../components/recipeDetails/infoBar/InfoBar";
 import About from "../components/recipeDetails/about/About";
 import Ingredients from "../components/recipeDetails/ingredients/Ingredients";
@@ -12,26 +12,18 @@ function RecipeDetails() {
   const [recipeSteps, setRecipeSteps] = useState(null);
 
   const params = useParams();
-
   const id = params.kuchbhi;
 
-  function fetchRecipeDetails() {
+  useEffect(() => {
     getRecipeDetails(id).then((data) => {
       setRecipeDetails(data);
     });
     getRecipeSteps(id).then((data) => {
       setRecipeSteps(data[0]);
     });
-  }
-
-  if (!recipeDetails) {
-    fetchRecipeDetails();
-  }
+  }, []);
 
   if (!recipeDetails) return null;
-
-  console.log("recipeDetails", recipeDetails);
-  console.log("recipeSteps", recipeSteps);
 
   return (
     <div>
