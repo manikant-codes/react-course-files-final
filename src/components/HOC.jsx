@@ -5,7 +5,7 @@ function HOC(props) {
   return (
     <>
       {list.map((listItem) => {
-        return <li>{<ListItem product={listItem} />}</li>;
+        return <li>{<ListItem listItem={listItem} />}</li>;
       })}
     </>
   );

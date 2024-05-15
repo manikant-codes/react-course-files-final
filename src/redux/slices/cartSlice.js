@@ -1,5 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const initialState = {
+  cartItems: getFromLocalStorage("cartItems") || [],
+  subTotal: getFromLocalStorage("subTotal") || 0,
+  taxRate: 18,
+  tax: getFromLocalStorage("tax") || 0,
+  total: getFromLocalStorage("total") || 0,
+};
+
+function getFromLocalStorage(str) {
+  return JSON.parse(localStorage.getItem(str));
+}
+
+function setCartStateInLocalStorage(prevState) {
+  localStorage.setItem("cartItems", JSON.stringify(prevState.cartItems));
+  localStorage.setItem("subTotal", JSON.stringify(prevState.subTotal));
+  localStorage.setItem("tax", JSON.stringify(prevState.tax));
+  localStorage.setItem("total", JSON.stringify(prevState.total));
+}
+
 function setCartTotals(prevState) {
   prevState.subTotal = prevState.cartItems.reduce(
     (acc, value, index, array) => {
@@ -9,17 +28,13 @@ function setCartTotals(prevState) {
   );
   prevState.tax = (prevState.subTotal * (prevState.taxRate / 100)).toFixed(2);
   prevState.total = Number(prevState.subTotal) + Number(prevState.tax);
+
+  setCartStateInLocalStorage(prevState);
 }
 
 const cartSlice = createSlice({
   name: "cart",
-  initialState: {
-    cartItems: [],
-    subTotal: 0,
-    taxRate: 18,
-    tax: 0,
-    total: 0,
-  },
+  initialState,
   reducers: {
     addToCart: (prevState, action) => {
       const alreadyExists = prevState.cartItems.find((value) => {

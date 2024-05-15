@@ -1,17 +1,31 @@
-import React from "react";
-import { Provider } from "react-redux";
+import React, { useEffect } from "react";
+import { Provider, useDispatch, useSelector } from "react-redux";
 import HOC from "../components/HOC";
-import ProductCard from "../components/productsList/ProductCard";
-import { products } from "../data/cartData";
+import UsersListItem from "../components/demo/UsersListItem";
+import { fetchUsers } from "../redux/slices/usersSlice";
 import myStore from "../redux/store";
 
 function Demo() {
+  const dispatch = useDispatch();
+
+  const users = useSelector((store) => {
+    return store.users;
+  });
+
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, []);
+
+  console.log(users);
+
+  if (users.loading) return <h1>Loading...</h1>;
+  if (users.error) return <h1>Error...</h1>;
+  if (!users.users) return null;
+
   return (
-    <Provider store={myStore}>
-      <ul className="grid grid-cols-4 gap-2">
-        <HOC list={products} listItem={ProductCard} />
-      </ul>
-    </Provider>
+    <ul className="">
+      <HOC list={users.users} listItem={UsersListItem} />
+    </ul>
   );
 }
 
