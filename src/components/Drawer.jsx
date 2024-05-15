@@ -52,7 +52,7 @@ export function DrawerComponent({ isOpen, toggleDrawer }) {
                       <div className="flex items-center">
                         <p className="grow-[1]">{cartItem.title}</p>
                         <p className="font-medium">
-                          {cartItem.price * cartItem.quantity}$
+                          {cartItem.quantity} x {cartItem.price}$
                         </p>
                       </div>
                       <div className="flex gap-2">
@@ -97,15 +97,15 @@ export function DrawerComponent({ isOpen, toggleDrawer }) {
             <div className="fixed bottom-[24px] bg-white w-[calc(272px)]">
               <div className="flex justify-between ">
                 <p>Subtotal</p>
-                <p>{cart.subTotal}</p>
+                <p>{cart.subTotal}$</p>
               </div>
               <div className="flex justify-between ">
                 <p className="grow-[1]">Tax</p>
-                <p>{cart.tax}</p>
+                <p>{cart.tax}$</p>
               </div>
               <div className="flex justify-between ">
                 <p>Total</p>
-                <p>{cart.total}</p>
+                <p>{cart.total}$</p>
               </div>
             </div>
           </div>

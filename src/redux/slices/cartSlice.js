@@ -4,14 +4,49 @@ import { createSlice } from "@reduxjs/toolkit";
 // {type: "cart/removeFromCart", payload: undefined}
 // {type: "cart/changeQuantity", payload: undefined}
 
+function localStorageHelper(str, defaultValue) {
+  const temp = JSON.parse(localStorage.getItem(str));
+  if (!temp) {
+    return defaultValue;
+  }
+  return temp;
+}
+
+function cartLocalStorageHelper(state) {
+  localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+  localStorage.setItem("total", JSON.stringify(state.total));
+  localStorage.setItem("subTotal", JSON.stringify(state.subTotal));
+  localStorage.setItem("tax", JSON.stringify(state.tax));
+}
+
+function setCartTotals(state) {
+  let tax = 0;
+  let total = 0;
+  let subTotal = 0;
+
+  for (const product of state.cartItems) {
+    subTotal += product.quantity * product.price;
+  }
+
+  tax = Number((subTotal * (state.taxRate / 100)).toFixed(2));
+
+  total = subTotal + tax;
+
+  state.total = total;
+  state.subTotal = subTotal;
+  state.tax = tax;
+
+  cartLocalStorageHelper(state);
+}
+
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
-    cartItems: [],
-    subTotal: 0,
-    tax: 0,
+    cartItems: localStorageHelper("cartItems", []),
+    subTotal: localStorageHelper("subTotal", 0),
+    tax: localStorageHelper("tax", 0),
     taxRate: 18,
-    total: 0,
+    total: localStorageHelper("total", 0),
   },
   reducers: {
     addToCart: (state, action) => {
@@ -30,7 +65,7 @@ const cartSlice = createSlice({
       } else {
         state.cartItems.push(action.payload);
       }
-      //   state.cartItems = [...state.cartItems, action.payload];
+      setCartTotals(state);
     },
     removeFromCart: (state, action) => {
       const newArray = state.cartItems.filter((element, index, array) => {
@@ -41,6 +76,7 @@ const cartSlice = createSlice({
       });
 
       state.cartItems = newArray;
+      setCartTotals(state);
     },
     increment: (state, action) => {
       const newArray = state.cartItems.map((element, index, array) => {
@@ -50,6 +86,7 @@ const cartSlice = createSlice({
         return element;
       });
       state.cartItems = newArray;
+      setCartTotals(state);
     },
     decrement: (state, action) => {
       let newArray = state.cartItems.map((element, index, array) => {
@@ -71,6 +108,8 @@ const cartSlice = createSlice({
       });
 
       state.cartItems = newArray;
+
+      setCartTotals(state);
     },
   },
 });
