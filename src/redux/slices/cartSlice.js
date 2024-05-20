@@ -97,11 +97,19 @@ const cartSlice = createSlice({
       prevState.cartItems = newCartItems;
       setCartTotals(prevState);
     },
+    resetTotal: (prevState, action) => {
+      prevState.total = 0;
+    },
   },
 });
 
-export const { addToCart, increaseQty, decreaseQyt, removeFromCart } =
-  cartSlice.actions;
+export const {
+  addToCart,
+  increaseQty,
+  decreaseQyt,
+  removeFromCart,
+  resetTotal,
+} = cartSlice.actions;
 
 const cartReducer = cartSlice.reducer;
 export default cartReducer;
