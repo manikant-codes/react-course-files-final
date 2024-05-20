@@ -14,6 +14,7 @@ const counterSlice = createSlice({
     decrease: (state, action) => {
       state.count -= 1;
     },
+    
   },
 });
 
