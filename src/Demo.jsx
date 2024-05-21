@@ -4,6 +4,8 @@ import UseEffectCounterDemo from "./components/demo/useEffectDemo/UseEffectCount
 import MemoDemo from "./components/demo/memoDemo/MemoDemo";
 import UseCallbackDemo from "./components/demo/useCallbackDemo/UseCallbackDemo";
 import UseMemoDemo from "./components/demo/useMemoDemo/UseMemoDemo";
+import UseRefDemo from "./components/demo/useRefDemo/UseRefDemo";
+import UseRefDemoTwo from "./components/demo/useRefDemo/UseRefDemoTwo";
 
 function Demo() {
   return (
@@ -12,7 +14,9 @@ function Demo() {
       {/* <UseEffectCounterDemo /> */}
       {/* <MemoDemo /> */}
       {/* <UseCallbackDemo /> */}
-      <UseMemoDemo />
+      {/* <UseMemoDemo /> */}
+      {/* <UseRefDemo /> */}
+      <UseRefDemoTwo />
     </>
   );
 }
