@@ -4,4 +4,4 @@ import "./index.css";
 import Demo from "./Demo";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Demo />);
+root.render(<App />);
