@@ -6,6 +6,8 @@ import UseCallbackDemo from "./components/demo/useCallbackDemo/UseCallbackDemo";
 import UseMemoDemo from "./components/demo/useMemoDemo/UseMemoDemo";
 import UseRefDemo from "./components/demo/useRefDemo/UseRefDemo";
 import UseRefDemoTwo from "./components/demo/useRefDemo/UseRefDemoTwo";
+import CustomHookDemo from "./components/demo/customHookDemo/CustomHookDemo";
+import CustomHookDemo2 from "./components/demo/customHookDemo/CustomHookDemo2";
 
 function Demo() {
   return (
@@ -16,7 +18,9 @@ function Demo() {
       {/* <UseCallbackDemo /> */}
       {/* <UseMemoDemo /> */}
       {/* <UseRefDemo /> */}
-      <UseRefDemoTwo />
+      {/* <UseRefDemoTwo /> */}
+      {/* <CustomHookDemo /> */}
+      {/* <CustomHookDemo2 /> */}
     </>
   );
 }

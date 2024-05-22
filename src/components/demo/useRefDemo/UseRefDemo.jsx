@@ -7,7 +7,9 @@ function UseRefDemo() {
     // const myDiv = document.getElementById("my-div");
     // myDiv.style.backgroundColor = "green";
     // console.log("inside", divRef.current);
-    divRef.current.style.backgroundColor = "orange";
+    setTimeout(() => {
+      divRef.current.style.backgroundColor = "orange";
+    }, 2000);
   }, []);
 
   //   console.log("outside", divRef);
