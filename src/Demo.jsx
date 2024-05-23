@@ -8,6 +8,7 @@ import UseRefDemo from "./components/demo/useRefDemo/UseRefDemo";
 import UseRefDemoTwo from "./components/demo/useRefDemo/UseRefDemoTwo";
 import CustomHookDemo from "./components/demo/customHookDemo/CustomHookDemo";
 import CustomHookDemo2 from "./components/demo/customHookDemo/CustomHookDemo2";
+import UseContextDemo from "./components/demo/useContextDemo/UseContextDemo";
 
 function Demo() {
   return (
@@ -21,6 +22,7 @@ function Demo() {
       {/* <UseRefDemoTwo /> */}
       {/* <CustomHookDemo /> */}
       {/* <CustomHookDemo2 /> */}
+      <UseContextDemo />
     </>
   );
 }
