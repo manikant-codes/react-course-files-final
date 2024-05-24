@@ -1,12 +1,7 @@
 import React from "react";
-import ReciepeList from "../components/home/ReciepeList";
 
-function Home({ recipes }) {
-  return (
-    <div>
-      <ReciepeList recipes={recipes} />
-    </div>
-  );
+function Home() {
+  return <h1>Home</h1>;
 }
 
 export default Home;
