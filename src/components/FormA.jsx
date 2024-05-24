@@ -4,12 +4,13 @@ import { useForm } from "react-hook-form";
 
 function FormA() {
   const objForm = useForm();
+  console.log("objForm", objForm);
   const {
     register,
     handleSubmit,
+    getValues,
     formState: { errors },
   } = objForm;
-  // const { errors } = formState;
 
   function onSubmit(data) {
     console.log("data", data);
@@ -22,11 +23,16 @@ function FormA() {
       <TextInput
         type="text"
         placeholder="John Doe"
+        // name={objUsername.name}
+        // onChange={objUsername.onChange}
+        // onBlur={objUsername.onBlur}
+        // ref={objUsername.ref}
+        // {...objUsername}
         {...register("username", {
-          required: { value: true, message: "User name is required!" },
+          required: { value: true, message: "Username is required!" },
           minLength: {
-            value: 4,
-            message: "User name must be atleast 4 characters!",
+            value: 2,
+            message: "Username must be at least 2 characters long!",
           },
         })}
       />
@@ -37,20 +43,15 @@ function FormA() {
         type="email"
         placeholder="johndoe@gmail.com"
         {...register("email", {
-          // validate: {
-          //   isCorrect: (value) => {
-          //     const emailRegex =
-          //       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-
-          //     const isValidEmail = emailRegex.test(value);
-          //     console.log(isValidEmail);
-          //     return isValidEmail;
-          //   },
-          // },
-          pattern:
-            /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+          required: { value: true, message: "Email is required!" },
+          pattern: {
+            value:
+              /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+            message: "Please provide a valid email!",
+          },
         })}
       />
+      {errors.email && <p className="text-red-700">{errors.email.message}</p>}
       <TextInput
         type="password"
         placeholder="******"
@@ -59,8 +60,21 @@ function FormA() {
       <TextInput
         type="password"
         placeholder="******"
-        {...register("confirmPassword")}
+        {...register("confirmPassword", {
+          validate: {
+            isPasswordSame: (value) => {
+              const password = getValues("password");
+              if (password === value) {
+                return true;
+              }
+              return "Password did not match!";
+            },
+          },
+        })}
       />
+      {errors.confirmPassword && (
+        <p className="text-red-700">{errors.confirmPassword.message}</p>
+      )}
       <Select {...register("gender")}>
         <option value="female">female</option>
         <option value="male">male</option>
@@ -74,3 +88,15 @@ function FormA() {
 }
 
 export default FormA;
+
+//  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
+
+// validate: {
+//   isCorrect: (value) => {
+//     const emailRegex =
+//       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+//     const isValidEmail = emailRegex.test(value);
+//     console.log(isValidEmail);
+//     return isValidEmail;
+//   },
+// },
