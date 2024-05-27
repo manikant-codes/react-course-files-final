@@ -70,6 +70,7 @@ function FormA() {
               return "Password did not match!";
             },
           },
+          min: {value: 1, message: ""}
         })}
       />
       {errors.confirmPassword && (
