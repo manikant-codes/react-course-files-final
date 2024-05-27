@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 23.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!-- Generator: Adobe Illustrator 27.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 31.5 31.5" style="enable-background:new 0 0 31.5 31.5;" xml:space="preserve">
+	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#1CB480;}
-	.st1{fill:#FFFFFF;}
+	.st0{fill:#E60000;}
 </style>
-<circle class="st0" cx="15.8" cy="15.8" r="15.8"/>
-<g>
-	<path class="st1" d="M22.2,10.1h-13C9.1,10.1,9,10,9,9.9V7.9c0-0.1,0.1-0.2,0.2-0.2h13c0.1,0,0.2,0.1,0.2,0.2v1.9
-		C22.5,10,22.4,10.1,22.2,10.1z"/>
-	<path class="st1" d="M22.2,17h-13C9.1,17,9,16.8,9,16.7v-1.9c0-0.1,0.1-0.2,0.2-0.2h13c0.1,0,0.2,0.1,0.2,0.2v1.9
-		C22.5,16.8,22.4,17,22.2,17z"/>
-	<path class="st1" d="M22.2,23.8h-13c-0.1,0-0.2-0.1-0.2-0.2v-1.9c0-0.1,0.1-0.2,0.2-0.2h13c0.1,0,0.2,0.1,0.2,0.2v1.9
-		C22.5,23.7,22.4,23.8,22.2,23.8z"/>
-	<path class="st1" d="M13.3,13.1H9.3C9.1,13.1,9,13,9,12.8v-1c0-0.1,0.1-0.2,0.2-0.2h4.1c0.1,0,0.2,0.1,0.2,0.2v1
-		C13.6,13,13.4,13.1,13.3,13.1z"/>
-	<path class="st1" d="M13.3,19.9H9.3c-0.1,0-0.2-0.1-0.2-0.2v-1c0-0.1,0.1-0.2,0.2-0.2h4.1c0.1,0,0.2,0.1,0.2,0.2v1
-		C13.6,19.8,13.4,19.9,13.3,19.9z"/>
+<g id="XMLID_1_">
+	<polygon id="XMLID_3_" class="st0" points="313.09,512 499.38,181.94 389.26,0 93.14,512 	"/>
+	<polygon id="XMLID_4_" class="st0" points="12.62,0 118.53,181.94 270.87,181.94 376.64,0 	"/>
 </g>
 </svg>

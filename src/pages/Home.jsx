@@ -1,6 +1,9 @@
 import { Button } from "flowbite-react";
 import React from "react";
 import { HiOutlineArrowRight, HiShoppingCart } from "react-icons/hi";
+import NewsCard from "../components/home/NewsCard";
+import PaginationComponent from "../components/home/PaginationComponent";
+import CarouselComponent from "../components/home/CarouselComponent";
 
 function Home() {
   return (
@@ -20,18 +23,18 @@ function Home() {
     //     Home
     //   </h1>
     // </div>
-
-    <Button
-      className="m-8"
-      // size="xs"
-      outline
-      gradientDuoTone="purpleToBlue"
-      pill
-      isProcessing
-    >
-      Default
-      {/* <HiOutlineArrowRight className="h-4 w-4" /> */}
-    </Button>
+    <div className="">
+      <CarouselComponent />
+      <div className="p-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <NewsCard />
+          <NewsCard />
+          <NewsCard />
+          <NewsCard />
+        </div>
+        <PaginationComponent />
+      </div>
+    </div>
   );
 }
 
