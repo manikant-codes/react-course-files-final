@@ -1,0 +1,1 @@
+// Fetch ek API (yane middle-man) hain jiske help se JavaScript servers ko request bhej sakta hai.
