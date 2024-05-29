@@ -3,10 +3,14 @@ import NavComponent from "./NavComponent";
 import FooterComponent from "./FooterComponent";
 import { Outlet } from "react-router-dom";
 
-function Layout() {
+function Layout({ query, setQuery, setArticles }) {
   return (
     <>
-      <NavComponent />
+      <NavComponent
+        query={query}
+        setQuery={setQuery}
+        setArticles={setArticles}
+      />
       <Outlet />
       <FooterComponent />
     </>

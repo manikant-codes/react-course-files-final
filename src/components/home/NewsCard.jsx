@@ -1,8 +1,17 @@
 import { Button, Card } from "flowbite-react";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function NewsCard({ article }) {
+  const navigate = useNavigate();
+
   console.log(article);
+
+  function goToNewsDetails() {
+    const slug = article.title.toLowerCase().replaceAll(" ", "-");
+    navigate(`/news/${slug}`, { state: article });
+  }
+
   return (
     <Card
       className="max-w-sm [&>div:last-child]:justify-start [&>div:last-child]:h-auto overflow-hidden"
@@ -22,7 +31,9 @@ function NewsCard({ article }) {
       <p className="font-normal text-gray-700 dark:text-gray-400">
         {article.description}
       </p>
-      <Button color="failure">Read More</Button>
+      <Button color="failure" onClick={goToNewsDetails}>
+        Read More
+      </Button>
     </Card>
   );
 }

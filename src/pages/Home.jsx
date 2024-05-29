@@ -1,23 +1,10 @@
-import { Button } from "flowbite-react";
-import React, { useEffect, useState } from "react";
-import { HiOutlineArrowRight, HiShoppingCart } from "react-icons/hi";
+import React, { memo, useEffect, useState } from "react";
+import CarouselComponent from "../components/home/CarouselComponent";
 import NewsCard from "../components/home/NewsCard";
 import PaginationComponent from "../components/home/PaginationComponent";
-import CarouselComponent from "../components/home/CarouselComponent";
 import { getNewsAticles } from "../services/apiService";
 
-function Home() {
-  const [articles, setArticles] = useState(null);
-  useEffect(() => {
-    getNewsAticles()
-      .then((data) => {
-        setArticles(data.articles);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-
+function Home({ articles }) {
   if (!articles) return null;
 
   return (
@@ -35,4 +22,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default memo(Home);

@@ -1,8 +1,9 @@
 import { Button, Navbar } from "flowbite-react";
 import React from "react";
 import { Link } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
-function NavComponent() {
+function NavComponent({ query, setQuery, setArticles }) {
   return (
     <Navbar fluid rounded>
       <Navbar.Brand as={Link} href="/">
@@ -16,6 +17,7 @@ function NavComponent() {
         </span>
       </Navbar.Brand>
       <Navbar.Toggle />
+      <SearchBar query={query} setQuery={setQuery} setArticles={setArticles} />
       <Navbar.Collapse className="[&>ul]:flex [&>ul]:items-center">
         <Button color="failure">Light</Button>
         <Link to="/" active>
