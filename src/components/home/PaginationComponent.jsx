@@ -1,10 +1,9 @@
 import { Pagination } from "flowbite-react";
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { newsContext } from "../../providers/NewsProvider";
 
-function PaginationComponent({}) {
-  const [currentPage, setCurrentPage] = useState(1);
-  const onPageChange = (page) => setCurrentPage(page);
-
+function PaginationComponent() {
+  const { currentPage, onPageChange } = useContext(newsContext);
   return (
     <div className="flex overflow-x-auto sm:justify-center mt-8">
       <Pagination

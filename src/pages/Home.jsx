@@ -1,10 +1,23 @@
-import React, { memo, useEffect, useState } from "react";
+import React, { memo, useContext, useEffect, useState } from "react";
 import CarouselComponent from "../components/home/CarouselComponent";
 import NewsCard from "../components/home/NewsCard";
 import PaginationComponent from "../components/home/PaginationComponent";
 import { getNewsAticles } from "../services/apiService";
+import { newsContext } from "../providers/NewsProvider";
 
-function Home({ articles }) {
+function Home() {
+  const { articles, setArticles, query, currentPage } = useContext(newsContext);
+
+  useEffect(() => {
+    getNewsAticles(query || "india", currentPage)
+      .then((data) => {
+        setArticles(data.articles);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [currentPage]);
+
   if (!articles) return null;
 
   return (

@@ -19,7 +19,7 @@ function NewsCard({ article }) {
         <div className="h-[300px] overflow-hidden">
           <img
             className="w-full h-full object-cover"
-            src={article.urlToImage}
+            src={article.urlToImage || "/images/placeholder.jpg"}
             alt="Meaningful alt text for an that is not purely decorative"
           />
         </div>

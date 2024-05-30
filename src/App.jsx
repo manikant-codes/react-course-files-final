@@ -4,38 +4,19 @@ import Layout from "./layouts/Layout";
 import NewsDetails from "./pages/NewsDetails";
 import { useEffect, useState } from "react";
 import { getNewsAticles } from "./services/apiService";
+import NewsProvider from "./providers/NewsProvider";
 
 function App() {
-  const [articles, setArticles] = useState(null);
-  const [query, setQuery] = useState("");
-
-  useEffect(() => {
-    getNewsAticles(query || "india")
-      .then((data) => {
-        setArticles(data.articles);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-
   return (
     <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Layout
-              query={query}
-              setQuery={setQuery}
-              setArticles={setArticles}
-            />
-          }
-        >
-          <Route index element={<Home articles={articles} />} />
-          <Route path="news/:id" element={<NewsDetails />} />
-        </Route>
-      </Routes>
+      <NewsProvider>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="news/:id" element={<NewsDetails />} />
+          </Route>
+        </Routes>
+      </NewsProvider>
     </BrowserRouter>
   );
 }

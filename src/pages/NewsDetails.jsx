@@ -8,7 +8,7 @@ function NewsDetails() {
     <div>
       <div className="h-[60vh] w-full overflow-hidden">
         <img
-          src={state.urlToImage}
+          src={state.urlToImage || "/images/placeholder-lg.jpg"}
           alt=""
           className="h-full w-full object-cover"
         />

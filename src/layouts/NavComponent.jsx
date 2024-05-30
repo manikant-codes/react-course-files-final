@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 
-function NavComponent({ query, setQuery, setArticles }) {
+function NavComponent() {
   return (
     <Navbar fluid rounded>
       <Navbar.Brand as={Link} href="/">
@@ -17,7 +17,7 @@ function NavComponent({ query, setQuery, setArticles }) {
         </span>
       </Navbar.Brand>
       <Navbar.Toggle />
-      <SearchBar query={query} setQuery={setQuery} setArticles={setArticles} />
+      <SearchBar />
       <Navbar.Collapse className="[&>ul]:flex [&>ul]:items-center">
         <Button color="failure">Light</Button>
         <Link to="/" active>

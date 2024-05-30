@@ -1,9 +1,12 @@
 import { Button, TextInput } from "flowbite-react";
-import React from "react";
+import React, { useContext } from "react";
 import { HiSearch } from "react-icons/hi";
 import { getNewsAticles } from "../services/apiService";
+import { newsContext } from "../providers/NewsProvider";
 
-function SearchBar({ query, setQuery, setArticles }) {
+function SearchBar() {
+  const { setQuery, query, setArticles } = useContext(newsContext);
+
   function handleChange(e) {
     setQuery(e.target.value);
   }
