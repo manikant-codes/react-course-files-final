@@ -1,4 +1,4 @@
-import { DarkThemeToggle, Flowbite } from "flowbite-react";
+import { Flowbite } from "flowbite-react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./layouts/Layout";
 import Home from "./pages/Home";
@@ -18,7 +18,7 @@ function App() {
           </Routes>
         </NewsProvider>
       </BrowserRouter>
-      <DarkThemeToggle />
+      {/* <DarkThemeToggle /> */}
     </Flowbite>
   );
 }

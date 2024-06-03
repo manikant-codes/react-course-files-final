@@ -14,7 +14,7 @@ function CarouselComponent() {
   ];
 
   if (articles) {
-    images = articles.map((value) => {
+    images = articles.slice(0, 5).map((value) => {
       return value.urlToImage;
     });
   }
