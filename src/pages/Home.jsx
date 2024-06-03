@@ -1,39 +1,50 @@
-import React, { memo, useContext, useEffect, useState } from "react";
-import CarouselComponent from "../components/home/CarouselComponent";
-import NewsCard from "../components/home/NewsCard";
-import PaginationComponent from "../components/home/PaginationComponent";
-import { getNewsAticles } from "../services/apiService";
-import { newsContext } from "../providers/NewsProvider";
-import { useThemeMode } from "flowbite-react";
+import React, { memo, useEffect, useState } from "react";
+import { getAllChapters } from "../services/apiService";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
-  const { articles, setArticles, query, currentPage } = useContext(newsContext);
-  const { mode } = useThemeMode();
+  const [chapters, setChapters] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    getNewsAticles(query || "india", currentPage)
+    getAllChapters()
       .then((data) => {
-        setArticles(data.articles);
+        setChapters(data);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [currentPage]);
+  }, []);
 
-  if (!articles) return null;
+  function goToDetailsPage(chapter) {
+    navigate(`/${chapter}/1`);
+  }
+
+  if (!chapters) return null;
+
+  console.log("chapters", chapters);
 
   return (
     <div className="">
-      <CarouselComponent />
-      <div
-        className={`p-8 ${mode === "dark" ? "bg-gray-700" : "bg-gray-100"} `}
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {articles.map((article, index) => {
-            return <NewsCard key={index} article={article} />;
-          })}
-        </div>
-        <PaginationComponent />
+      <div className="grid grid-cols-1 gap-4">
+        {chapters.map((chapter, index) => {
+          return (
+            <div
+              key={index}
+              className="p-4 bg-slate-200"
+              onClick={() => {
+                goToDetailsPage(chapter.chapter_number);
+              }}
+            >
+              <div className="flex items-center gap-2">
+                <p>{chapter.chapter_number}</p>
+                <p>{chapter.name}</p>
+                <p>({chapter.meaning.en})</p>
+              </div>
+              <p className="mt-2">{chapter.summary.en}</p>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

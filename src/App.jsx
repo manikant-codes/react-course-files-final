@@ -2,23 +2,19 @@ import { Flowbite } from "flowbite-react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./layouts/Layout";
 import Home from "./pages/Home";
-import NewsDetails from "./pages/NewsDetails";
-import NewsProvider from "./providers/NewsProvider";
+import Verse from "./pages/Verse";
 
 function App() {
   return (
     <Flowbite>
       <BrowserRouter>
-        <NewsProvider>
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Home />} />
-              <Route path="news/:id" element={<NewsDetails />} />
-            </Route>
-          </Routes>
-        </NewsProvider>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="/:chapter/:verse" element={<Verse />} />
+          </Route>
+        </Routes>
       </BrowserRouter>
-      {/* <DarkThemeToggle /> */}
     </Flowbite>
   );
 }

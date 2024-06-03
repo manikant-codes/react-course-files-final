@@ -1,6 +1,32 @@
-export function getNewsAticles(query = "india", page = 1) {
+export function getAllChapters() {
+  return fetch(`https://bhagavadgitaapi.in/chapters`)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => {
+      return error;
+    });
+}
+
+export function getChapterDetails(chapterNumber) {
+  return fetch(`https://bhagavadgitaapi.in/chapter/${chapterNumber}`)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => {
+      return error;
+    });
+}
+
+export function getVerse(chapterNumber, verserNumber) {
   return fetch(
-    `https://newsapi.org/v2/everything?q=${query}&pageSize=10&page=${page}&apiKey=${process.env.REACT_APP_NEWS_API}`
+    `https://bhagavadgitaapi.in/slok/${chapterNumber}/${verserNumber}`
   )
     .then((response) => {
       return response.json();
