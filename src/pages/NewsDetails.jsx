@@ -1,12 +1,18 @@
+import { useThemeMode } from "flowbite-react";
 import React from "react";
 import { useLocation } from "react-router-dom";
 
 function NewsDetails() {
   const { state } = useLocation();
+  const { mode } = useThemeMode();
 
   return (
-    <div>
-      <div className="h-[60vh] w-full overflow-hidden">
+    <div
+      className={`${
+        mode === "dark" ? "bg-gray-800 text-white" : "bg-gray-100 text-black"
+      }`}
+    >
+      <div className={`h-[60vh] w-full overflow-hidden`}>
         <img
           src={state.urlToImage || "/images/placeholder-lg.jpg"}
           alt=""

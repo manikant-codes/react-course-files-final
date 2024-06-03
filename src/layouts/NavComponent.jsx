@@ -1,9 +1,10 @@
-import { Button, Navbar } from "flowbite-react";
+import { Button, Navbar, useThemeMode } from "flowbite-react";
 import React from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 
 function NavComponent() {
+  const { toggleMode, mode } = useThemeMode();
   return (
     <Navbar fluid rounded>
       <Navbar.Brand as={Link} href="/">
@@ -19,7 +20,9 @@ function NavComponent() {
       <Navbar.Toggle />
       <SearchBar />
       <Navbar.Collapse className="[&>ul]:flex [&>ul]:items-center">
-        <Button color="failure">Light</Button>
+        <Button color="failure" onClick={toggleMode}>
+          {mode}
+        </Button>
         <Link to="/" active>
           Home
         </Link>
