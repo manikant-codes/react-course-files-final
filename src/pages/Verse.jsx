@@ -14,10 +14,13 @@ function Verse() {
     getChapterDetails(params.chapter).then((data) => {
       setChapterDetails(data);
     });
+  }, []);
+
+  useEffect(() => {
     getVerse(params.chapter, verseCount).then((data) => {
       setVerse(data);
     });
-  }, [params, verseCount]);
+  }, [verseCount]);
 
   function next() {
     if (verseCount < chapterDetails.verses_count) {
