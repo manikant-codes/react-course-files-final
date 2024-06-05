@@ -1,10 +1,12 @@
 import React from "react";
-import UseReducerCounterDemo from "../components/UseReducerCounterDemo";
+// import UseReducerCounterDemo from "../components/UseReducerCounterDemo";
+import UseReducerTodoDemo from "../components/UseReducerTodoDemo";
 
 function Home() {
   return (
     <div>
-      <UseReducerCounterDemo />
+      {/* <UseReducerCounterDemo /> */}
+      <UseReducerTodoDemo />
     </div>
   );
 }
