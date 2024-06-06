@@ -1,14 +1,27 @@
 import { Button, Checkbox, TextInput } from "flowbite-react";
 import React, { useReducer, useState } from "react";
-import { HiPencil, HiPlus, HiTrash } from "react-icons/hi";
+import { HiPlus, HiTrash } from "react-icons/hi";
 
 function reducer(tasks, action) {
   if (action.type === "ADD") {
     return [...tasks, action.payload];
   } else if (action.type === "DELETE") {
-    return;
+    const updatedTasks = tasks.filter((task) => {
+      if (task.id === action.payload) {
+        return false;
+      } else {
+        return true;
+      }
+    });
+    return updatedTasks;
   } else if (action.type === "UPDATE") {
-    return;
+    const updatedTasks = tasks.map((value) => {
+      if (value.id === action.payload) {
+        return { ...value, isCompleted: !value.isCompleted };
+      }
+      return value;
+    });
+    return updatedTasks;
   } else {
     return tasks;
   }
@@ -17,12 +30,12 @@ function reducer(tasks, action) {
 function UseReducerTodoDemo() {
   const [tasks, dispatch] = useReducer(reducer, [
     {
-      id: Date.now(),
+      id: 1,
       task: "Hello!",
       isCompleted: false,
     },
     {
-      id: Date.now(),
+      id: 2,
       task: "Another task!",
       isCompleted: true,
     },
@@ -42,6 +55,14 @@ function UseReducerTodoDemo() {
         isCompleted: false,
       },
     });
+  }
+
+  function handleDelete(id) {
+    dispatch({ type: "DELETE", payload: id });
+  }
+
+  function handleComplete(id) {
+    dispatch({ type: "UPDATE", payload: id });
   }
 
   return (
@@ -66,13 +87,23 @@ function UseReducerTodoDemo() {
               key={index}
               className="flex items-center gap-2 bg-slate-200 p-4 rounded"
             >
-              <Checkbox checked={task.isCompleted} />
+              <Checkbox
+                checked={task.isCompleted}
+                onChange={() => {
+                  handleComplete(task.id);
+                }}
+              />
               <p
                 className={`grow-[1] ${task.isCompleted ? "line-through" : ""}`}
               >
                 {task.task}
               </p>
-              <Button color="failure">
+              <Button
+                color="failure"
+                onClick={() => {
+                  handleDelete(task.id);
+                }}
+              >
                 <HiTrash />
               </Button>
             </li>
