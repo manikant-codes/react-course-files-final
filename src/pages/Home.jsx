@@ -1,4 +1,5 @@
 import React from "react";
+import ReduxDemo from "../components/ReduxDemo";
 // import UseReducerCounterDemo from "../components/UseReducerCounterDemo";
 // import UseReducerTodoDemo from "../components/UseReducerTodoDemo";
 
@@ -7,6 +8,7 @@ function Home() {
     <div>
       {/* <UseReducerCounterDemo /> */}
       {/* <UseReducerTodoDemo /> */}
+      <ReduxDemo />
     </div>
   );
 }
