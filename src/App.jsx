@@ -3,6 +3,7 @@ import ReduxDemo from "./components/ReduxDemo";
 import Layout from "./layouts/Layout";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import FlowerShop from "./pages/FlowerShop";
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<ReduxDemo />} />
+            <Route index element={<FlowerShop />} />
           </Route>
         </Routes>
       </BrowserRouter>
