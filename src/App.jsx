@@ -1,9 +1,8 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ReduxDemo from "./components/ReduxDemo";
-import Layout from "./layouts/Layout";
 import { Provider } from "react-redux";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Layout from "./layouts/Layout";
+import Users from "./pages/Users";
 import store from "./redux/store";
-import FlowerShop from "./pages/FlowerShop";
 
 function App() {
   return (
@@ -11,7 +10,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<FlowerShop />} />
+            <Route index element={<Users />} />
           </Route>
         </Routes>
       </BrowserRouter>

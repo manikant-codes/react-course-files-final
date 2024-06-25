@@ -20,8 +20,11 @@ const flowersSlice = createSlice({
       }
     },
     restockRoses: (state, action) => {
-      state.rose += Number(action.payload);
-      state.cash -= Number(action.payload) * state.roseBuyPrice;
+      const requiredAmount = Number(action.payload) * state.roseBuyPrice;
+      if (requiredAmount < state.cash) {
+        state.rose += Number(action.payload);
+        state.cash -= requiredAmount;
+      }
     },
     buySunflower: (state, action) => {
       state.sunflower -= 1;
