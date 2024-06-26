@@ -50,6 +50,8 @@ export const {
   restockOrchids,
 } = flowersSlice.actions;
 
+console.log("buyRose", buyRose(10));
+
 const flowersSliceReducer = flowersSlice.reducer;
 
 export default flowersSliceReducer;

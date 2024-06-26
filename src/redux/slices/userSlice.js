@@ -37,4 +37,6 @@ const userSlice = createSlice({
 
 const userSliceReducer = userSlice.reducer;
 
+console.log("fetchUsers()", fetchUsers()().unwrap());
+
 export default userSliceReducer;
